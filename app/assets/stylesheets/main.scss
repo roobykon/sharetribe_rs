@@ -2149,14 +2149,15 @@ figure.fluidratio {
   .search-form {
     position: absolute;
     bottom: -37px;
-    width: 50%;
-    left: 25%;
+    width: 100%;
+    left: 0;
     background: $main-blue;
     border-radius: 50px;
     padding: 1em;
     background: linear-gradient(to right, #038ce1, #0072be);
     @include media(tablet) {
-
+      width: 63em;
+      left: calc((100% - 63em) / 2);
     }
   }
 

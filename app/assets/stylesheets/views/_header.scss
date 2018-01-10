@@ -110,6 +110,7 @@ $elementSpacing: lines(0.5);
   font-size: 1em;
   height: 2.2em;
   transition: 0.2s all linear;
+  border: 2px solid $main-blue;
   .toggled & {
     color: $background;
     background-color: $light-body;
@@ -122,7 +123,7 @@ $elementSpacing: lines(0.5);
 
 .header-menu-icon {
   @include icon-fix-more;
-
+  top: 1px;
   @include media(tablet) {
     padding-right: em(4);
   }
@@ -261,4 +262,5 @@ $elementSpacing: lines(0.5);
   margin-top: 12px;
   font-size: 1em;
   height: 2.2em;
+  min-width: auto;
 }
