@@ -273,14 +273,12 @@ ul {
     }
   }
 }
-
 .avatar {
   position: relative;
-  width: lines(1);
-
+  width: 9em;
   img {
     width: 100%;
-    @include border-radius(em(5));
+    border-radius: 50%;
   }
 }
 
@@ -400,10 +398,36 @@ label.radiobutton {
 }
 
 button, .button {
-  @include button($link);
-  padding-top: lines(0.375);
-  padding-bottom: lines(0.375);
-  height: auto;
+  color: $main-text;
+  text-align: center;
+  cursor: pointer;
+  margin: 0.75em 0;
+  padding: 0 1.5em;
+  display: inline-block;
+  height: 2.5em;
+  line-height: 2em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border-radius: 1.25em;
+  border: 2px solid $main-blue;
+  background-color: $white;
+  outline: none;
+  font-size: 0.8em;
+  min-width: 12em;
+  transition: 0.2s all linear;
+  &:hover, &:active {
+    color: $white;
+    background-color: $main-blue;
+  }
+}
+.button.btn-blue {
+  color: $white;
+  background-color: $main-blue;
+  &:hover, &:active {
+    color: $main-blue;
+    background-color: $white;
+  }
 }
 
 .inline-button-container {
@@ -1951,6 +1975,7 @@ figure.fluidratio {
 
 .marketplace-lander {
   position: relative;
+  padding: 0;
 
   figure.marketplace-cover {
     background-image: url(image-path($cover-photo-url));
@@ -1987,8 +2012,10 @@ figure.fluidratio {
   }
 
   .marketplace-lander-content {
-    padding: 5em 1em;
+    padding: 5em 1em 8em;
     text-align: center;
+    position: relative;
+    margin-bottom: 37px;
   }
 
   .marketplace-lander-content-title {
@@ -2066,33 +2093,78 @@ figure.fluidratio {
   }
 
   input[type=text] {
-    @include normal-type;
+    font-size: 1.375em;
+    line-height: 1.09091em;
     padding: 0;
     border: 0;
-    margin: 0;
-    vertical-align: top;
-    padding: em(11) em(11) em(11) em(11);
-    width: 100%;
+    background: none;
+    border-bottom: 3px solid $white;
+    border-radius: 0;
+    color: $white;
+    outline: none;
+    width: 85%;
+    position: relative;
+    top: -3px;
+    &::-webkit-input-placeholder {
+      color: $white;
+      font-style: italic;
+    }
+    &::-moz-placeholder {
+      color: $white;
+      font-style: italic;
+    }
+    &:-ms-input-placeholder { 
+      color: $white;
+      font-style: italic;
+    }
+    &:-moz-placeholder {
+      color: $white;
+      font-style: italic;
+    }
   }
 
   button.action-button {
-    @include cover-photo-button($link);
-    border: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: 1.375em;
+    line-height: 1.09091em;
+    font-weight: 600;
+    color: $black;
+    background-color: $white;
+    border: 1px solid $white;
+    border-radius: 20px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    min-width: auto;
     @include media(tablet) {
-      margin: 0 0 0 lines(0.5);
+
+    }
+    &:hover {
+      background-color: $main-blue;
+      color: $white;
     }
   }
 
   .search-form {
-    margin-top: lines(1);
+    position: absolute;
+    bottom: -37px;
+    width: 50%;
+    left: 25%;
+    background: $main-blue;
+    border-radius: 50px;
+    padding: 1em;
+    background: linear-gradient(to right, #038ce1, #0072be);
     @include media(tablet) {
-      margin-top: lines(2.5);
+
     }
   }
 
   .search-form-input {
     vertical-align: top;
-    display: inline;
+    display: inline-block;
+    width: 18%;
   }
 
   .browse-view-search-form {
@@ -2130,34 +2202,32 @@ figure.fluidratio {
 
   @include media(tablet) {
 
-
     .marketplace-lander-content-title {
-      margin-bottom: 0;
-      margin-top: 0;
-      @include huge-type;
-      line-height: em(13);
+      font-size: 5em;
+      line-height: 1;
+      font-weight: 400;
+      line-height: 0.9375em;
+      text-transform: uppercase;
+      margin: 0.5em auto 0;
     }
 
     p {
-      @include large-type;
-      margin: lines(0.5) auto;
-      max-width: lines(15);
-    }
-
-    input[type=text] {
-      @include big-type;
-      padding: em(11) em(14) em(11) em(14);
-      width: lines(15);
+      font-size: 5em;
+      text-transform: uppercase;
+      line-height: 1;
+      font-weight: 700;
+      margin: 0 auto 0;
+      max-width: 22.5em;
+      letter-spacing: 5px;
     }
 
     button.action-button {
-      width: lines(4);
-      padding: em(14) em(16) em(11) em(16);
-      @include big-type;
+
     }
 
     .search-form-text-field {
-      width: lines(10);
+      width: 80%;
+      display: inline-block;
     }
 
     .browse-view-search-form {
@@ -2187,6 +2257,120 @@ figure.fluidratio {
       margin-top: 0;
       @include mega-type;
       line-height: em(15);
+    }
+  }
+}
+
+/* Updates of style */
+.img-wrap {
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+.text-center {
+  text-align: center;
+}
+.widepage {
+  article.page-content {
+    > .wrapper {
+      max-width: none;
+    }
+  }
+}
+section {
+  padding: 3em 0;
+  h3.title {
+    text-transform: uppercase;
+    color: $main-text;
+    font-size: 1.2em;
+    text-align: center;
+    position: relative;
+    margin: 0em auto 1.5em;
+    font-weight: 400;
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      left: calc(50% - 2em);
+      display: block;
+      width: 4em;
+      height: 3px;
+      background-color: $main-blue;
+    }
+  }
+}
+
+/* Spaces */
+.space-box {
+  position: relative;
+  margin-bottom: 0.75em;
+  .title {
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+    z-index: 3;
+    color: $white;
+    font-size: 1.2em;
+    border-bottom: 3px solid $main-blue;
+    line-height: 1.5em;
+  }
+  .img-wrap {
+    max-height: 16em;
+    overflow: hidden;
+  }
+}
+
+/* Listings */
+section.listings {
+  background: image-url('rounds-back.png') no-repeat;
+  background-size: 100%;
+  > .wrapper {
+    background: none;
+  }
+}
+
+/* Blog */
+section.blog {
+
+}
+.story-box {
+  color: $main-text;
+  .avatar {
+    margin: 1em 0 0 0;
+  }
+  .name {
+    text-transform: uppercase;
+    font-size: 1em;
+  }
+  .type {
+    text-transform: uppercase;
+    color: $main-blue;
+    font-size: 1.2em;
+  }
+  .text {
+    font-style: italic;
+  }
+}
+.blog-box {
+  position: relative;
+  .avatar {
+    position: absolute;
+    width: 3em;
+    left: 1em;
+    bottom: 1em;
+  }
+  .author {
+    position: absolute;
+    width: 80%;
+    left: 5em;
+    bottom: 1em;
+    color: $white;
+    text-transform: uppercase;
+    font-size: 1em;
+    .type {
+      font-size: 1.2em;
+      font-weight: 700;
     }
   }
 }
