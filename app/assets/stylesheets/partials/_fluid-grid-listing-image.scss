@@ -16,10 +16,9 @@
 }
 
 .fluid-thumbnail-grid-image-title {
-  position: absolute;
-  bottom: 0;
-  padding: lines(0.5);
-  line-height: 1.2em;
+  color: $black;
+  font-size: 0.8em;
+  font-family: Arial;
 }
 
 .fluid-thumbnail-grid-image-overlay {
@@ -37,14 +36,20 @@
 }
 
 .fluid-thumbnail-grid-image-price-container {
-  @include listing-price;
-  font-size: 12px; // Quantity placeholder font-size, so that the ellipsis looks nice
-  max-width: 75%;
-  @include ellipsis;
+  color: $white;
+  text-align: center;
+  padding: 0.3em 0.75em;
+  background-color: $main-blue;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.3em;
 }
 
 .fluid-thumbnail-grid-image-price {
-  font-size: 18px; // Bigger size for the price
+  font-size: 1.6em;
+  font-weight: 700;
 }
 
 .fluid-thumbnail-grid-image-type {
