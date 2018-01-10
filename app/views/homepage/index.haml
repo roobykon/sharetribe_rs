@@ -125,35 +125,40 @@
       .row
         .col-4
           .space-box
-            .img-wrap
-              = image_tag("content/01.jpg")
-            .title
-              = 'Apartment'
+            = link_to '#' do
+              .img-wrap
+                = image_tag("content/01.jpg")
+              .title
+                = 'Apartment'
         .col-8
           .space-box
-            .img-wrap
-              = image_tag("content/02.jpg")
-            .title
-              = 'Studio'
+            = link_to '#' do
+              .img-wrap
+                = image_tag("content/02.jpg")
+              .title
+                = 'Studio'
       .row
         .col-4
           .space-box
-            .img-wrap
-              = image_tag("content/03.jpg")
-            .title
-              = 'Loft'
+            = link_to '#' do
+              .img-wrap
+                = image_tag("content/03.jpg")
+              .title
+                = 'Loft'
         .col-4
           .space-box
-            .img-wrap
-              = image_tag("content/04.jpg")
-            .title
-              = 'House'
+            = link_to '#' do
+              .img-wrap
+                = image_tag("content/04.jpg")
+              .title
+                = 'House'
         .col-4
           .space-box
-            .img-wrap
-              = image_tag("content/05.jpg")
-            .title
-              = 'Other'
+            = link_to '#' do
+              .img-wrap
+                = image_tag("content/05.jpg")
+              .title
+                = 'Other'
       .row
         .col-12.text-center
           %button.button.btn-blue
@@ -203,27 +208,30 @@
             = 'Nie wird Franca Pilz die Einweihungsparty vergessen. Sie hatte den Zauberer Thorsten Happel eingeladen. Am Ende des Abends, als nur noch wenige Gäste anwesend waren, zeigte er ihren Liebling- skartentrick...'
           %button.button
             = 'Read more'
-        .col-6.img-wrap
-          = image_tag("content/06.jpg")
-        .col-3
+        .col-6.img-wrap.big-pictures
+          = link_to '#' do
+            = image_tag("content/06.jpg")
+        .col-3.small-pictures
           .img-wrap.blog-box
-            = image_tag("content/07.jpg")
-            .avatar
-              = image_tag("content/avatar.jpg")
-            .author
-              .name
-                = 'LE CHÂTEAU BÉTON'
-              .type
-                = 'Home story'
+            = link_to '#' do
+              = image_tag("content/07.jpg")
+              .avatar
+                = image_tag("content/avatar.jpg")
+              .author
+                .name
+                  = 'LE CHÂTEAU BÉTON'
+                .type
+                  = 'Home story'
           .img-wrap.blog-box
-            = image_tag("content/08.jpg")
-            .avatar
-              = image_tag("content/avatar.jpg")
-            .author
-              .name
-                = 'LE CHÂTEAU BÉTON'
-              .type
-                = 'Home story'
+            = link_to '#' do
+              = image_tag("content/08.jpg")
+              .avatar
+                = image_tag("content/avatar.jpg")
+              .author
+                .name
+                  = 'LE CHÂTEAU BÉTON'
+                .type
+                  = 'Home story'
       .row
         .col-12.text-center
           %button.button.btn-blue

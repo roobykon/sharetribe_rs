@@ -2334,6 +2334,7 @@ footer {
 
 /* Updates of style */
 .img-wrap {
+  line-height: 0;
   img {
     width: 100%;
     height: auto;
@@ -2393,6 +2394,28 @@ section {
     max-height: 16em;
     overflow: hidden;
   }
+  a {
+    display: block;
+    position: relative;
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: 3;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.15);
+      opacity: 1;
+      transition: 0.2s opacity linear;
+    }
+    &:hover {
+      &:after {
+        opacity: 0;
+      }
+    }
+  }
 }
 
 /* Listings */
@@ -2411,6 +2434,10 @@ section.listings {
       > div {
         box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.15);
       }
+      transition: 0.2s transform linear;
+      &:hover {
+        transform: scale(1.05);
+      }
     }
   }
 }
@@ -2423,8 +2450,11 @@ section.blog {
 }
 .story-box {
   color: $main-text;
+  padding: 1em;
+  padding-left: 1em !important;
   .avatar {
     margin: 1em 0 0 0;
+    width: 50%;
   }
   .name {
     text-transform: uppercase;
@@ -2437,27 +2467,47 @@ section.blog {
   }
   .text {
     font-style: italic;
+    font-size: 0.8em;
+    line-height: 1.2;
   }
 }
 .blog-box {
   position: relative;
   .avatar {
     position: absolute;
-    width: 3em;
+    width: 2em;
     left: 1em;
-    bottom: 1em;
+    bottom: 0.8em;
   }
   .author {
     position: absolute;
-    width: 80%;
-    left: 5em;
-    bottom: 1em;
+    left: 4.5em;
+    bottom: 1.2em;
     color: $white;
     text-transform: uppercase;
-    font-size: 1em;
+    font-size: 0.8em;
+    line-height: 1;
+    height: 2em;
+    overflow: hidden;
+    max-width: 70%;
     .type {
       font-size: 1.2em;
       font-weight: 700;
     }
+  }
+}
+.col-6.big-pictures {
+  @include media(tablet) {
+    padding-right: 0;
+  }
+}
+.small-pictures {
+  padding: 0;
+  @include media(tablet) {
+    padding: 0;
+    padding-left: 1em;
+  }
+  .blog-box:first-child {
+    margin-bottom: 13px;
   }
 }
