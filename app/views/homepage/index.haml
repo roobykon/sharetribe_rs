@@ -137,7 +137,7 @@
                 = image_tag("content/02.jpg")
               .title
                 = 'Studio'
-      .row
+      .row.no-margin
         .col-4
           .space-box
             = link_to '#' do
@@ -159,7 +159,7 @@
                 = image_tag("content/05.jpg")
               .title
                 = 'Other'
-      .row
+      .row.no-margin
         .col-12.text-center
           %button.button.btn-blue
             = 'More'
@@ -171,17 +171,17 @@
           %h3.title
             = 'popular listings'
       - if @listings.total_entries > 0
-        .row
+        .row.no-margin
           .col-12
             .home-fluid-thumbnail-grid-wide
               .home-fluid-thumbnail-grid
                 = render partial: "grid_item", collection: @listings, as: :listing, locals: { show_distance: location_search_in_use }
-        .row
+        .row.no-margin
           .col-12.text-center
             %button.button
               = 'See More'
       - else
-        .row
+        .row.no-margin
           .col-12
             .home-no-listings
               - if params[:q] || params[:category] || params[:share_type] # Some filter in use
@@ -196,7 +196,7 @@
         .col-12
           %h3.title
             = 'Blog'
-      .row.shadow-content
+      .row.shadow-content.no-margin
         .col-3.story-box
           .avatar
             = image_tag("content/avatar.jpg")
@@ -232,7 +232,7 @@
                   = 'LE CHÂTEAU BÉTON'
                 .type
                   = 'Home story'
-      .row
+      .row.no-margin
         .col-12.text-center
           %button.button.btn-blue
             = 'See More'

@@ -42,7 +42,7 @@ body {
 }
 
 .page-content {
-  padding-top: lines(0.5);
+  padding-top: 0;
 
   &.no-cover-photo {
     padding-top: lines(0.5);
@@ -62,7 +62,7 @@ body {
   }
 
   @include media(tablet) {
-    padding-top: lines(1);
+    padding-top: 0;
 
     &.no-cover-photo {
       padding-top: 33px;
@@ -2352,8 +2352,11 @@ footer {
     }
   }
 }
+.row.no-margin {
+  margin-bottom: 0;
+}
 section {
-  padding: 3em 0 0;
+  padding: 2em 0 0;
   h3.title {
     text-transform: uppercase;
     color: $main-text;
@@ -2373,6 +2376,10 @@ section {
       background-color: $main-blue;
     }
   }
+  .button {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
 }
 
 /******** HOMEPAGE STYLES
@@ -2381,6 +2388,9 @@ section {
 .space-box {
   position: relative;
   margin-bottom: 0.75em;
+  .row.no-margin & {
+    margin-bottom: 0;
+  }
   .title {
     position: absolute;
     bottom: 1em;
@@ -2436,6 +2446,7 @@ section.listings {
         box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.15);
       }
       transition: 0.2s transform linear;
+      margin-bottom: 0;
       &:hover {
         transform: scale(1.05);
       }
@@ -2470,6 +2481,9 @@ section.blog {
     font-style: italic;
     font-size: 0.8em;
     line-height: 1.2;
+  }
+  .button {
+    margin: 0.75em 0;
   }
 }
 .blog-box {
