@@ -42,7 +42,6 @@ body {
 }
 
 .page-content {
-  padding-bottom: lines(3);
   padding-top: lines(0.5);
 
   &.no-cover-photo {
@@ -2261,6 +2260,78 @@ figure.fluidratio {
   }
 }
 
+/* Global Footer */
+footer {
+  background-color: $footer;
+  color: $white;
+  padding-top: 2em;
+  .wrapper {
+    position: relative;
+    background: none;
+    .socialbox {
+      position: relative;
+      text-align: center;
+      @include media(tablet) {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+      ul {
+        padding-left: 0;
+        li {
+          list-style-type: none;
+          display: inline-block;
+          padding: 0 .5em;
+          a {
+            color: $white;
+            transition: 0.2s color linear;
+            &:hover {
+              color: $main-blue;
+            }
+          }
+        }
+      }
+    }
+  }
+  .copyright {
+    background-color: $main-blue;
+    line-height: 3em;
+    text-align: center;
+    font-size: 0.8em;
+    color: $white;
+  }
+  .col-footer {
+    padding: 0 0 0 2em;
+    @include media(tablet) {
+      width: 20%;
+      float: left;
+    }
+    a {
+      color: $white;
+      font-size: 0.8em;
+      transition: 0.2s color linear;
+      &:hover {
+        color: $main-blue;
+      }
+    }
+    ul {
+      padding: 0;
+      li {
+        list-style-type: none;
+        line-height: 2;
+      }
+    }
+    hr {
+      border: 2px solid $main-blue;
+      width: 3em;
+      margin: 0.7em 0 0.3em 0;
+    }
+    .title {
+      font-weight: 600;
+    }
+  }
+}
+
 /* Updates of style */
 .img-wrap {
   img {
@@ -2275,11 +2346,12 @@ figure.fluidratio {
   article.page-content {
     > .wrapper {
       max-width: none;
+      padding: 0;
     }
   }
 }
 section {
-  padding: 3em 0;
+  padding: 3em 0 0;
   h3.title {
     text-transform: uppercase;
     color: $main-text;
@@ -2301,6 +2373,8 @@ section {
   }
 }
 
+/******** HOMEPAGE STYLES
+******************************************/
 /* Spaces */
 .space-box {
   position: relative;
@@ -2324,15 +2398,28 @@ section {
 /* Listings */
 section.listings {
   background: image-url('rounds-back.png') no-repeat;
-  background-size: 100%;
+  background-size: cover;
   > .wrapper {
     background: none;
+  }
+  .home-fluid-thumbnail-grid-wide .home-fluid-thumbnail-grid {
+    margin-right: -3em;
+    overflow: visible;
+    .home-fluid-thumbnail-grid-item {
+      width: calc(100% / 3);
+      padding-right: 3em;
+      > div {
+        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.15);
+      }
+    }
   }
 }
 
 /* Blog */
 section.blog {
-
+  .shadow-content {
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.15);
+  }
 }
 .story-box {
   color: $main-text;

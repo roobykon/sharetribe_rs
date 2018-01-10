@@ -165,17 +165,19 @@
         .col-12
           %h3.title
             = 'popular listings'
-      .row
-        .col-12
-          - if @listings.total_entries > 0
+      - if @listings.total_entries > 0
+        .row
+          .col-12
             .home-fluid-thumbnail-grid-wide
               .home-fluid-thumbnail-grid
                 = render partial: "grid_item", collection: @listings, as: :listing, locals: { show_distance: location_search_in_use }
-            .home-loading-more
-              = will_paginate(@listings)
-              - item_container = if @view_type.eql?("grid") then '.home-fluid-thumbnail-grid' else '.home-listings' end
-              = pageless(@listings.total_pages, item_container, current_search_path_without_page, t('.loading_more_content'), current_page)
-          - else
+        .row
+          .col-12.text-center
+            %button.button
+              = 'See More'
+      - else
+        .row
+          .col-12
             .home-no-listings
               - if params[:q] || params[:category] || params[:share_type] # Some filter in use
                 = t(".no_listings_with_your_search_criteria")
@@ -183,14 +185,13 @@
                 = t(".no_listings_notification",
                       add_listing_link: link_to(t(".add_listing_link_text"),
                       new_listing_path(ref: "add_listing_link"))).html_safe
-
   .wrapper
     %section.blog
       .row
         .col-12
           %h3.title
             = 'Blog'
-      .row
+      .row.shadow-content
         .col-3.story-box
           .avatar
             = image_tag("content/avatar.jpg")

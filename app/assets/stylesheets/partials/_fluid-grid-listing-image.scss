@@ -5,36 +5,51 @@
 @import "mixins/all";
 
 .fluid-thumbnail-grid-image-image-container {
-  position: relative;
-  color: $background;
-
-  &:hover {
-    color: $highlight;
-  }
-
-  @include block-with-aspect-ratio(3/2);
+  line-height: 0;
 }
+.fluid-thumbnail-grid-image-image {
 
+}
+.fluid-thumbnail-grid-image-type {
+  font-size: 16px;
+}
+.fluid-thumbnail-grid-image-information {
+  background-color: $white;
+  color: $main-text;
+  padding: 0.6em 1em;
+}
 .fluid-thumbnail-grid-image-title {
   color: $black;
-  font-size: 0.8em;
+  font-size: 1em;
   font-family: Arial;
+  line-height: 1.3em;
+  height: 2.6em;
+  overflow: hidden;
 }
-
-.fluid-thumbnail-grid-image-overlay {
-  @include border-top-radius($default-border-radius);
-  @include overlay;
-  @include absolutely-all;
+.fluid-thumbnail-grid-image-location {
+  font-size: 0.7em;
+  margin: 0.2em auto 0.8em;
 }
-
-.fluid-thumbnail-grid-image-image {
-  @include border-top-radius($default-border-radius);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+.fluid-thumbnail-grid-image-advantages {
+  ul {
+    padding-left: 12px;
+    li {
+      list-style-type: none;
+      position: relative;
+      font-size: 0.7em;
+      line-height: 1.4;
+      &:after {
+        content: "\f00c";
+        font-family: FontAwesome;
+        font-size: 1em;
+        position: absolute;
+        left: -13px;
+        top: 1px;
+        color: $main-blue;
+      }
+    }
+  }
 }
-
 .fluid-thumbnail-grid-image-price-container {
   color: $white;
   text-align: center;
@@ -44,14 +59,9 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 1.3em;
-}
-
-.fluid-thumbnail-grid-image-price {
-  font-size: 1.6em;
-  font-weight: 700;
-}
-
-.fluid-thumbnail-grid-image-type {
-  font-size: 16px;
+  font-size: 1em;
+  .fluid-thumbnail-grid-image-price {
+    font-size: 1.2em;
+    font-weight: 700;
+  }
 }
