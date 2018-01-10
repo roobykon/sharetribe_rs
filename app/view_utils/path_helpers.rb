@@ -23,9 +23,9 @@ module PathHelpers
     when matches([true, __, __])
       paths.search_without_locale_path(o.merge(locale: nil))
     when matches([false, false, non_default_locale])
-      paths.homepage_with_locale_path(o.merge(locale: locale_param))
+      paths.browse_with_locale_path(o.merge(locale: locale_param))
     when matches([false, __, __])
-      paths.homepage_without_locale_path(o.merge(locale: nil))
+      paths.browse_without_locale_path(o.merge(locale: nil))
     end
   end
 

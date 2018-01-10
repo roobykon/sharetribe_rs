@@ -1292,6 +1292,7 @@ en:
     browse:
       no_listings_notification: "No listings. %{add_listing_link}."
       add_listing_link_text: "Add new listing"
+      no_listings_with_your_search_criteria: "Sorry, no listings could be found for your search criteria. Maybe try other search terms?"
     invitation_form:
       email: "Email address(es)"
       message: "A personal message"
