@@ -1290,6 +1290,9 @@ en:
       no_image: "No image"
       filter: Filter
       this_is_private_community: "You need to sign up before you can view the content."
+    browse:
+      no_listings_notification: "No listings. %{add_listing_link}."
+      add_listing_link_text: "Add new listing"
     invitation_form:
       email: "Email address(es)"
       message: "A personal message"
