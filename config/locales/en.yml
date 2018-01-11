@@ -1257,6 +1257,7 @@ en:
       update_view: "Update view"
       min: "Min:"
       max: "Max:"
+      search: "Search"
     event_feed:
       latest_events: "What's going on"
     grid_item:

@@ -42,7 +42,12 @@ body {
 }
 
 .page-content {
-  padding-top: 0;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  body.homepage & {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 
   &.no-cover-photo {
     padding-top: lines(0.5);
@@ -62,8 +67,6 @@ body {
   }
 
   @include media(tablet) {
-    padding-top: 0;
-
     &.no-cover-photo {
       padding-top: 33px;
     }
@@ -2524,5 +2527,26 @@ section.blog {
   }
   .blog-box:first-child {
     margin-bottom: 13px;
+  }
+}
+
+/******** LISTINGS PAGE STYLES
+******************************************/
+body.listings-page {
+  .home-fluid-thumbnail-grid-narrow .home-fluid-thumbnail-grid {
+    margin-right: -3em;
+    overflow: visible;
+    .home-fluid-thumbnail-grid-item {
+      width: 50%;
+      padding-right: 3em;
+      > div {
+        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.15);
+      }
+      transition: 0.2s transform linear;
+      margin-bottom: 3em;
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
   }
 }

@@ -5,5 +5,6 @@
   - if show_custom_fields
     = render :partial => "custom_filters", locals: { filters: filters }
 
-  %button{type: 'submit'}
-    = t("homepage.custom_filters.update_view")
+  %button.button.btn-blue{type: 'submit'}
+    %i.icon-search
+    = t("homepage.custom_filters.search")
