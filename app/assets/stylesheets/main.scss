@@ -216,6 +216,7 @@ ul {
   @include media(tablet) {
     padding: 0 lines(0.5);
     margin-left: lines(10.5);
+    min-height: 60em;
   }
 
   @include media(desktop) {
@@ -2158,6 +2159,7 @@ figure.fluidratio {
     border-radius: 15px;
     padding: 1em;
     background: linear-gradient(to right, #038ce1, #0072be);
+    text-align: center;
     @include media(tablet) {
       width: 63em;
       left: calc((100% - 63em) / 2);
