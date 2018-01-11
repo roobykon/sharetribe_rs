@@ -32,13 +32,12 @@ a, input, button {
 */
 
 body {
-  @include source-sans-pro;
   @include normal-type;
-
   @include media(tiny-mobile) {
     // Zooms out on tiny screens
     font-size: em(13);
   }
+  font-family: Lato, Arial, sans-serif;
 }
 
 .page-content {
@@ -2389,7 +2388,6 @@ section {
     text-align: center;
     position: relative;
     margin: 0em auto 1.5em;
-    font-weight: 400;
     &:after {
       content: "";
       position: absolute;
