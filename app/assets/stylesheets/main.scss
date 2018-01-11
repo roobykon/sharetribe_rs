@@ -2149,61 +2149,79 @@ figure.fluidratio {
     }
   }
 
-  .search-form {
+  .search-form, .browse-view-search-form {
     position: absolute;
     bottom: -37px;
     width: 100%;
     left: 0;
     background: $main-blue;
-    border-radius: 50px;
+    border-radius: 15px;
     padding: 1em;
     background: linear-gradient(to right, #038ce1, #0072be);
     @include media(tablet) {
       width: 63em;
       left: calc((100% - 63em) / 2);
+      border-radius: 50px;
     }
+  }
+  .browse-view-search-form {
+    bottom: 10px;
+  }
+
+  .search-form-text-field {
+    width: 100%;
+    display: inline-block;
   }
 
   .search-form-input {
-    vertical-align: top;
     display: inline-block;
-    width: 18%;
+    width: 40%;
+    padding-top: 1em;
   }
 
-  .browse-view-search-form {
-    width: 100%;
-    padding-top: lines(0.5);
+  // .browse-view-search-form {
+  //   width: 100%;
+  //   padding-top: lines(0.5);
 
-    input[type=text] {
-      @include normal-type;
-      vertical-align: top;
-      margin-right: em(-4);
-      padding: 0 em(15);
-      width: 73%;
-      display: inline;
-      line-height: 40px;
-      height: 42px;
-    }
+  //   input[type=text] {
+  //     @include normal-type;
+  //     vertical-align: top;
+  //     margin-right: em(-4);
+  //     padding: 0 em(15);
+  //     width: 73%;
+  //     display: inline;
+  //     line-height: 40px;
+  //     height: 42px;
+  //   }
 
-    button.action-button {
-      display: inline;
-      vertical-align: top;
-      padding: em(8);
-      margin: 0 0 0 3%;
-      width: 24%;
-      margin-right: em(-4);
-      border-width: 0;
-      padding: 3px 0 0 0;
-      line-height: 38px;
-      height: 42px;
-    }
+  //   button.action-button {
+  //     display: inline;
+  //     vertical-align: top;
+  //     padding: em(8);
+  //     margin: 0 0 0 3%;
+  //     width: 24%;
+  //     margin-right: em(-4);
+  //     border-width: 0;
+  //     padding: 3px 0 0 0;
+  //     line-height: 38px;
+  //     height: 42px;
+  //   }
 
-    @include media(tablet) {
-      padding: lines(1) 0;
-    }
-  }
+  //   @include media(tablet) {
+  //     padding: lines(1) 0;
+  //   }
+  // }
 
   @include media(tablet) {
+
+    .search-form-input {
+      width: 18%;
+      padding-top: 0;
+    }
+
+    .search-form-text-field {
+      width: 80%;
+    }
 
     .marketplace-lander-content-title {
       font-size: 5em;
@@ -2228,29 +2246,24 @@ figure.fluidratio {
 
     }
 
-    .search-form-text-field {
-      width: 80%;
-      display: inline-block;
-    }
+    // .browse-view-search-form {
+    //   $search-bar-height: 48px;
 
-    .browse-view-search-form {
-      $search-bar-height: 48px;
+    //   input[type=text] {
+    //     @include normal-type;
+    //     width: 77%;
+    //     line-height: $search-bar-height;
+    //     height: $search-bar-height;
+    //   }
 
-      input[type=text] {
-        @include normal-type;
-        width: 77%;
-        line-height: $search-bar-height;
-        height: $search-bar-height;
-      }
+    //   button.action-button {
+    //     margin-left: 1%;
+    //     width: 22%;
+    //     line-height: $search-bar-height - 2px; // -2 for finetuning vertical centering
+    //     height: $search-bar-height;
+    //   }
 
-      button.action-button {
-        margin-left: 1%;
-        width: 22%;
-        line-height: $search-bar-height - 2px; // -2 for finetuning vertical centering
-        height: $search-bar-height;
-      }
-
-    }
+    // }
 
   }
 
@@ -2307,9 +2320,15 @@ footer {
   }
   .col-footer {
     padding: 0 0 0 2em;
+    width: 50%;
+    float: left;
+    min-height: 14em;
+    &:nth-child(3), &:nth-child(4), &:nth-child(5) {
+      min-height: auto;
+    }
     @include media(tablet) {
       width: 20%;
-      float: left;
+      min-height: auto;
     }
     a {
       color: $white;
@@ -2459,7 +2478,9 @@ section.listings {
         box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.15);
       }
       transition: 0.2s transform linear;
-      margin-bottom: 0;
+      @include media(tablet) {
+        margin-bottom: 0;
+      }
       &:hover {
         transform: scale(1.05);
       }
@@ -2484,9 +2505,13 @@ section.blog {
   color: $main-text;
   padding: 1em;
   padding-left: 1em !important;
+  text-align: center;
   .avatar {
-    margin: 1em 0 0 0;
     width: 50%;
+    margin: 0 auto;
+    @include media(tablet) {
+      margin: 1em 0 0 0;
+    }
   }
   .name {
     text-transform: uppercase;
@@ -2504,6 +2529,9 @@ section.blog {
   }
   .button {
     margin: 0.75em 0;
+  }
+  @include media(tablet) {
+    text-align: left;
   }
 }
 .blog-box {

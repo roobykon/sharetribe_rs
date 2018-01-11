@@ -31,6 +31,10 @@
   margin: 0.2em auto 0.8em;
 }
 .fluid-thumbnail-grid-image-advantages {
+  .col-6 {
+    width: 50%;
+    float: left;
+  }
   ul {
     padding-left: 12px;
     li {
