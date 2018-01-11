@@ -2384,6 +2384,28 @@ section {
     margin-bottom: 2em;
   }
 }
+a.shadow-effect {
+  display: block;
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.15);
+    opacity: 1;
+    transition: 0.2s opacity linear;
+  }
+  &:hover {
+    &:after {
+      opacity: 0;
+    }
+  }
+}
 
 /******** HOMEPAGE STYLES
 ******************************************/
@@ -2407,28 +2429,6 @@ section {
   .img-wrap {
     max-height: 16em;
     overflow: hidden;
-  }
-  a {
-    display: block;
-    position: relative;
-    &:after {
-      content: "";
-      display: block;
-      position: absolute;
-      z-index: 3;
-      top: 0;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.15);
-      opacity: 1;
-      transition: 0.2s opacity linear;
-    }
-    &:hover {
-      &:after {
-        opacity: 0;
-      }
-    }
   }
 }
 
