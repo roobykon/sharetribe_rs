@@ -358,9 +358,7 @@ $home-list-avatar-padding: lines(0.25);
 }
 
 .home-no-listings {
-  @include border-radius($default-border-radius);
-  padding: lines(0.5) lines(1);
-  background: $highlight;
+  padding: 0.75em 1.5em 2em;
 }
 
 .home-categories-link {
