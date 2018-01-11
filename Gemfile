@@ -171,3 +171,13 @@ gem 'intercom'
 gem 'twitter_cldr'
 gem 'memoist'
 gem 'biz'
+
+gem 'daemons'
+gem 'puma'
+
+gem 'capistrano', '~> 3.6'
+gem 'capistrano-rvm' 
+gem 'capistrano-bundler', '~> 1.3'
+gem 'capistrano-rails', '~> 1.3'
+gem 'capistrano-npm'
+gem 'whenever'
