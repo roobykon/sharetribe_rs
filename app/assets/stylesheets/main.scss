@@ -2160,7 +2160,7 @@ figure.fluidratio {
     background: $main-blue;
     border-radius: 15px;
     padding: 1em;
-    background: linear-gradient(to right, #038ce1, #0072be);
+    background: $blue-gradient;
     text-align: center;
     @include media(tablet) {
       width: 63em;
