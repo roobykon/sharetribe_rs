@@ -313,10 +313,6 @@ ul {
     position: absolute;
     top: em(2);
   }
-  .text-part {
-    padding-left: em(23);
-    min-height: em(30);
-  }
 }
 
 form {
@@ -422,17 +418,23 @@ button, .button {
     color: $white;
     background-color: $main-blue;
   }
-}
-.button.btn-blue {
-  color: $white;
-  background-color: $main-blue;
-  &:hover, &:active {
-    color: $main-blue;
-    background-color: $white;
+  &.btn-blue {
+    color: $white;
+    background-color: $main-blue;
+    &:hover, &:active {
+      color: $main-blue;
+      background-color: $white;
+    }
   }
-}
-.button.expanded {
-  width: 100%;
+  &.expanded {
+    width: 100%;
+  }
+  &.btn-big {
+    border-radius: 1.5em;
+    line-height: 2.3em;
+    font-size: 1.2em;
+    border-width: 3px;
+  }
 }
 
 .inline-button-container {
@@ -2607,3 +2609,4 @@ body.listings-page {
     }
   }
 }
+

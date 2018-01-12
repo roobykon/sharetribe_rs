@@ -1,6 +1,8 @@
 - content_for :javascript do
   initialize_profile_view("#{@person.username}");
 
+- content_for :body_class, "people-page"
+
 - content_for :title_header do
   %h1
     %span.profile-title= PersonViewUtils.person_display_name(@person, @current_community)
@@ -24,7 +26,7 @@
             .ss-chat.icon-part
             .ss.text-part= t(".add_description")
 
-    .row
+    .row.no-margin
       %h2.people-header
         - if listings.total_entries > 0
           - if current_user?(@person) && params[:show_closed]
@@ -62,10 +64,16 @@
           #profile-testimonials-list
             = render :partial => "testimonials", :locals => {:received_testimonials => received_testimonials, :limit => 3}
 
-  .col-4
+  .col-4.people-sidebar
     .row
       .people-image
         = huge_avatar_thumb(@person)
+
+    .row.no-margin
+      .name
+        = PersonViewUtils.person_display_name(@person, @current_community)
+      .location
+        = 'London'
 
     .row
       .profile-action-buttons-desktop
