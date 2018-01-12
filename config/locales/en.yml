@@ -1289,9 +1289,10 @@ en:
       welcome_to_new_kassi: "Welcome to new %{service_name}!"
       no_reviews: "No reviews"
       no_image: "No image"
-      filter: Filter
+      filter: "Filter"
       this_is_private_community: "You need to sign up before you can view the content."
     browse:
+      filter: "Filter"
       no_listings_notification: "No listings. %{add_listing_link}."
       add_listing_link_text: "Add new listing"
       no_listings_with_your_search_criteria: "Sorry, no listings could be found for your search criteria. Maybe try other search terms?"

@@ -195,9 +195,12 @@ $home-list-avatar-padding: lines(0.25);
 }
 
 .home-list-details-with-image {
-  float: right;
-  width: calc(100% - 11.25em);
+  width: 100%;
   padding: 0.5em 1em;
+  @include media(tablet) {
+    float: right;
+    width: calc(100% - 11.25em);
+  }
 }
 
 .browsing-list-item-title {
@@ -435,6 +438,10 @@ $home-list-avatar-padding: lines(0.25);
   border: 1px solid $border;
   padding: 2em 1.5em 1em;
   margin-right: 1em;
+}
+
+.hidden-tablet #filters {
+  padding: 1em;
 }
 
 

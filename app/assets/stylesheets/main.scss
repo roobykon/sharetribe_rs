@@ -2582,11 +2582,14 @@ section.blog {
 ******************************************/
 body.listings-page {
   .home-fluid-thumbnail-grid-narrow .home-fluid-thumbnail-grid {
-    margin-right: -3em;
+    margin-right: auto;
     overflow: visible;
+    @include media(tablet) {
+      margin-right: -3em;
+    }
     .home-fluid-thumbnail-grid-item {
-      width: 50%;
-      padding-right: 3em;
+      width: 100%;
+      padding-right: 0;
       > div {
         box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.15);
       }
@@ -2594,6 +2597,10 @@ body.listings-page {
       margin-bottom: 3em;
       &:hover {
         transform: scale(1.05);
+      }
+      @include media(tablet) {
+        width: 50%;
+        padding-right: 3em;
       }
     }
   }
