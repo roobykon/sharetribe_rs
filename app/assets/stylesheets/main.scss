@@ -431,6 +431,9 @@ button, .button {
     background-color: $white;
   }
 }
+.button.expanded {
+  width: 100%;
+}
 
 .inline-button-container {
   display: inline-block;
