@@ -10,13 +10,19 @@
 .row
   .col-8
 
-    .row.relative
-      .people-image-mobile
-        = huge_avatar_thumb(@person)
-      .profile-action-buttons-mobile
-        = render :partial => "profile_action_buttons"
+    .row.hidden-tablet
+      .people-sidebar
+        .people-image-mobile
+          = huge_avatar_thumb(@person)
+        .row.no-margin
+          .name
+            = PersonViewUtils.person_display_name(@person, @current_community)
+          .location
+            = 'London'
+        .profile-action-buttons-mobile
+          = render :partial => "profile_action_buttons"
 
-    .row
+    .row.no-margin
       - if @person.description && !@person.description.blank?
         - text_with_line_breaks do
           = @person.description
@@ -64,17 +70,15 @@
           #profile-testimonials-list
             = render :partial => "testimonials", :locals => {:received_testimonials => received_testimonials, :limit => 3}
 
-  .col-4.people-sidebar
+  .col-4.people-sidebar.sidebar-desktop
     .row
       .people-image
         = huge_avatar_thumb(@person)
-
     .row.no-margin
       .name
         = PersonViewUtils.person_display_name(@person, @current_community)
       .location
         = 'London'
-
     .row
       .profile-action-buttons-desktop
         = render :partial => "profile_action_buttons"

@@ -40,15 +40,7 @@ $profile-pic-gutter-mobile: lines(0.5);
 }
 
 .profile-action-buttons-mobile {
-  padding-left: $profile-pic-size-mobile + $profile-pic-gutter-mobile;
-  padding-bottom: lines(0.75);
-  margin-top: lines(0.65);
-  margin-bottom: lines(0.5);
   border-bottom: 1px solid $border;
-
-  @include media(tablet) {
-    display: none;
-  }
 }
 
 .profile-edit-link, .profile-contact-link {
@@ -56,20 +48,11 @@ $profile-pic-gutter-mobile: lines(0.5);
 }
 
 .people-image-mobile {
-  width: $profile-pic-size-mobile;
-  position: absolute;
-  top: 0;
-  left: 0;
-
+  width: 50%;
+  margin: 0 auto;
   > img {
-    @include border-radius($default-border-radius);
     width: 100%;
   }
-
-  @include media(tablet) {
-    display: none;
-  }
-
 }
 
 .people-fluid-thumbnail-grid-container {
@@ -110,27 +93,40 @@ $profile-pic-gutter-mobile: lines(0.5);
   }
 }
 .people-sidebar {
-  padding-left: 2em;
   .name {
     font-weight: 700;
     line-height: 1.2;
     font-size: 1.2em;
     margin: 1em 0 0;
+    text-align: center;
   }
   .location {
     font-size: 0.7em;
     margin: 0.2em auto 0.8em;
     line-height: 1.5;
+    text-align: center;
+  }
+  &.sidebar-desktop {
+    display: none;
+    @include media(tablet) {
+      display: block;
+    }
+  }
+  @include media(tablet) {
+    padding-left: 2em;
   }
 }
 .profile-title {
   color: $white;
   font-size: 2em;
   display: block;
-  text-align: left;
+  text-align: center;
   max-width: 19em;
   margin: 0 auto;
   font-weight: 400;
+  @include media(tablet) {
+    text-align: left;
+  }
 }
 body.people-page {
   .lander-content.marketplace-lander-content {
