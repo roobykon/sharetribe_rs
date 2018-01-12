@@ -2490,10 +2490,12 @@ section.listings {
       @include media(tablet) {
         width: calc(100% / 3);
         padding-right: 3em;
+        padding-bottom: 3em;
       }
     }
     @include media(tablet) {
       margin-right: -3em;
+      margin-bottom: -3em;
     }
   }
 }

@@ -33,6 +33,9 @@
   margin: 0.2em auto 0.8em;
 }
 .fluid-thumbnail-grid-image-advantages {
+  height: 4em;
+  overflow: hidden;
+  margin-bottom: 5px;
   .col-6 {
     width: 50%;
     float: left;
