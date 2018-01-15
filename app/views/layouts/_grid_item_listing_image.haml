@@ -44,8 +44,6 @@
         - price_text = " " + price_unit
         %span.fluid-thumbnail-grid-image-quantity{:title => price_text}
           = price_text
-      %span
-        = ' USD'
     - else
       %span.fluid-thumbnail-grid-image-type{:class => "#{modifier_class}"}
         = shape_name(listing)
