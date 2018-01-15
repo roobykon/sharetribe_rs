@@ -37,9 +37,6 @@
   &.active i.icon-heart:after {
     content: "\f004";
   }
-  @include media(tablet) {
-
-  }
 }
 
 .fluid-thumbnail-grid-image-title {
@@ -58,7 +55,10 @@
 .fluid-thumbnail-grid-image-advantages {
   height: 4em;
   overflow: hidden;
-  margin-bottom: 5px;
+  width: auto;
+  @include media(tablet) {
+    width: calc(100% - 170px);
+  }
   .col-6 {
     width: 50%;
     float: left;

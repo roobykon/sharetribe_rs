@@ -129,6 +129,16 @@
   font-weight: 700;
   background: $blue-gradient;
   color: $white;
+  span {
+    font-weight: 400;
+    display: none;
+  }
+  @include media(tablet) {
+    width: 170px;
+    span {
+      display: inline;
+    }
+  }
 }
 
 $image-width: lines(7.5); // FIXME

@@ -15,9 +15,8 @@
         - price_text = t("listings.form.price.per") + " " + listing.quantity
       - elsif listing.unit_type
         - price_text = price_quantity_per_unit(listing)
-
       - if price_text.present?
-        .home-list-price-quantity{:title => price_text}
+        %span
           = price_text
       - else
         -# .home-list-listing-shape-value
