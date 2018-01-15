@@ -23,13 +23,19 @@
 
 .fluid-thumbnail-grid-image-heart {
   position: absolute;
-  top: 1em;
+  top: 3em;
   right: 1em;
-  &.active {
-    i.icon-heart {
-      content: "\f004";
-      font-family: FontAwesome;
-    }
+  display: block;
+  width: 1em;
+  height: 1em;
+  i.icon-heart:after {
+    font-family: FontAwesome;
+    content: "\f08a";
+    color: $main-blue;
+    font-style: normal;
+  }
+  &.active i.icon-heart:after {
+    content: "\f004";
   }
   @include media(tablet) {
 
