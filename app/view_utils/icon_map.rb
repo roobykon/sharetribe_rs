@@ -170,7 +170,7 @@ ICON_MAP = {
 
       "home" => "fa fa-home",
       "community" =>"fa fa-group",
-      "help" => "fa fa-question-sign",
+      "help" => "fa fa-question-circle",
       "admin" => "fa fa-wrench",
 
       "directup" => "fa fa-sort-up",
@@ -242,7 +242,7 @@ ICON_MAP = {
       "calendar" => "fa fa-calendar",
       "phone" => "fa fa-phone",
       "clock" => "fa fa-time",
-      "eye" => "fa fa-eye-open",
+      "eye" => "fa fa-eye",
       "cross" => "fa fa-remove",
       "chat_bubble" => "fa fa-comment",
       "tag" => "fa fa-tag",
@@ -252,8 +252,8 @@ ICON_MAP = {
       "reply" => "fa fa-reply",
       "topbar_menu" => "fa fa-minus",
 
-      "details" => "fa fa-file-alt",
-      "profile" => "fa fa-file-alt",
+      "details" => "fa fa-file",
+      "profile" => "fa fa-file",
       "account_settings" => "fa fa-lock",
       "notification_settings" => "fa fa-bell-alt",
       "rows" => "fa fa-reorder",
