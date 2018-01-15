@@ -18,7 +18,24 @@
   color: $main-text;
   padding: 0.6em 1em;
   font-family: Arial, sans-serif;
+  position: relative;
 }
+
+.fluid-thumbnail-grid-image-heart {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  &.active {
+    i.icon-heart {
+      content: "\f004";
+      font-family: FontAwesome;
+    }
+  }
+  @include media(tablet) {
+
+  }
+}
+
 .fluid-thumbnail-grid-image-title {
   color: $black;
   font-size: 1em;
