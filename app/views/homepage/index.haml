@@ -100,7 +100,8 @@
                 = 'Other'
       .row.no-margin
         .col-12.text-center
-          %button.button.btn-blue
+          = link_to 'More', browse_with_locale_path, class: 'button btn-blue'
+          -#%button.button.btn-blue
             = 'More'
 
   %section.listings
@@ -117,8 +118,9 @@
                 = render partial: "grid_item", collection: @listings, as: :listing, locals: { show_distance: location_search_in_use }
         .row.no-margin
           .col-12.text-center
-            %button.button
-              = 'See More'
+            = link_to 'See More', browse_with_locale_path, class: 'button'
+            -#%button.button
+            -#  = 'See More'
       - else
         .row.no-margin
           .col-12.text-center

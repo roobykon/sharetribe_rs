@@ -66,7 +66,7 @@
       pressing send from either search bar of filter list will send all the form fields
 
     - if is_homepage
-      %form{method: "get", id: "homepage-filters"}
+      %form{method: "get", id: "homepage-filters", action: search_path}
         - # New top bar search params are in different form and they have to be retained here
         - search_params = ["q", "lc", "ls", "boundingbox", "distance_max"]
         - excluded_params = search_params unless FeatureFlagHelper.feature_enabled?(:topbar_v1)
