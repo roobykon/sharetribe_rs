@@ -59,6 +59,10 @@ $elementSpacing: lines(0.5);
 .header-logo {
   display: block;
   @include header-block;
+
+  //hardcode logo fix
+  position: relative;
+  top: 4px;
 }
 
 .header-text-link {
@@ -135,9 +139,11 @@ $elementSpacing: lines(0.5);
 }
 
 .header-user-toggle {
-  padding-left: $elementSpacing;
   display: block;
   @include clearfix;
+  @include media(tablet) {
+    padding-left: $elementSpacing;
+  }
 }
 
 @mixin header-toggle-menu {

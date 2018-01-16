@@ -23,8 +23,14 @@
   width: 100%;
 
   &.filters-enabled {
-    width: 50%;
+    width: 100%;
     padding-left: lines(0.5 / 2);
+    @include media(tablet) {
+      width: 68%;
+    }
+    @include media(small-desktop) {
+      width: 50%;
+    }
   }
 
   @include media(tablet) {

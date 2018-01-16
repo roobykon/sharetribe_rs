@@ -2124,6 +2124,7 @@ figure.fluidratio {
     width: 85%;
     position: relative;
     top: -3px;
+    text-overflow: ellipsis;
     &::-webkit-input-placeholder {
       color: $white;
       font-style: italic;
@@ -2176,7 +2177,7 @@ figure.fluidratio {
     padding: 1em;
     background: $blue-gradient;
     text-align: center;
-    @include media(tablet) {
+    @include media(small-desktop) {
       width: 63em;
       left: calc((100% - 63em) / 2);
       border-radius: 50px;
@@ -2489,8 +2490,11 @@ a.shadow-effect {
     line-height: 1.5em;
   }
   .img-wrap {
-    max-height: 16em;
+    max-height: 11em;
     overflow: hidden;
+    @include media(small-desktop) {
+      max-height: 16em;
+    }
   }
 }
 

@@ -33,10 +33,6 @@
         = link_to sign_up_path, class: "header-text-link header-hover" do
           = t("header.signup")
     
-    .header-right
-      = link_to '#', class: "header-text-link header-hover" do
-        = t("header.who_we_are")
-
     .header-left.hidden-tablet
       .header-menu-container.toggle.hidden{data: {toggle: '#header-menu-toggle-menu', 'toggle-position' => 'absolute'}}
         #header-menu-mobile-anchor.header-menu-toggle-container.toggle-header-container
@@ -52,14 +48,19 @@
     .header-left.header-logo-container
       = link_to landing_page_path, :class => "header-logo", :id => "header-logo" do
         - if @current_community.logo.present?
-          %i.header-square-logo.hidden-tablet
-            -# Logo is here, it's a CSS background
-        - else
-          %span.header-square-logo-text.hidden-tablet
-            = @current_community.name(I18n.locale)[0]
+          %i.header-square-logo
         - if @current_community.wide_logo.present?
-          %i.header-wide-logo.visible-tablet
+          %i.header-wide-logo
             -# Logo is here, it's a CSS background
-        - else
-          %span.header-wide-logo-text.visible-tablet
-            = @current_community.name(I18n.locale)
+        -# - if @current_community.logo.present?
+        -#   %i.header-square-logo.hidden-tablet
+        -#     -# Logo is here, it's a CSS background
+        -# - else
+        -#   %span.header-square-logo-text.hidden-tablet
+        -#     = @current_community.name(I18n.locale)[0]
+        -# - if @current_community.wide_logo.present?
+        -#   %i.header-wide-logo.visible-tablet
+        -#     -# Logo is here, it's a CSS background
+        -# - else
+        -#   %span.header-wide-logo-text.visible-tablet
+        -#     = @current_community.name(I18n.locale)
