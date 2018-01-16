@@ -2340,26 +2340,30 @@ footer {
     color: $white;
   }
   .col-footer {
-    padding: 0 0 0 2em;
+    padding: 0;
     width: 33%;
     float: left;
+    text-align: center;
+    hr {
+      border: 2px solid $main-blue;
+      width: 3em;
+      margin: 0.7em auto;
+    }
     &.socialbox {
       width: 100%;
-      text-align: center;
       margin-top: 1em;
-      hr {
-        margin: 0.7em auto;
-      }
+      padding-left: 0;
     }
     @include media(tablet) {
       width: 25%;
+      padding: 0 0 0 2em;
+      text-align: left;
+      hr {
+        margin: 0.7em 0 0.3em 0;
+      }
       &.socialbox {
         width: 25%;
-        text-align: left;
         margin-top: auto;
-        hr {
-          margin: 0.7em 0 0.3em 0;
-        }
       }
     }
     a {
@@ -2376,11 +2380,6 @@ footer {
         list-style-type: none;
         line-height: 2;
       }
-    }
-    hr {
-      border: 2px solid $main-blue;
-      width: 3em;
-      margin: 0.7em 0 0.3em 0;
     }
     .title {
       font-weight: 600;
