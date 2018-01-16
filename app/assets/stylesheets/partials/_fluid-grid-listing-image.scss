@@ -56,8 +56,10 @@
   height: 4em;
   overflow: hidden;
   width: auto;
-  @include media(tablet) {
-    width: calc(100% - 170px);
+  .home-list-details-with-image & {
+    @include media(tablet) {
+      width: calc(100% - 170px);
+    }
   }
   .col-6 {
     width: 50%;
