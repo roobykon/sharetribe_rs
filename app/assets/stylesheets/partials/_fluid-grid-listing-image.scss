@@ -57,7 +57,8 @@
   overflow: hidden;
   width: auto;
   .home-list-details-with-image & {
-    @include media(tablet) {
+    width: calc(100% - 80px);
+    @include media(small-desktop) {
       width: calc(100% - 170px);
     }
   }

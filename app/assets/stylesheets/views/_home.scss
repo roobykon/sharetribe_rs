@@ -139,7 +139,7 @@
     font-weight: 400;
     display: none;
   }
-  @include media(tablet) {
+  @include media(small-desktop) {
     width: 170px;
     span {
       display: inline;
