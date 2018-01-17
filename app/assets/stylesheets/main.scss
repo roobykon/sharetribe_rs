@@ -2357,7 +2357,10 @@ footer {
     }
     @include media(tablet) {
       width: 25%;
-      padding: 0 0 0 2em;
+      padding: 0 0 0 1.5em;
+      &:first-child {
+        padding: 0 0 0 1.5em;
+      }
       text-align: left;
       hr {
         margin: 0.7em 0 0.3em 0;
