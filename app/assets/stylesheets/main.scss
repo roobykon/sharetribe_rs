@@ -2470,6 +2470,10 @@ a.shadow-effect {
   border-radius: 30px;
   margin: 0;
 }
+textarea#message {
+  resize: none !important;
+  width: 100% !important;
+}
 
 /******** HOMEPAGE STYLES
 ******************************************/
@@ -2641,4 +2645,3 @@ body.listings-page {
     }
   }
 }
-
