@@ -64,14 +64,14 @@
       .row
         .col-4
           .space-box
-            = link_to '/browse?category=apartment&view=grid', class: 'shadow-effect' do
+            = link_to browse_with_locale_path(category:'apartment', view:'grid'), class: 'shadow-effect' do
               .img-wrap
                 = image_tag("content/01.jpg")
               .title
                 = 'Apartment'
         .col-8
           .space-box
-            = link_to '/browse?category=studio&view=grid', class: 'shadow-effect' do
+            = link_to browse_with_locale_path(category:'studio',view:'grid'), class: 'shadow-effect' do
               .img-wrap
                 = image_tag("content/02.jpg")
               .title
@@ -79,14 +79,14 @@
       .row.no-margin
         .col-4
           .space-box
-            = link_to '/browse?category=design-loft&view=grid', class: 'shadow-effect' do
+            = link_to browse_with_locale_path(category:'design-loft', view:'grid'), class: 'shadow-effect' do
               .img-wrap
                 = image_tag("content/03.jpg")
               .title
                 = 'Loft'
         .col-4
           .space-box
-            = link_to '/browse?category=house&view=grid', class: 'shadow-effect' do
+            = link_to browse_with_locale_path(category:'house',view:'grid'), class: 'shadow-effect' do
               .img-wrap
                 = image_tag("content/04.jpg")
               .title
