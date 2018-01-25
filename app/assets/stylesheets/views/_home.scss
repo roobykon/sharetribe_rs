@@ -24,7 +24,7 @@
 
   &.filters-enabled {
     width: 100%;
-    padding-left: lines(0.5 / 2);
+    margin-top: 1em;
     @include media(tablet) {
       width: 68%;
     }
@@ -71,20 +71,22 @@
 }
 
 .home-toolbar-show-filters-button-container {
-  width: 50%;
-  float: left;
-  padding-right: lines(0.5 / 2);
+
 }
 
 .home-toolbar-show-filters-button {
-  @include button($link);
-  @include button-group-button-padding;
-  @include neutral-button-color;
-  @include selected-button-color;
-  @include ellipsis;
-  width: 100%;
+  color: $white;
+  background: $main-blue;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
   margin: 0;
-  line-height: $default-button-line-height;
+  line-height: 40px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-size: 1.2em;
+  border-radius: 4px;
 
   @include media(tablet) {
     display: none;
