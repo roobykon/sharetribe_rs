@@ -36,13 +36,15 @@
 
       .fluid-thumbnail-grid-image-advantages
         .row.no-margin
-          - listing.custom_field_values.each_slice((listing.custom_field_values.count/(2).to_f).ceil) do |part_custom_field_value|
-            .col-6
-              %ul
-                - part_custom_field_value.each do |custom_field_value|
-                  %li
-                    - custom_field_value.with_type do |question_type|
-                      = render :partial => "listings/custom_field_partials/#{question_type}", :locals => { :custom_field_value => custom_field_value }
+          - listing.custom_field_values.each do |custom_field_value|
+            - custom_field_value.with_type do |question_type|
+              - if question_type==:checkbox
+                - ArrayUtils.each_slice_columns(custom_field_value.selected_options, 2) do |column|
+                  .col-6
+                    %ul
+                      - column.each do |option|
+                        %li
+                          = option.title(I18n.locale)
 
       -# .home-list-price-mobile{:class => (listing.listing_images.size > 0 ? "home-list-price-mobile-with-listing-image" : "home-list-price-mobile-without-listing-image")}
       -#   - if listing.price
