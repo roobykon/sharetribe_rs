@@ -32,22 +32,19 @@
               = shape_name(listing)
       
       .fluid-thumbnail-grid-image-location
-        = "London"
+        = listing.address
 
       .fluid-thumbnail-grid-image-advantages
         .row.no-margin
-          .col-6
-            %ul
-              %li Kitchen
-              %li Restrooms
-              %li Wifi
-              %li Tables
-          .col-6
-            %ul
-              %li Chairs White
-              %li Backdrop Flip
-              %li ChartsS treet
-              %li Level Access
+          - listing.custom_field_values.each do |custom_field_value|
+            - custom_field_value.with_type do |question_type|
+              - if question_type==:checkbox
+                - ArrayUtils.each_slice_columns(custom_field_value.selected_options, 2) do |column|
+                  .col-6
+                    %ul
+                      - column.each do |option|
+                        %li
+                          = option.title(I18n.locale)
 
       -# .home-list-price-mobile{:class => (listing.listing_images.size > 0 ? "home-list-price-mobile-with-listing-image" : "home-list-price-mobile-without-listing-image")}
       -#   - if listing.price
