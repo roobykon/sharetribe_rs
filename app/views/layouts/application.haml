@@ -7,7 +7,7 @@
     -# Render railsContext here before any react component gets rendered
     = prepend_render_rails_context("")
 
-    - is_homepage = params[:controller] == "homepage" && params[:action] == "index"
+    - is_homepage = params[:controller] == "homepage" && (params[:action] == "index"|| params[:action] == "browse")
     %noscript
       .noscript-padding
         -# Noscript content will be positioned here
@@ -57,7 +57,8 @@
       %article.page-content{class: is_homepage && !@big_cover_photo ? 'no-cover-photo' : ''}
         .wrapper
           = render :partial => "layouts/notifications"
-          = yield
+        = yield
+        .wrapper
           - if display_branding_info?
             = render partial: "layouts/non_whitelabel_branding", locals: {link_to_sharetribe: "https://www.sharetribe.com/?utm_source=#{@current_community.ident}.sharetribe.com&utm_medium=referral&utm_campaign=nowl-footer"}
     -#

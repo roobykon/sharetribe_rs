@@ -19,7 +19,10 @@ $elementSpacing: lines(0.5);
 
 .header {
   height: $headerHeight;
-  width: 100%;
+  height: 3.75em;
+  margin-bottom: -3.75em;
+  z-index: 100;
+  position: relative;
 }
 
 .header-wrapper {
@@ -32,6 +35,8 @@ $elementSpacing: lines(0.5);
 
 .header-right {
   float: right;
+  font-weight: bold;
+  padding-top: 2em;
 }
 
 /* Buttons may need padding, text links don't */
@@ -48,9 +53,9 @@ $elementSpacing: lines(0.5);
 }
 
 .header-hover {
-  &:hover {
-    background-color: $highlight;
-  }
+  //&:hover {
+  //  background-color: $highlight;
+  //}
 
   &.toggled {
     background-color: $light-body;
@@ -68,10 +73,11 @@ $elementSpacing: lines(0.5);
   padding-right: $elementSpacing;
   padding-left: $elementSpacing;
   display: block;
-  color: $body;
+  color: #ffffff;
+  font-size: 1.2em;
 
   &:hover {
-    color: $body;
+    color: #bbbbbb;
   }
 
   .toggled & {
@@ -93,6 +99,14 @@ $elementSpacing: lines(0.5);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  background: none;
+  border: 4px solid #f68d03;
+  height: auto;
+  font-size: 1.2em;
+  margin-top: 0.4em;
+  &:hover {
+    background: none;
+  }
 }
 
 .header-menu-container {
