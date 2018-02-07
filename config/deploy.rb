@@ -26,7 +26,7 @@ namespace :deploy do
   desc 'restart application'
   task :app_restart do
     on roles(:app), in: :sequence, wait: 5 do
-      execute "sudo service puma restart"
+      execute "sudo service catering restart"
     end
   end
 end

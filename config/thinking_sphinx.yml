@@ -14,7 +14,7 @@ production:
 
 staging:
   version: '2.1.8'
-  mysql41: 3566
+  mysql41: 3567
   address: <%= ENV['SPHINX_HOST'] || '' %>
   min_infix_len: 3
   quiet_deltas: true
