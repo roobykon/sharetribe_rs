@@ -2,11 +2,10 @@
 %header.header
   .header-wrapper
     .header-right.header-padding.visible-tablet
-      = link_to t("homepage.index.post_new_listing"), new_listing_path, :class => "new-listing-link button", :id => "new-listing-link"
+      = link_to t("homepage.index.post_new_listing"), new_listing_path, :class => "new-listing-link", :id => "new-listing-link"
 
-    .header-right.visible-tablet
-      #header-menu-desktop-anchor.header-menu-container.toggle.hidden{data: {toggle: '#header-menu-toggle-menu', 'toggle-position' => 'absolute'}}
-
+    -#.header-right.visible-tablet
+    -#  #header-menu-desktop-anchor.header-menu-container.toggle.hidden{data: {toggle: '#header-menu-toggle-menu', 'toggle-position' => 'absolute'}}
     - if logged_in
       .header-right
         = render :partial => "layouts/header_anchors", locals: {avatar_url: avatar_url, current_user_name: current_user_name, icons: icons}
@@ -32,7 +31,7 @@
       .header-right
         = link_to sign_up_path, class: "header-text-link header-hover" do
           = t("header.signup")
-    
+
     .header-left.hidden-tablet
       .header-menu-container.toggle.hidden{data: {toggle: '#header-menu-toggle-menu', 'toggle-position' => 'absolute'}}
         #header-menu-mobile-anchor.header-menu-toggle-container.toggle-header-container
@@ -41,26 +40,11 @@
             = t("header.menu")
 
     = render :partial => "layouts/header_menu", locals: { locale_change_links: locale_change_links, icons: icons}
-
+    .header-right
+      = link_to "Who we are", "#", class: "header-text-link header-hover"
     -#
       If necessary, the buttons will overlap with the logo. Buttons should be on top, that's
       keep the logo here after buttons
     .header-left.header-logo-container
       = link_to landing_page_path, :class => "header-logo", :id => "header-logo" do
-        - if @current_community.logo.present?
-          %i.header-square-logo
-        - if @current_community.wide_logo.present?
-          %i.header-wide-logo
-            -# Logo is here, it's a CSS background
-        -# - if @current_community.logo.present?
-        -#   %i.header-square-logo.hidden-tablet
-        -#     -# Logo is here, it's a CSS background
-        -# - else
-        -#   %span.header-square-logo-text.hidden-tablet
-        -#     = @current_community.name(I18n.locale)[0]
-        -# - if @current_community.wide_logo.present?
-        -#   %i.header-wide-logo.visible-tablet
-        -#     -# Logo is here, it's a CSS background
-        -# - else
-        -#   %span.header-wide-logo-text.visible-tablet
-        -#     = @current_community.name(I18n.locale)
+        =image_tag 'catering/logo.png'

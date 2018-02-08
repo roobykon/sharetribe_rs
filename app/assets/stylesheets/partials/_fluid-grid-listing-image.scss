@@ -5,101 +5,48 @@
 @import "mixins/all";
 
 .fluid-thumbnail-grid-image-image-container {
-  line-height: 0;
-}
-.fluid-thumbnail-grid-image-image {
-
-}
-.fluid-thumbnail-grid-image-type {
-  font-size: 16px;
-}
-.fluid-thumbnail-grid-image-information {
-  background-color: $white;
-  color: $main-text;
-  padding: 0.6em 1em;
-  font-family: Arial, sans-serif;
   position: relative;
-}
+  color: $background;
 
-.fluid-thumbnail-grid-image-heart {
-  position: absolute;
-  top: 3em;
-  right: 1em;
-  display: block;
-  width: 1em;
-  height: 1em;
-  i.icon-heart:after {
-    font-family: FontAwesome;
-    content: "\f08a";
-    color: $main-blue;
-    font-style: normal;
+  &:hover {
+    color: $highlight;
   }
-  &.active i.icon-heart:after {
-    content: "\f004";
-  }
+
+  @include block-with-aspect-ratio(3/2);
 }
 
 .fluid-thumbnail-grid-image-title {
-  color: $black;
-  font-size: 1em;
-  font-family: Arial;
-  line-height: 1.3em;
-  height: 2.6em;
-  overflow: hidden;
-  font-weight: 700;
+  position: absolute;
+  bottom: 0;
+  padding: lines(0.5);
+  line-height: 1.2em;
 }
-.fluid-thumbnail-grid-image-location {
-  font-size: 0.7em;
-  margin: 0.2em auto 0.4em;
-  line-height: 1.4em;
-  height: 1.4em;
-  overflow: hidden;
+
+.fluid-thumbnail-grid-image-overlay {
+  @include border-top-radius($default-border-radius);
+  @include overlay;
+  @include absolutely-all;
 }
-.fluid-thumbnail-grid-image-advantages {
-  height: 4em;
-  overflow: hidden;
-  width: auto;
-  .home-list-details-with-image & {
-    width: calc(100% - 80px);
-    @include media(small-desktop) {
-      width: calc(100% - 170px);
-    }
-  }
-  .col-6 {
-    width: 50%;
-    float: left;
-  }
-  ul {
-    padding-left: 12px;
-    li {
-      list-style-type: none;
-      position: relative;
-      font-size: 0.7em;
-      line-height: 1.4;
-      &:after {
-        content: "\f00c";
-        font-family: FontAwesome;
-        font-size: 1em;
-        position: absolute;
-        left: -13px;
-        top: 1px;
-        color: $main-blue;
-      }
-    }
-  }
+
+.fluid-thumbnail-grid-image-image {
+  @include border-top-radius($default-border-radius);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
+
 .fluid-thumbnail-grid-image-price-container {
-  color: $white;
-  text-align: center;
-  padding: 0.3em 0.75em;
-  background-color: $main-blue;
-  font-size: 12px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 1em;
-  .fluid-thumbnail-grid-image-price {
-    font-size: 1.2em;
-    font-weight: 700;
-  }
+  @include listing-price;
+  font-size: 12px; // Quantity placeholder font-size, so that the ellipsis looks nice
+  max-width: 75%;
+  @include ellipsis;
+}
+
+.fluid-thumbnail-grid-image-price {
+  font-size: 18px; // Bigger size for the price
+}
+
+.fluid-thumbnail-grid-image-type {
+  font-size: 16px;
 }

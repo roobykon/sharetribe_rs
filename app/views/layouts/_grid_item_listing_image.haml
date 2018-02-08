@@ -7,55 +7,24 @@
   - Listing price
   - Adds `modifier_class` which can be used for view specific fine tunings
 
-= link_to(listing_path(listing.url), :class => "#{modifier_class} fluid-thumbnail-grid-image-item-link") do
-  .fluid-thumbnail-grid-image-image-container.img-wrap{:class => "#{modifier_class}"}
+= link_to(listing_path(listing.url), :class => "#{modifier_class} fluid-thumbnail-grid-image-item-link catering-link") do
+  .fluid-thumbnail-grid-image-image-container{:class => "#{modifier_class}"}
     - with_first_listing_image(listing) do |first_image_url|
       = image_tag first_image_url, {:alt => listed_listing_title(listing), :class => "#{modifier_class} fluid-thumbnail-grid-image-image"}
-  .fluid-thumbnail-grid-image-information
-    -#.fluid-thumbnail-grid-image-heart
-      %i.icon-heart
-    .fluid-thumbnail-grid-image-title{:class => "#{modifier_class}"}
-      = listing.title
-    .fluid-thumbnail-grid-image-location
-      -#= 'London'
-      = listing.address
-    .fluid-thumbnail-grid-image-advantages
-      .row
-        - listing.custom_field_values.each do |custom_field_value|
-          - custom_field_value.with_type do |question_type|
-            - if question_type==:checkbox
-              - ArrayUtils.each_slice_columns(custom_field_value.selected_options, 2) do |column|
-                .col-6
-                  %ul
-                    - column.each do |option|
-                      %li
-                        = option.title(I18n.locale)
-                      -#= render :partial => "listings/custom_field_partials/#{question_type}", :locals => { :custom_field_value => custom_field_value }
 
-        -#.col-6
-        -#  %ul
-        -#    %li Kitchen
-        -#    %li Restrooms
-        -#    %li Wifi
-        -#    %li Tables
-        -#.col-6
-        -#  %ul
-        -#    %li Chairs White
-        -#    %li Backdrop Flip
-        -#    %li ChartsS treet
-        -#    %li Level Access
+    .fluid-thumbnail-grid-image-overlay{:class => "#{modifier_class}"}
+    -#.fluid-thumbnail-grid-image-title{:class => "#{modifier_class}"}
+    -#  = listing.title
 
-  .fluid-thumbnail-grid-image-price-container{:class => "#{modifier_class}"}
-    - if listing.price
-      %span
-        = 'from '
-      %span.fluid-thumbnail-grid-image-price
-        = MoneyViewUtils.to_humanized(listing.price)
-        - price_unit = price_quantity_slash_unit(listing)
-      - if !price_unit.blank?
-        - price_text = " " + price_unit
-        %span.fluid-thumbnail-grid-image-quantity{:title => price_text}
-          = price_text
-    - else
-      %span.fluid-thumbnail-grid-image-type{:class => "#{modifier_class}"}
-        = shape_name(listing)
+    -#.fluid-thumbnail-grid-image-price-container{:class => "#{modifier_class}"}
+    -#  - if listing.price
+    -#    %span.fluid-thumbnail-grid-image-price
+    -#      = MoneyViewUtils.to_humanized(listing.price)
+    -#      - price_unit = price_quantity_slash_unit(listing)
+    -#    - if !price_unit.blank?
+    -#      - price_text = " " + price_unit
+    -#      %span.fluid-thumbnail-grid-image-quantity{:title => price_text}
+    -#        = price_text
+    -#  - else
+    -#    %span.fluid-thumbnail-grid-image-type{:class => "#{modifier_class}"}
+    -#      = shape_name(listing)

@@ -15,13 +15,10 @@ module ListingIndexService::Search::Converters
       unit_type: l.unit_type,
       quantity: l.quantity,
       shape_name_tr_key: l.shape_name_tr_key,
-      listing_shape_id: l.listing_shape_id,
-      address: l.location.address,
-      custom_field_values: l.custom_field_values
+      listing_shape_id: l.listing_shape_id
     }.merge(meta)
       .merge(location_hash(l, includes))
       .merge(author_hash(l, includes))
-      .merge(custom_field_values(l))
       .merge(listing_images_hash(l, includes))
   end
 
@@ -37,12 +34,7 @@ module ListingIndexService::Search::Converters
       {}
     end
   end
-  def custom_field_values(l)
-      c = Maybe(l.custom_field_values)
-      {
-          custom_field_values: c.or_else(nil)
-      }
-  end
+
   def author_hash(l, includes)
       if includes.include?(:num_of_reviews) || includes.include?(:author)
         {
