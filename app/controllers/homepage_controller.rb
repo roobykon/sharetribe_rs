@@ -50,7 +50,7 @@ class HomepageController < ApplicationController
 
     compact_filter_params = HashUtils.compact(filter_params)
 
-    per_page = @view_type == "map" ? APP_CONFIG.map_listings_limit : APP_CONFIG.grid_listings_limit
+    per_page = 6 #@view_type == "map" ? APP_CONFIG.map_listings_limit : APP_CONFIG.grid_listings_limit
 
     includes =
       case @view_type
@@ -136,7 +136,6 @@ class HomepageController < ApplicationController
       }
     end
   end
-
   def browse
     params = unsafe_params_hash.select{|k, v| v.present? }
 
@@ -255,7 +254,7 @@ class HomepageController < ApplicationController
       search_result.on_success { |listings|
         @listings = listings
         render locals: locals.merge(
-                   seo_pagination_links: seo_pagination_links(params, @listings.current_page, @listings.total_pages))
+            seo_pagination_links: seo_pagination_links(params, @listings.current_page, @listings.total_pages))
       }.on_error { |e|
         flash[:error] = t("homepage.errors.search_engine_not_responding")
         @listings = Listing.none.paginate(:per_page => 1, :page => 1)
@@ -265,6 +264,7 @@ class HomepageController < ApplicationController
       }
     end
   end
+
   # rubocop:enable AbcSize
   # rubocop:enable MethodLength
 

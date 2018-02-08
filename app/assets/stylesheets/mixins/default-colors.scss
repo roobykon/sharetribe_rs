@@ -31,6 +31,13 @@
   -----------------------------------------
 */
 
+$main-blue: #2276c7;
+$white: #fff;
+$black: #000;
+
+$main-text: #303030;
+$footer: #292929;
+
 $primary-hue: 25;
 $notification-hue: 80;
 $error-hue: 0;
@@ -41,10 +48,10 @@ $border:      hsl($primary-hue, 0%, 76.4%);
 
 $aside:       hsl($primary-hue, 0%, 50%);
 $light-body:  hsl($primary-hue, 0%, 28%);
-$body:        hsl($primary-hue, 0%, 23.6%);
+$body:        #000;
 $emphasis:    hsl($primary-hue, 0%, 9%);
 
-$link:         #4a90e2;
+$link:         #2276c7;
 $link2:        #2ab865;
 
 $slogancolor:      #ffffff;
@@ -74,3 +81,6 @@ $lander-content-top-mobile: -14;
 
 //expiration lightbox
 $sharetribe-color: #F35937;
+
+//gradients
+$blue-gradient: linear-gradient(to right, #038ce1, #0072be);

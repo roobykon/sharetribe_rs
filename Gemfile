@@ -127,6 +127,7 @@ group :development do
 end
 
 group :test do
+  gem 'chromedriver-helper'
   gem 'capybara', '~> 2.6.2'
   gem "rspec-rails", '~> 3.6.0'
 

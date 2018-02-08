@@ -19,10 +19,7 @@ $elementSpacing: lines(0.5);
 
 .header {
   height: $headerHeight;
-  height: 3.75em;
-  margin-bottom: -3.75em;
-  z-index: 100;
-  position: relative;
+  width: 100%;
 }
 
 .header-wrapper {
@@ -35,8 +32,6 @@ $elementSpacing: lines(0.5);
 
 .header-right {
   float: right;
-  font-weight: bold;
-  padding-top: 2em;
 }
 
 /* Buttons may need padding, text links don't */
@@ -53,18 +48,21 @@ $elementSpacing: lines(0.5);
 }
 
 .header-hover {
-  //&:hover {
-  //  background-color: $highlight;
-  //}
-
+  &:hover {
+    text-decoration: underline;
+  }
   &.toggled {
-    background-color: $light-body;
+    color: #1f69c1;
   }
 }
 
 .header-logo {
   display: block;
   @include header-block;
+
+  //hardcode logo fix
+  position: relative;
+  top: 4px;
 }
 
 .header-text-link {
@@ -73,11 +71,10 @@ $elementSpacing: lines(0.5);
   padding-right: $elementSpacing;
   padding-left: $elementSpacing;
   display: block;
-  color: #ffffff;
-  font-size: 1.2em;
+  color: $body;
 
   &:hover {
-    color: #bbbbbb;
+    color: $body;
   }
 
   .toggled & {
@@ -93,22 +90,6 @@ $elementSpacing: lines(0.5);
   line-height: $buttonLineHeight;
 }
 
-.new-listing-link {
-  @include header-menu-button($link2);
-  max-width: em(200);
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  background: none;
-  border: 4px solid #f68d03;
-  height: auto;
-  font-size: 1.2em;
-  margin-top: 0.4em;
-  &:hover {
-    background: none;
-  }
-}
-
 .header-menu-container {
   display: block;
   padding: $elementPadding $elementSpacing;
@@ -116,24 +97,37 @@ $elementSpacing: lines(0.5);
 }
 
 .header-menu-toggle-container {
-  @include button($highlight);
-  @include button-group-button-padding;
-  height: $elementHeight;
-  line-height: $buttonLineHeight;
+  border-radius: 1.25em;
+  background: $main-blue;
+  text-align: center;
+  cursor: pointer;
+  padding: 0 1.5em;
+  height: 2.625em;
+  border: 0;
+  display: table;
+  padding: 0 0.75em;
+  height: 2.5em;
   margin: 0;
-  padding-bottom: 0;
-  padding-top: 0;
-  color: $body;
-
+  color: $white;
+  line-height: 2em;
+  margin-top: 3px;
+  font-size: 1em;
+  height: 2.2em;
+  transition: 0.2s all linear;
+  border: 2px solid $main-blue;
   .toggled & {
     color: $background;
     background-color: $light-body;
+  }
+  &:hover {
+    color: $main-blue;
+    background-color: $white;
   }
 }
 
 .header-menu-icon {
   @include icon-fix-more;
-
+  top: 1px;
   @include media(tablet) {
     padding-right: em(4);
   }
@@ -145,9 +139,11 @@ $elementSpacing: lines(0.5);
 }
 
 .header-user-toggle {
-  padding-left: $elementSpacing;
   display: block;
   @include clearfix;
+  @include media(tablet) {
+    padding-left: $elementSpacing;
+  }
 }
 
 @mixin header-toggle-menu {
@@ -265,4 +261,12 @@ $elementSpacing: lines(0.5);
   @include background-size(em(40) auto);
 
   display: inline-block;
+}
+
+.new-listing-link {
+  line-height: 2em;
+  margin-top: 12px;
+  font-size: 1em;
+  height: 2.2em;
+  min-width: auto;
 }

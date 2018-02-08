@@ -16,14 +16,12 @@
 }
 
 .follow-button {
-  @include grey-button;
   width: 100%;
 
   &.unfollow:hover:not(.button-disable-hover) {
     background: $red;
     color: white;
   }
-
 }
 
 .disabled-button {

@@ -67,4 +67,9 @@ Rails.application.configure do
 
   # Raises error for missing translations
   config.action_view.raise_on_missing_translations = false
+
+
+  Capybara.register_driver :chrome do |app| Capybara::Selenium::Driver.new(app, :browser => :chrome) end
+
+  Capybara.javascript_driver = :chrome
 end

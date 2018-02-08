@@ -1,6 +1,6 @@
 lock "~> 3.10.0"
 
-set :application, "catering.roobykon.com"
+set :application, "sharetribe-rs.roobykon.com"
 set :repo_url, "git@github.com:roobykon/sharetribe_rs.git"
 
 set :rvm_type, :user
@@ -26,7 +26,7 @@ namespace :deploy do
   desc 'restart application'
   task :app_restart do
     on roles(:app), in: :sequence, wait: 5 do
-      execute "sudo service catering restart"
+      execute "sudo service sharetribe-rs restart"
     end
   end
 end

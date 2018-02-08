@@ -32,6 +32,6 @@ describe SessionsController, "POST create", type: :controller do
 
   it "redirects back to original community's domain" do
     post :create, params: {:person  => {:login => "testpersonusername", :password => "testi"}}
-    expect(response).to redirect_to "http://#{@request.host}/"
+    expect(response).to redirect_to "http://#{@request.host}/browse"
   end
 end

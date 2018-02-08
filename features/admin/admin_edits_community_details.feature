@@ -16,8 +16,8 @@ Feature: Admin edits info pages
     And I fill in "community_customizations[en][description]" with "This is a custom description"
     And I press submit
     When I follow "view_slogan_link"
-    Then I should see "Custom slogan"
-    And I should see "This is a custom description"
+    Then I should see "CUSTOM SLOGAN"
+    And I should see "THIS IS A CUSTOM DESCRIPTION"
 
   Scenario: Admin user can edit community details transaction agreement
     Given this community has transaction agreement in use

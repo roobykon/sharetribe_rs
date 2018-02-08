@@ -18,7 +18,7 @@ Feature: Admin edits community look-and-feel
   Scenario: Admin can change the default listing view to list
     Given community "test" has default browse view "grid"
     When I change the default browse view to "List"
-    And I go to the homepage
+    And I go to the browse
     Then I should see the browse view selected as "List"
 
   Scenario: Admin can change the name display type to full name (First Last)
@@ -27,8 +27,8 @@ Feature: Admin edits community look-and-feel
     And I refresh the page
     Then I should see my name displayed as "matti manager"
 
-  Scenario: Admin changes new listing button color
-    Then I should see that the background color of Post a new listing button is "2AB865"
-    And I set the new listing button color to "FF0099"
-    And I press submit
-    Then I should see that the background color of Post a new listing button is "FF0099"
+#  Scenario: Admin changes new listing button color
+#    Then I should see that the background color of Post a new listing button is "2AB865"
+#    And I set the new listing button color to "FF0099"
+#    And I press submit
+#    Then I should see that the background color of Post a new listing button is "FF0099"
