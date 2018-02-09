@@ -2290,6 +2290,9 @@ figure.fluidratio {
 .listings-row {
   background: #f1f1f1;
   padding: 30px 0 0;
+}
+.listings-row,
+.filter-grid {
   position: relative;
   .wrapper {
     background: none;
@@ -2377,6 +2380,7 @@ figure.fluidratio {
   }
   .home-fluid-thumbnail-grid-author.catering-author {
     padding-bottom: 10px;
+    background: white;
   }
   .listing_link {
     background: #292929;
@@ -2415,6 +2419,7 @@ figure.fluidratio {
     padding-right: 40px;
     font-weight: 600;
     position: relative;
+    height: 60px;
   }
   .title-like {
     position: absolute;
@@ -2426,6 +2431,28 @@ figure.fluidratio {
     background-size: contain;
     right: 10px;
     top: 10px;
+  }
+}
+
+.home-fluid-thumbnail-grid-narrow .filter-grid .home-fluid-thumbnail-grid-item.catering-item {
+  width: calc(100% / 2);
+  >div {
+    border: 1px solid #e8e8e8;
+    overflow: hidden;
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+  }
+  .home-fluid-thumbnail-grid-author.catering-author {
+    background: white;
+  }
+  .fluid-thumbnail-location {
+    text-align: left;
+    padding-left: 40px;
+  }
+  .fluid-thumbnail-people:before {
+    left: 40%;
   }
 }
 
@@ -2578,10 +2605,11 @@ figure.fluidratio {
   i {
     width: 38px;
     height: 38px;
+    font-size: 2em;
     content: ' ';
     display: inline-block;
     background: no-repeat;
-    background-image: url(image-path("catering/socials.png"));
+    //background-image: url(image-path("catering/socials.png"));
   }
   .fa-twitter-square {
     background-position: 0 0;
@@ -2674,6 +2702,16 @@ figure.fluidratio {
     padding-right: 1em;
     padding-left: 1em;
     padding-bottom: 1em;
+  }
+  .filter-grid .catering-item {
+    .fluid-thumbnail-location,
+    .fluid-thumbnail-people {
+      display: block;
+      width: 100%;
+    }
+    .fluid-thumbnail-people:before {
+      left: 40%;
+    }
   }
 }
 
@@ -2784,6 +2822,12 @@ figure.fluidratio {
     text-transform: uppercase;
     font-size: 4em !important;
     font-weight: bold !important;
+  }
+  h1:not(.headings-text) {
+    color: transparent;
+    a {
+      color: transparent;
+    }
   }
   .thin-headings {
     font-weight: 100;

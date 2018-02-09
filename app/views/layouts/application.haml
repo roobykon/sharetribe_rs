@@ -45,6 +45,7 @@
               .lander-content.marketplace-lander-content
                 = yield :title_header
         - elsif !(is_homepage && FeatureFlagHelper.feature_enabled?(:topbar_v1))
+          #header-menu-desktop-anchor
           .coverimage
             %figure.marketplace-cover-small.fluidratio
             .coverimage-fade{:class => yield(:coverfade_class)}
@@ -61,9 +62,9 @@
                 = yield :title_header
 
       %article.page-content{class: is_homepage && !@big_cover_photo ? 'no-cover-photo' : ''}
+        = render :partial => "layouts/notifications"
+        = yield
         .wrapper
-          = render :partial => "layouts/notifications"
-          = yield
           - if display_branding_info?
             = render partial: "layouts/non_whitelabel_branding", locals: {link_to_sharetribe: "https://www.sharetribe.com/?utm_source=#{@current_community.ident}.sharetribe.com&utm_medium=referral&utm_campaign=nowl-footer"}
     -#
