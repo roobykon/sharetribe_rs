@@ -2703,14 +2703,29 @@ figure.fluidratio {
     padding-left: 1em;
     padding-bottom: 1em;
   }
+  .filter-grid .fluid-thumbnail-location:before {
+    width: 20px;
+    height: 25px;
+  }
   .filter-grid .catering-item {
     .fluid-thumbnail-location,
     .fluid-thumbnail-people {
       display: block;
       width: 100%;
+      text-align: left;
     }
     .fluid-thumbnail-people:before {
-      left: 40%;
+      left: 2px !important;
+      width: 20px;
+      height: 20px;
+    }
+    .fluid-thumbnail-people {
+      margin-top: 10px;
+      padding-left: 40px;
+    }
+    .people-title,
+    .people-count {
+      display: inline-block;
     }
   }
 }
@@ -2752,6 +2767,7 @@ figure.fluidratio {
   .marketplace-lander .marketplace-lander-content {
     padding: 8em 1em 0;
   }
+  .home-fluid-thumbnail-grid-narrow .filter-grid .home-fluid-thumbnail-grid-item.catering-item,
   .wrapper.wrap-head .search-form-input:not(.search-form-text-field) {
     width: 100%;
   }
@@ -2822,6 +2838,9 @@ figure.fluidratio {
     text-transform: uppercase;
     font-size: 4em !important;
     font-weight: bold !important;
+    @media (max-width: 560px) {
+      font-size: 2.5em !important;
+    }
   }
   h1:not(.headings-text) {
     color: transparent;
@@ -2868,4 +2887,8 @@ div.home-toolbar {
     background: #292929;
     width: 100%;
   }
+}
+
+.checkbox-option-checkmark.orange-checkmark {
+  color: #f68d03;
 }

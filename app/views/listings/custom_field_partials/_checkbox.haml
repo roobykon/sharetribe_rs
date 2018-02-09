@@ -9,7 +9,7 @@
       - column.each do |option|
         - selected = custom_field_value.selected_options.include?(option)
         .checkbox-option{class: selected ? 'selected' : 'not-selected'}
-          %span.checkbox-option-checkmark
+          %span.checkbox-option-checkmark.orange-checkmark
             - if selected
               = icon_tag("check", ["icon-fix"])
           %span
