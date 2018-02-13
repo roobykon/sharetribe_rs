@@ -1,0 +1,16 @@
+.banquet-block
+  - if (category_counter / 2).even?
+    = link_to search_path({category: category[:category]}), :data => {category: category[:category].id}, class: :banquet_link do
+      = image_tag "catering/food#{category_counter + 1}.jpg", class: :banquet_img
+    .banquet-text
+      = link_to search_path({category: category[:category]}), :data => {category: category[:category].id} do
+        %h4= category[:title]
+      %p= category[:description]
+  - else
+    .banquet-text
+      = link_to search_path({category: category[:category]}), :data => {category: category[:category].id} do
+        %h4= category[:title]
+      %p= category[:description]
+    = link_to search_path({category: category[:category]}), :data => {category: category[:category].id}, class: :banquet_link do
+      = image_tag "catering/food#{category_counter + 1}.jpg", class: :banquet_img
+

@@ -352,7 +352,7 @@ default: &default_settings
 
   # Default Google Maps API key for communities that don't specify one
   # Default is not to use Google Maps API key
-  google_maps_key:
+  google_maps_key: 'AIzaSyBd9V8Z5Eaf7AhgBtD0X6u9XsDXd2C4o10'
 
   # Path or URL for landing page assets.
   #
@@ -491,7 +491,7 @@ development:
   <<: *default_settings
 
   # Usually it's easier to run development without SSL
-  always_use_ssl: false
+  always_use_ssl: true
 
   # Skip email confirmation
   skip_email_confirmation: true

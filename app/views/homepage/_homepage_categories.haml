@@ -1,0 +1,7 @@
+.home-about
+  %h3
+    FIND INCREDIBLE PLACES AND BEAUTIFUL SPACES
+  .banquet-wrap
+    = render :partial => 'homepage_category', collection: categories_for_homepage, :as => :category
+  .more_wrap
+    = link_to "More", browse_with_locale_path, :class => 'more_btn'

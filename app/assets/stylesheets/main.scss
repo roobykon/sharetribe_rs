@@ -2269,7 +2269,7 @@ figure.fluidratio {
     display: flex;
     flex: 0 0 50%;
   }
-  .banquet_img,
+  .banquet_link,
   .banquet-text {
     flex: 0 0 50%;
     display: flex;
@@ -2285,8 +2285,8 @@ figure.fluidratio {
   }
   .banquet_img {
     object-fit: cover;
-    width: 50%;
-    max-width: 50%;
+    # max-width: 50%;
+    width: 100%;
   }
   .banquet-text {
     padding: 10px 20px;

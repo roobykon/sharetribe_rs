@@ -12,20 +12,15 @@
           = link_to " ", '#',:class => 'title-like'
         .fluid-thumbnail-info
           .fluid-thumbnail-location
-            .location-city
-              Amsterdam
-            .location-country
-              Netherlands
+            .location-city= listing.city
+            .location-country= listing.country
           .fluid-thumbnail-people
-            .people-title
-              PEOPLE
+            .people-title= capacity_title
             .people-count
-              from
-              %b 2
-              to
-              %b 1000
+              = listing.capacity
         .home-fluid-services
-          Corporative, Fourchettes, Banquets, Drinks and Cocktails, Birthdays
+          = link_to search_path(category: listing.category_name), :data => {category: listing.category_id} do
+            = listing.category_name
         -#.home-fluid-thumbnail-grid-author-avatar
         -#  = link_to(person_path(username: listing.author.username)) do
         -#    = image_tag(listing.author.avatar.thumb || missing_avatar(:thumb), :class => "home-fluid-thumbnail-grid-author-avatar-image")

@@ -356,4 +356,19 @@ class Listing < ApplicationRecord
   def logger_metadata
     { listing_id: id }
   end
+
+  def answer_for(custom_field)
+    custom_field_values.find { |value| value.custom_field_id == custom_field.id }
+  end
+
+  def capacity
+    if CustomField.people_field && self.answer_for(CustomField.people_field)
+      option_items = self.answer_for(CustomField.people_field).selected_options.map{|s| s.titles }.first
+      option_items.first.value
+    end
+  end
+
+  def category_name
+    self.category.display_name(I18n.locale)
+  end
 end

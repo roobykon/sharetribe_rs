@@ -775,6 +775,8 @@ CREATE TABLE `locations` (
   `longitude` float DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `google_address` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `listing_id` int(11) DEFAULT NULL,
@@ -2241,6 +2243,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20171129152027'),
 ('20171207073027'),
 ('20171207075640'),
-('20180108061342');
+('20180108061342'),
+('20180213174700');
 
 
