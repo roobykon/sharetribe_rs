@@ -37,6 +37,9 @@ $elementSpacing: lines(0.5);
   float: right;
   font-weight: bold;
   padding-top: 2em;
+  @media (max-width: 560px) {
+    padding-top: 0.625em;
+  }
 }
 
 /* Buttons may need padding, text links don't */
@@ -161,10 +164,17 @@ $elementSpacing: lines(0.5);
 
 .header-toggle-menu-user {
   @include header-toggle-menu;
+  top: 106px !important;
+  @media (max-width: 560px) {
+    top: 60px !important;
+  }
 }
 
 .header-toggle-menu-menu {
   @include header-toggle-menu;
+  @media (max-width: 560px) {
+   top: 60px !important;
+  }
 }
 
 .header-inbox-link {

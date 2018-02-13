@@ -211,7 +211,8 @@
               = t(".no_listings_notification",
                     add_listing_link: link_to(t(".add_listing_link_text"),
                     new_listing_path(ref: "add_listing_link"))).html_safe
-        = link_to 'See More', '#', :class => 'listing_link'
+        .clearfix_more
+          = link_to 'See More', '#', :class => 'listing_link'
   .row.catering-blog
     =image_tag 'catering/plate.png', class: :plate_picture
     .wrapper

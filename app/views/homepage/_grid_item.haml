@@ -7,8 +7,9 @@
       -# Listing author details
       .home-fluid-thumbnail-grid-author.catering-author
         .fluid-thumbnail-grid-image-title
-          = listing.title
-          .title-like
+          = link_to(listing_path(listing.url), :class => "fluid-thumbnail-grid-image-item-link catering-link") do
+            = listing.title
+          = link_to " ", '#',:class => 'title-like'
         .fluid-thumbnail-info
           .fluid-thumbnail-location
             .location-city
@@ -42,7 +43,7 @@
         -#    - dist_string = "#{dist} #{listing.distance_unit}"
         -#    .home-fluid-thumbnail-grid-details-distance{title: dist_string}
         -#      = dist_string
-        .fluid-thumbnail-grid-image-price-container.price-wrap
+        = link_to(listing_path(listing.url), :class => 'fluid-thumbnail-grid-image-price-container price-wrap') do
           - if listing.price
             %span.fluid-thumbnail-grid-image-price
               %span.price-smallest

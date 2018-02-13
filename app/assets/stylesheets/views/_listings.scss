@@ -214,7 +214,13 @@ $listing-author-avatar-height: 108;
 // Transaction action button
 .enabled-book-button {
   @include big-button($link);
+  background: #f68d03;
   @extend .book-button;
+  &:hover,
+  &:active,
+  &:focus {
+    background: #d87b00;
+  }
 }
 
 .disabled-book-button {

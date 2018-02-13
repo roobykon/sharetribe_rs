@@ -1953,7 +1953,7 @@ figure.fluidratio {
   position: relative;
 
   figure.marketplace-cover {
-    background-image: url(image-path("catering/bg.jpg"));
+    //background-image: url(image-path("catering/bg.jpg"));
     height: auto;
     background-size: cover;
   }
@@ -1987,7 +1987,7 @@ figure.fluidratio {
   }
 
   .marketplace-lander-content {
-    padding: 11em 1em 0;
+    padding: 0 1em;
     text-align: center;
   }
 
@@ -2194,6 +2194,16 @@ figure.fluidratio {
 
 /*catering styles*/
 
+.marketplace-lander.header-lander .title-container {
+  position: relative;
+}
+
+.marketplace-lander .marketplace-lander-content-description {
+  font-weight: 100;
+  margin: 0.75em 0 2em;
+  font-size: 1.4em;
+}
+
 .wrapper.wrap-head {
   background: none;
   h1 {
@@ -2239,6 +2249,10 @@ figure.fluidratio {
   }
 }
 
+.header-inbox-link .icon-envelope.header-inbox {
+  color: #ffffff;
+}
+
 .home-about {
   h3 {
     text-align: center;
@@ -2263,12 +2277,16 @@ figure.fluidratio {
     color: white;
     h4 {
       color: white;
-      font-size: 1.5em;
+      font-size: 1.4em;
+      font-weight: 400;
+      text-align: center;
+      width: 100%;
     }
   }
   .banquet_img {
     object-fit: cover;
     width: 50%;
+    max-width: 50%;
   }
   .banquet-text {
     padding: 10px 20px;
@@ -2290,6 +2308,25 @@ figure.fluidratio {
 .listings-row {
   background: #f1f1f1;
   padding: 30px 0 0;
+  .home-fluid-thumbnail-grid-narrow .home-fluid-thumbnail-grid {
+    overflow: visible;
+  }
+}
+.home-fluid-thumbnail-grid-item.catering-item {
+  transition: 1s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+.fluid-thumbnail-grid-image-title a {
+  color: black;
+}
+.clearfix_more:before {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
 }
 .listings-row,
 .filter-grid {
@@ -2358,6 +2395,7 @@ figure.fluidratio {
     font-size: 1em;
   }
   .price-wrap {
+    display: block;
     margin: 10px auto;
     width: 90%;
     background: #f28300;
@@ -2366,6 +2404,10 @@ figure.fluidratio {
     border-radius: 5px;
     max-width: 100%;
     text-align: center;
+    transition: 1s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
   .fluid-thumbnail-grid-image-price {
     font-size: 3em;
@@ -2381,6 +2423,7 @@ figure.fluidratio {
   .home-fluid-thumbnail-grid-author.catering-author {
     padding-bottom: 10px;
     background: white;
+    color: black;
   }
   .listing_link {
     background: #292929;
@@ -2431,6 +2474,10 @@ figure.fluidratio {
     background-size: contain;
     right: 10px;
     top: 10px;
+    transition: 1s linear;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }
 
@@ -2739,6 +2786,7 @@ figure.fluidratio {
   }
   .search-form-input .action-button {
     margin-bottom: 0;
+    min-height: 46px;
   }
   .footer-links .footer-col,
   .footer-links .footer-col:first-child {
@@ -2764,9 +2812,6 @@ figure.fluidratio {
     padding: 0 10px;
     font-size: 1em;
   }
-  .marketplace-lander .marketplace-lander-content {
-    padding: 8em 1em 0;
-  }
   .home-fluid-thumbnail-grid-narrow .filter-grid .home-fluid-thumbnail-grid-item.catering-item,
   .wrapper.wrap-head .search-form-input:not(.search-form-text-field) {
     width: 100%;
@@ -2777,6 +2822,7 @@ figure.fluidratio {
   .banquet-wrap .banquet-block {
     .banquet_img {
       order: 1;
+      max-width: 100%;
     }
     .banquet-text {
       order: 2 ;
@@ -2800,15 +2846,23 @@ figure.fluidratio {
 }
 
 .header-lander {
-  padding: 250px 0;
+  padding: 200px 0 0;
   background-image: url(image-path("catering/bg.jpg"));
   height: auto;
   background-size: cover;
   .coverimage {
-    display: none;
+    //display: none;
+    .marketplace-cover-small.fluidratio {
+      height: auto;
+    }
+    .coverimage-fade {
+      background: transparent;
+    }
   }
   .marketplace-title-header {
     position: relative;
+    display: block;
+    padding-bottom: 100px;
   }
   .browse-view-search-form {
     position: absolute;
@@ -2829,10 +2883,6 @@ figure.fluidratio {
     color: black;
   }
   .headings-text {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    text-align: center !important;
     width: 100%;
     color: white !important;
     text-transform: uppercase;
@@ -2840,6 +2890,7 @@ figure.fluidratio {
     font-weight: bold !important;
     @media (max-width: 560px) {
       font-size: 2.5em !important;
+      display: block !important;
     }
   }
   h1:not(.headings-text) {
@@ -2848,13 +2899,23 @@ figure.fluidratio {
       color: transparent;
     }
   }
+  h1.marketplace-lander-content-title {
+    color: white !important;
+  }
   .thin-headings {
+    display: block;
     font-weight: 100;
     font-size: 0.8em;
+    line-height: 1;
   }
   .bold-headings {
     display: block;
     font-size: 0.9em;
+    line-height: 1;
+  }
+  @media (max-width: 560px) {
+    text-align: center;
+    padding: 100px 0 0;
   }
 }
 
