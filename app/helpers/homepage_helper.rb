@@ -23,4 +23,20 @@ module HomepageHelper
     precision = (distance < 1) ? 1 : 2
     (distance < 0.1) ? "< #{number_with_delimiter(0.1, locale: locale)}" : number_with_precision(distance, precision: precision, significant: true, locale: locale)
   end
+
+  def capacity_title
+    CustomField::PEOPLE_NAME.upcase
+  end
+
+  def categories_for_homepage
+    category_items = []
+    # TODO remove omitting all besides 4 ?
+    @main_categories.first(4).each do |category|
+      machine_name = category.url.parameterize.underscore
+      category_items << { category: category,
+                          title: t("categories.#{machine_name}.title"),
+                          description: t("categories.#{machine_name}.description") }
+    end
+    category_items
+  end
 end

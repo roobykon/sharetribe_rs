@@ -142,7 +142,7 @@ module ListingFormViewUtils
         elsif params[:listing].present? && params[:listing][:origin_loc_attributes].present?
           params.require(:listing).require(:origin_loc_attributes)
         end
-    p.permit(:address, :google_address, :latitude, :longitude) if p.present?
+    p.permit(:address, :google_address, :city, :country, :latitude, :longitude) if p.present?
   end
 
   def unit_to_listing_opts(m_unit)

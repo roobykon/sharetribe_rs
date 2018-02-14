@@ -7,6 +7,8 @@
 #  longitude      :float(24)
 #  address        :string(255)
 #  google_address :string(255)
+#  city           :string(255)
+#  country        :string(255)
 #  created_at     :datetime
 #  updated_at     :datetime
 #  listing_id     :integer

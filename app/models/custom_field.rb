@@ -21,6 +21,8 @@
 #
 
 class CustomField < ApplicationRecord
+  PEOPLE_NAME = "People"
+
   include SortableByPriority # use `sort_priority()` for sorting
 
   has_many :names, class_name: "CustomFieldName", dependent: :destroy
@@ -39,6 +41,10 @@ class CustomField < ApplicationRecord
   validates_length_of :names, minimum: 1
   validates_length_of :category_custom_fields, minimum: 1
   validates_presence_of :community
+
+  def self.people_field
+    self.joins(:names).where("custom_field_names.value = ? and locale = 'en'", PEOPLE_NAME).first
+  end
 
   def name_attributes=(attributes)
     build_attrs = attributes.map { |locale, value| {locale: locale, value: value } }

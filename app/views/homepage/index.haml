@@ -63,40 +63,7 @@
 
 - else
   .wrapper
-    .home-about
-      %h3
-        FIND INCREDIBLE PLACES AND BEAUTIFUL SPACES
-      .banquet-wrap
-        .banquet-block
-          =image_tag 'catering/food1.jpg', class: :banquet_img
-          .banquet-text
-            %h4
-              Banquets
-            %p
-              Event catering is a timely given gastronomic impression on significant events in a hospitable atmosphere with a high level of service. Buffet - snacks are served on the buffet table, guests are located behind cocktail tables standing, with drinks and light snacks. Provides guests with free communication
-        .banquet-block
-          =image_tag 'catering/food2.jpg', class: :banquet_img
-          .banquet-text
-            %h4
-              Drinks and Cocktails
-            %p
-              Event catering is a timely given gastronomic impression on significant events in a hospitable atmosphere with a high level of service. Buffet - snacks are served on the buffet table, guests are located behind cocktail tables standing, with drinks and light snacks. Provides guests with free communication
-        .banquet-block
-          .banquet-text
-            %h4
-              Corporative
-            %p
-              Event catering is a timely given gastronomic impression on significant events in a hospitable atmosphere with a high level of service. Buffet - snacks are served on the buffet table, guests are located behind cocktail tables standing, with drinks and light snacks. Provides guests with free communication
-          =image_tag 'catering/food3.jpg', class: :banquet_img
-        .banquet-block
-          .banquet-text
-            %h4
-              Fourchettes
-            %p
-              Event catering is a timely given gastronomic impression on significant events in a hospitable atmosphere with a high level of service. Buffet - snacks are served on the buffet table, guests are located behind cocktail tables standing, with drinks and light snacks. Provides guests with free communication
-          =image_tag 'catering/food4.jpg', class: :banquet_img
-      .more_wrap
-        = link_to "More", "#", :class => 'more_btn'
+    = render :partial => 'homepage_categories'
 
   -#.home-toolbar
   -#
@@ -164,45 +131,11 @@
     .wrapper
       %h3
         popular listings
-      -#- if @category_menu_enabled
-      -#  .col-3.visible-tablet
-      -#    - if @show_categories
-      -#      .row
-      -#        .col-12
-      -#          = link_to t("homepage.filters.all_categories"), search_path(search_params.merge({category: "all"})), :class => "home-categories-main #{if selected_category.nil? then 'selected' end}"
-      -#          - @main_categories.each do |category|
-      -#            - show_subcategories = show_subcategory_list(category, Maybe(selected_category).id.to_i.or_else(nil))
-      -#            = link_to category.display_name(I18n.locale), search_path(search_params.merge({category: category})), :class => "home-categories-main #{if show_subcategories then 'selected' end} #{if category.has_subcategories? then 'has-subcategories' end}", :data => {category: category.id}
-      -#            - if category.children
-      -#              - if show_subcategories
-      -#                - category.children.each do |child|
-      -#                  - is_selected = selected_category == child
-      -#                  = link_to child.display_name(I18n.locale), search_path(search_params.merge({category: child})), :class => "home-categories-sub #{if is_selected then 'selected' end}", :data => {:"sub-category" =>child.id}
-      -#
-      -#    #desktop-filters
-      -#      - # Filters will be relocated here when in desktop
-
-      - main_container_class = if @category_menu_enabled then "col-12" else "col-12" end
-      %div{:class => main_container_class}
+      %div{:class => "col-12"}
         - if @listings.total_entries > 0
-          - if @view_type.eql?("map")
-            .home-map
-              = render :partial => "map", locals: { viewport: viewport }
-          - else
-            - if @view_type.eql?("grid")
-              %div{class: @category_menu_enabled ? "home-fluid-thumbnail-grid-narrow" : "home-fluid-thumbnail-grid-wide"}
-                .home-fluid-thumbnail-grid
-                  = render partial: "grid_item", collection: @listings, as: :listing, locals: { show_distance: location_search_in_use }
-            - else
-              .home-listings
-                - if (location_search_in_use)
-                  = render partial: "list_item_with_distance", collection: @listings, as: :listing, locals: { shape_name_map: shape_name_map, show_distance: location_search_in_use }
-                - else
-                  = render partial: "list_item", collection: @listings, as: :listing, locals: { shape_name_map: shape_name_map }
-            .home-loading-more
-              = will_paginate(@listings)
-              - item_container = if @view_type.eql?("grid") then '.home-fluid-thumbnail-grid' else '.home-listings' end
-              = pageless(@listings.total_pages, item_container, current_search_path_without_page, t('.loading_more_content'), current_page)
+          %div{class: @category_menu_enabled ? "home-fluid-thumbnail-grid-narrow" : "home-fluid-thumbnail-grid-wide"}
+            .home-fluid-thumbnail-grid
+              = render partial: "grid_item", collection: @listings.first(6), as: :listing, locals: { show_distance: location_search_in_use }
         - else
           .home-no-listings
             - if params[:q] || params[:category] || params[:share_type] # Some filter in use
@@ -212,7 +145,8 @@
                     add_listing_link: link_to(t(".add_listing_link_text"),
                     new_listing_path(ref: "add_listing_link"))).html_safe
         .clearfix_more
-          = link_to 'See More', '#', :class => 'listing_link'
+          = link_to 'See More', browse_with_locale_path, :class => 'listing_link'
+
   .row.catering-blog
     =image_tag 'catering/plate.png', class: :plate_picture
     .wrapper
