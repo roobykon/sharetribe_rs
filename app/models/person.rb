@@ -105,6 +105,7 @@ class Person < ApplicationRecord
   has_one  :accepted_community, -> { where("community_memberships.status= 'accepted'") }, through: :community_membership, source: :community
   has_many :invitations, :foreign_key => "inviter_id", :dependent => :destroy
   has_many :auth_tokens, :dependent => :destroy
+  has_many :favorite_listings, :dependent => :destroy
   has_many :follower_relationships
   has_many :followers, :through => :follower_relationships, :foreign_key => "person_id"
   has_many :inverse_follower_relationships, :class_name => "FollowerRelationship", :foreign_key => "follower_id"

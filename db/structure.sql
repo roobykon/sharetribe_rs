@@ -509,6 +509,19 @@ CREATE TABLE `emails` (
   KEY `index_emails_on_confirmation_token` (`confirmation_token`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `favorite_listings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `favorite_listings` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `listing_id` int(11) NOT NULL,
+  `person_id` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_favorite_listings_on_listing_id_and_person_id` (`listing_id`,`person_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `feature_flags`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -2244,6 +2257,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20171207073027'),
 ('20171207075640'),
 ('20180108061342'),
-('20180213174700');
+('20180213174700'),
+('20180214133050');
 
 

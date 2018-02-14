@@ -1,0 +1,8 @@
+- listing = list.listing
+- if listing.present?
+  .people-fluid-thumbnail-grid-item.influencers-favorite
+    = link_to listing_path(listing), class: 'listing-img-holder' do
+      .listing-name-holder
+        %h4.listing-name
+          = listing.title
+    = link_to 'Remove', add_to_favorites_person_listing_path(@current_user, listing), method: :put, class: 'profile-edit-link'

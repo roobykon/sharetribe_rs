@@ -353,6 +353,7 @@ Rails.application.routes.draw do
         get :browse
         get :locations_json
         get :verification_required
+        get :all_favor_listings
       end
       resources :comments, :only => [:create, :destroy]
       resources :listing_images do
@@ -428,6 +429,7 @@ Rails.application.routes.draw do
             put :close
             put :move_to_top
             put :show_in_updates_email
+            put :add_to_favorites
           end
         end
         resources :person_messages

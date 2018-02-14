@@ -1,0 +1,10 @@
+- if @current_user.present?
+  = link_to "#", data: { method: "put",
+                         remote: "true",
+                         href: add_to_favorites_person_listing_url(@current_user, listing.id)},
+                       class: "title-like add-to-favorites" do
+    - if listing_liked(@current_user, listing.id)
+      = icon_tag("unfavor", ["icon-part"])
+    - else
+      = icon_tag("favor", ["icon-part"])
+

@@ -79,6 +79,8 @@ class Listing < ApplicationRecord
   has_many :custom_dropdown_field_values, :class_name => "DropdownFieldValue"
   has_many :custom_checkbox_field_values, :class_name => "CheckboxFieldValue"
 
+  has_many :favorite_listings, :dependent => :destroy
+
   has_one :location, :dependent => :destroy
   has_one :origin_loc, -> { where('location_type = ?', 'origin_loc') }, :class_name => "Location", :dependent => :destroy
   has_one :destination_loc, -> { where('location_type = ?', 'destination_loc') }, :class_name => "Location", :dependent => :destroy
@@ -355,6 +357,10 @@ class Listing < ApplicationRecord
 
   def logger_metadata
     { listing_id: id }
+  end
+
+  def in_favorites?(person)
+    FavoriteListing.where(person_id: person.id, listing_id: self.id).first.present?
   end
 
   def answer_for(custom_field)

@@ -39,4 +39,13 @@ module HomepageHelper
     end
     category_items
   end
+
+  def listing_liked(person, listing)
+    listing_item = listing.is_a?(Listing) ? listing : Listing.find(listing)
+    if listing_item && person
+      listing_item.in_favorites?(person)
+    else
+      false
+    end
+  end
 end

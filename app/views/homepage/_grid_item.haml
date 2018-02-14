@@ -9,7 +9,7 @@
         .fluid-thumbnail-grid-image-title
           = link_to(listing_path(listing.url), :class => "fluid-thumbnail-grid-image-item-link catering-link") do
             = listing.title
-          = link_to " ", '#',:class => 'title-like'
+          = render :partial => 'favor_listing', locals: { listing: listing }
         .fluid-thumbnail-info
           .fluid-thumbnail-location
             .location-city= listing.city

@@ -20,6 +20,41 @@ window.ST = window.ST || {};
         text.html(actionError);
       });
     });
+
+    $('#add-to-favorites').on('click', function(event) {
+      var $text = $(this).find('#favor-text');
+      var actionLoading = $text.data('action-loading');
+      var actionSuccessAdded = $text.data('action-success-added');
+      var actionSuccessDeleted = $text.data('action-success-deleted');
+      var actionError = $text.data('action-error');
+      var url = $(this).data('href');
+
+      var $icon = $(this).find('i.icon-part');
+      var iconAdded = "icon-heart";
+      var iconDeleted = "icon-heart-empty";
+      $text.html(actionLoading);
+
+      $.ajax({
+        url: url,
+        type: "PUT"
+      }).done(function(data, status) {
+        if (data['status'] === 'deleted') {
+          $text.html(actionSuccessDeleted);
+          $icon.removeClass(iconAdded);
+          $icon.addClass(iconDeleted);
+        }
+        else if (data['status'] === 'added') {
+          $text.html(actionSuccessAdded);
+          $icon.removeClass(iconDeleted);
+          $icon.addClass(iconAdded);
+        }
+      }).fail(function() {
+        $text.html(actionError);
+      });
+
+      event.preventDefault();
+      event.stopPropagation();
+    });
   };
 
   module.initializeQuantityValidation = function(opts) {

@@ -55,6 +55,17 @@ class ListingsController < ApplicationController
     end
   end
 
+  def all_favor_listings
+    per_page = params[:per_page] || 1000
+    respond_to do |format|
+      format.html do
+        render partial: "people/favorites", locals: { person: @current_user,
+                                                      favorite_listings: @current_user.favorite_listings,
+                                                      limit: per_page}
+      end
+    end
+  end
+
   def listing_bubble
     if params[:id]
       @listing = Listing.find(params[:id])
@@ -241,6 +252,28 @@ class ListingsController < ApplicationController
     # Listings are sorted by `sort_date`, so change it to now.
     @listing.update_attribute(:sort_date, Time.now)
     redirect_to homepage_index_path
+  end
+
+  def add_to_favorites
+    @listing = @current_community.listings.find(params[:id])
+    @user = Person.find_by!(username: params[:person_id])
+    fav = FavoriteListing.where(person_id: @user.id, listing_id: @listing.id)
+    if fav.first.present?
+      fav.delete_all
+      if request.xhr?
+        render json: { status: "deleted" }, :status => 200
+      else
+        flash[:notice] = "Listing was successfully removed from favorites list!"
+        redirect_to :back
+      end
+    else
+      fav.first_or_create!
+      render json: {status: 'added'}, :status => 200
+    end
+  end
+
+  def back_url
+    request.headers["HTTP_REFERER"] || root
   end
 
   def show_in_updates_email

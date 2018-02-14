@@ -47,6 +47,12 @@
       - limit = 6
       = render :partial => 'listings/profile_listings', :locals => {person: @person, limit: limit, listings: listings}
 
+    #profile-fav-listings-list
+      - fav_limit = 6
+      = render :partial => "favorites", locals: { person: @person,
+                                                  favorite_listings: @person.favorite_listings,
+                                                  limit: fav_limit }
+
     - if @current_community.follow_in_use?
       = render :partial => "followed_people", :locals => { person: @person, followed_people: followed_people, limit: 6 }
 

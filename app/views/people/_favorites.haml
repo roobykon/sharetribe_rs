@@ -1,0 +1,10 @@
+.row
+  %h2.people-header= "Favorites List"
+
+.people-fluid-thumbnail-grid-container#favorites_list
+  .people-fluid-thumbnail-grid
+    = render partial: "people/favor_list", collection: favorite_listings.limit(limit), as: :list
+
+- if favorite_listings.size > limit
+  .row#load-more-listings-fav
+    = link_to "Show more", all_favor_listings_listings_path, class: %i(button primary-button-empty middle-button more-button)
