@@ -491,7 +491,7 @@ development:
   <<: *default_settings
 
   # Usually it's easier to run development without SSL
-  always_use_ssl: true
+  always_use_ssl: false
 
   # Skip email confirmation
   skip_email_confirmation: true
