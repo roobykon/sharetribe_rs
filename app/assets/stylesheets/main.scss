@@ -2356,7 +2356,8 @@ figure.fluidratio {
     position: relative;
   }
   .fluid-thumbnail-location {
-    font-size: 1.1em;
+    font-size: 1em;
+    padding-left: 31px;
   }
   .fluid-thumbnail-location:before {
     display: block;
@@ -2372,6 +2373,12 @@ figure.fluidratio {
   }
   .location-city {
     font-weight: bold;
+  }
+  .location-city,
+  .location-country {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
   .people-title {
     color: #f28300;
