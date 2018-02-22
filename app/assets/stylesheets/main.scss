@@ -2933,6 +2933,9 @@ div.home-toolbar {
   .home-toolbar-button-group-button {
     background: white;
     border: 1px solid #b8b8b8;
+    &:hover {
+      color: #aa6202;
+    }
   }
   .home-toolbar-button-group-button.selected {
     background: #f68d03;
