@@ -41,7 +41,7 @@
 
     = render :partial => "layouts/header_menu", locals: { locale_change_links: locale_change_links, icons: icons}
     .header-right
-      = link_to "Who we are", "#", class: "header-text-link header-hover"
+      = link_to "Who we are", about_infos_path, class: "header-text-link header-hover"
     -#
       If necessary, the buttons will overlap with the logo. Buttons should be on top, that's
       keep the logo here after buttons
