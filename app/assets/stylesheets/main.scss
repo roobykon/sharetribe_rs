@@ -2985,11 +2985,18 @@ div.home-toolbar {
   color: #f68d03;
 }
 
-.people-fluid-thumbnail-grid-item.influencers-favorite h3 
-{ 
-  min-height: 3em; 
+.people-fluid-thumbnail-grid-item.influencers-favorite .listing-name { 
+  height: 3em; 
+  // max-height: 3em;
+  overflow: hidden;
 } 
 
 .ajax-notification .ajax-text, .ajax-notification .flash-text, .flash-notification .ajax-text, .flash-notification .flash-text {
   text-align: center;
+}
+
+.home-fluid-thumbnail-grid-item.catering-item {
+  .disabled-homepage {
+    display: none;
+  }
 }
