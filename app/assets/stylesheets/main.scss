@@ -2379,6 +2379,8 @@ figure.fluidratio {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    text-align: left;
+    padding-left: 10px;
   }
   .people-title {
     color: #f28300;
@@ -2987,3 +2989,7 @@ div.home-toolbar {
 { 
   min-height: 3em; 
 } 
+
+.ajax-notification .ajax-text, .ajax-notification .flash-text, .flash-notification .ajax-text, .flash-notification .flash-text {
+  text-align: center;
+}
