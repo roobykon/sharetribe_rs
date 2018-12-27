@@ -16,7 +16,7 @@ module ListingIndexService::Search::Converters
       quantity: l.quantity,
       shape_name_tr_key: l.shape_name_tr_key,
       listing_shape_id: l.listing_shape_id,
-      address: l.location.address,
+      address: l.location&.address || '',
       custom_field_values: l.custom_field_values
     }.merge(meta)
       .merge(location_hash(l, includes))
