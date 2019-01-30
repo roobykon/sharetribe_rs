@@ -257,24 +257,6 @@ ICON_MAP = {
       "reply" => "fa fa-reply",
       "topbar_menu" => "fa fa-minus",
 
-<<<<<<< HEAD
-      "details" => "fa fa-file",
-      "profile" => "fa fa-file",
-      "account_settings" => "fa fa-lock",
-      "notification_settings" => "fa fa-bell-alt",
-      "rows" => "fa fa-reorder",
-      "form" => "fa fa-table",
-      "order_types" => "fa fa-shopping-cart",
-      "payments" => "fa fa-money",
-      "social_media" => "fa fa-share",
-      "analytics" => "fa fa-bar-chart",
-      "send" => "fa fa-envelope",
-      "coins" => "fa fa-inbox",
-      "openbook" => "fa fa-book",
-      "academy" => "fa fa-bookmark",
-      "grid" => "fa fa-th-large",
-      "check" => "fa fa-ok",
-=======
       "details" => "icon-file-alt",
       "profile" => "icon-file-alt",
       "account_settings" => "icon-lock",
@@ -296,6 +278,5 @@ ICON_MAP = {
       "footer_menu" => "icon-download-alt",
       "invitations" => "icon-random",
       "plus" => "icon-plus",
->>>>>>> 1ac316d1fcaa2fe83103acee9e38073482673079
     }
   }
