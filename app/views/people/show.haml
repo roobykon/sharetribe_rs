@@ -12,12 +12,24 @@
 .row
   .col-8
 
-    .row.relative
-      .people-image-mobile
-        = huge_avatar_thumb(person)
-      .profile-action-buttons-mobile
-        = render "profile_action_buttons", service: @service
+    .row.hidden-tablet
+      .people-sidebar
+        .people-image-mobile
+          = huge_avatar_thumb(@person)
+        .row.no-margin
+          .name
+            = PersonViewUtils.person_display_name(@person, @current_community)
+          .location
+            = 'London'
+        .profile-action-buttons-mobile
+          = render :partial => "profile_action_buttons"
 
+    .row.no-margin
+      - if @person.description && !@person.description.blank?
+        - text_with_line_breaks do
+          = @person.description
+      - elsif current_user?(@person)
+        %a{href: person_settings_path(@person)}
     .row.profile-about-me
       - if person.description && !person.description.blank?
         = markdown(person.description)
