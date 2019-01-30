@@ -58,9 +58,13 @@ pt-PT:
         community_name: "Nome do mercado virtual"
         edit_community_name_description: "O nome do seu mercado virtual. Será mostrado a utilizadores e em vários outros locais."
         community_slogan: "Slogan do mercado virtual"
+        community_slogan_display: ~
         edit_community_slogan_description: "Isso é mostrado na página inicial do mercado virtual para os utilizadores que não estejam cadastrados. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: ~
         community_description: "Descrição do mercado virtual"
+        community_description_display: ~
         edit_community_description_description: "Isso é mostrado na página inicial do mercado virtual para os utilizadores que não estejam cadastrados. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: ~
         community_search_placeholder: ~
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
@@ -86,6 +90,7 @@ pt-PT:
         edit_community_look_and_feel: "Editar o visual do mercado virtual %{community_name}."
         community_logo: Logo
         community_logo_icon: ~
+        community_logo_icon_mobile: ~
         community_cover_photo: "Foto de capa"
         small_community_cover_photo: ~
         favicon: ~
@@ -100,6 +105,7 @@ pt-PT:
         logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: ~
         logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Foto da capa apresentada na página inicial para utilizadores não conectados."
         cover_photo_instructions_text_with_dimensions: ~
         small_cover_photo_visibility: "Foto pequena da capa mostrado para utilizadores não conectados."
@@ -120,6 +126,7 @@ pt-PT:
         invalid_color_code: ~
         custom_head_script: ~
         custom_head_script_instructions_text: ~
+        current_image: ~
       edit_text_instructions:
         edit_text_instructions: ~
       edit_welcome_email:
@@ -167,27 +174,33 @@ pt-PT:
       getting_started:
         getting_started: ~
       available_languages:
+        cs: ~
+        da-DK: ~
+        de: ~
         en: ~
         en-AU: ~
         en-GB: ~
-        fr: ~
-        fr-CA: ~
         es: ~
         es-ES: ~
-        pt-PT: ~
-        pt-BR: ~
-        nb: ~
-        sv: ~
-        da-DK: ~
         fi: ~
-        ru: ~
-        de: ~
+        fr: ~
+        fr-CA: ~
         el: ~
-        nl: ~
-        tr-TR: ~
-        zh: ~
-        ja: ~
         it: ~
+        ja: ~
+        ko: ~
+        nb: ~
+        nl: ~
+        pl: ~
+        pt-BR: ~
+        pt-PT: ~
+        ru: ~
+        sv: ~
+        th-TH: ~
+        tr-TR: ~
+        vi: ~
+        zh: ~
+        zh-TW: ~
       settings:
         settings: ~
         general: ~
@@ -218,7 +231,6 @@ pt-PT:
         update_settings: ~
         automatically_confirmed_no_escrow: ~
         automatically_confirmed_no_escrow_stripe_info: ~
-        automatically_confirmed_after_end_time: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
@@ -252,6 +264,23 @@ pt-PT:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          admin: ~
+          banned: ~
+          posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -261,6 +290,14 @@ pt-PT:
         searchpage: ~
       social_media:
         social_media: ~
+        logo: ~
+        logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: ~
         twitter_handle_info_text: "Nome de utilizador da conta do Twitter do seu mercado virtual (se tiver uma). Será mencionado quando as pessoas usarem o botão tweet na página do anúncio."
         twitter_handle_info_text_with_instructions: "Nome de utilizador da conta de Twitter do seu mercado virtual (se tiver um). Será mencionado quando as pessoas clicarem o botão 'tweet' na página de anúncios. %{instructions_link}."
@@ -275,16 +312,28 @@ pt-PT:
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
+        enable_facebook_login: ~
         save: ~
+        add_another_image: ~
       analytics:
         analytics: ~
         google_analytics_key: ~
         google_analytics_key_info_text: ~
         google_analytics_key_info_text_with_instructions: ~
         google_analytics_instructions_link_text: ~
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: ~
+      logo_link:
+        title: ~
+        info: ~
+        url: ~
+        placeholder: ~
       menu_links:
         menu_links: ~
+        menu_links_display: ~
         save: ~
         add_menu_link: ~
         title_placeholder: ~
@@ -297,13 +346,36 @@ pt-PT:
         all: ~
         max_number_of_links_info: ~
         about_page: ~
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
       topbar:
         topbar: ~
         new_listing_button_label: ~
         invalid_post_listing_button_label: ~
       transactions:
         export_all_as_csv: ~
+        processing_export: ~
         transactions: ~
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          preauthorized: ~
+          rejected: ~
         headers:
           conversation: ~
           listing: Anúncio
@@ -361,6 +433,97 @@ pt-PT:
           other_party: ~
         participants: ~
         profile: ~
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
+      testimonials:
+        testimonials: ~
+        no_testimonials_found: ~
+        displaying_xx_reviews: ~
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
+        headers:
+          transaction: ~
+          author: ~
+          receiver: ~
+          status: ~
+          grade: ~
+          text: ~
+        status:
+          waiting: ~
+          skipped: ~
+          published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
+      listings:
+        listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
+        headers:
+          title: ~
+          author: ~
+          created: ~
+          updated: ~
+          category: ~
+          status: ~
+        open: ~
+        closed: ~
+        expired: ~
+      user_fields:
+        user_fields: ~
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        title_placeholder: ~
+        url_placeholder: ~
+        style:
+          dark: ~
+          light: ~
+          marketplace_color: ~
+          logo: ~
+        social:
+          title: ~
+          url: ~
     custom_fields:
       edit:
         edit_listing_field: "Alterar anúncio '%{field_name}'"
@@ -414,6 +577,32 @@ pt-PT:
         dropdown: ~
         checkbox_group: ~
         date: ~
+        file: ~
+        location: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        signup: ~
+        public: ~
+        add_new_field: ~
+        save: ~
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
     emails:
       new:
         send_email_to_members: "Envie e-mail aos utilizadores"
@@ -428,6 +617,7 @@ pt-PT:
           title: ~
           options:
             all_users: ~
+            posting_allowed: ~
             with_listing: ~
             with_listing_no_payment: ~
             with_payment_no_listing: ~
@@ -439,6 +629,11 @@ pt-PT:
         any_language: ~
         message_will_be_sent_only_to_people_with_this_language: "Nota: o e-mail será enviado apenas aos utilizadores que utilizam a %{service_name} no idioma que você escolheu."
         email_sent: ~
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
     left_hand_navigation:
       general: ~
       users_and_transactions: "Utilizadores & transações"
@@ -526,6 +721,7 @@ pt-PT:
         night: ~
         week: ~
         month: ~
+        unit: ~
       can_not_find: ~
       add_custom_unit: ~
       delete_custom_unit: ~
@@ -625,11 +821,17 @@ pt-PT:
         payments_not_enabled: ~
     transaction_types:
       sell: ~
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
       rent: ~
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
       give: ~
       lend: ~
       swap: ~
       service: ~
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
       request: ~
       inquiry: ~
       share_for_free: ~
@@ -689,7 +891,6 @@ pt-PT:
     removed_user: "Utilizador removido"
     payment_fee_info:
       title: ~
-      title_paypal: ~
       stripe: ~
       paypal: ~
       info: ~
@@ -697,10 +898,6 @@ pt-PT:
       title: ~
       body_text: ~
       body_text_accept: ~
-      link_to_paypal_text: ~
-    paypal_only_fee_info:
-      title: ~
-      body_text: ~
       link_to_paypal_text: ~
     stripe_fee_info:
       title: ~
@@ -777,6 +974,9 @@ pt-PT:
       canceled_offer: ~
       paid: ~
       payment_preauthorized: ~
+      stripe:
+        held_payment: ~
+        confirmed_request: ~
     new:
       message: Mensagem
       message_to: ~
@@ -849,6 +1049,8 @@ pt-PT:
           intl: ~
           unknown_reason: ~
           verify: ~
+      stripe:
+        waiting_confirmation_from_requester: ~
     status_link:
       accept_offer: "Aceitar oferta"
       accept_request: "Aceitar pedido"
@@ -914,10 +1116,12 @@ pt-PT:
       here_is_a_message_from: ~
       request_marked_as_confirmed: "Ordem concluída - não se esqueça de dar feedback"
       request_marked_as_canceled: "Ordem cancelada"
-      has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: "%{other_party_full_name} marcou a ordem de '%{request}' como terminada. Já pode dar o seu feedback a %{other_party_given_name}."
       has_marked_request_as_canceled: ~
       giving_feedback_is_good_idea: ~
       give_feedback_to: ~
+      stripe:
+        has_marked_request_as_confirmed: "%{other_party_full_name} marcou a ordem de '%{request}' como terminada. O pagamento por esta ordem será agora transferido para a sua conta bancária. Já pode dar o seu feedback a %{other_party_given_name}."
     transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: ~
@@ -992,6 +1196,8 @@ pt-PT:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: ~
+      stripe:
+        you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1029,6 +1235,8 @@ pt-PT:
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
       listing_per_unit_title: ~
+      stripe:
+        you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} deu-lhe uma opinião sobre %{service_name}"
       you_can_give_feedback_to: "Ainda não deu uma opinião a %{name}"
@@ -1116,6 +1324,8 @@ pt-PT:
       reject_authorization_error: ~
     stripe:
       generic_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "Voltar à pagina inicial"
     error_404:
@@ -1154,6 +1364,7 @@ pt-PT:
       after: ~
       on_or_after: ~
       positive_number: ~
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} aceitou emprestar %{listing_title} a %{requester_name} %{time_ago}"
@@ -1438,7 +1649,7 @@ pt-PT:
       listing_updated_successfully: "Anúncio atualizado com sucesso"
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
-      only_kassi_administrators_can_access_this_area: "Só administradores do %{service_name} podem aceder a esta área"
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Só o autor do anúncio pode fechar o mesmo"
       only_listing_author_can_edit_a_listing: "Só o autor do anúncio pode editar o mesmo"
       payment_successful: ~
@@ -1506,6 +1717,9 @@ pt-PT:
       listing_author_payment_details_missing: ~
       images_are_processing: "Estamos a processar as suas imagens. Estarão visíveis dentro de um ou dois minutos."
       automatically_logged_out_please_sign_in: ~
+      stripe_you_account_balance_is_not_0: ~
+      visit_admin: ~
+      visit_admin_link: ~
     settings:
       account: Conta
       notifications: "Notificações "
@@ -1514,6 +1728,8 @@ pt-PT:
       paypal_payments: ~
       stripe_payments: ~
       payments: ~
+      listings: ~
+      listings_search_placeholder: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Não tem permissão para consultar este anúncio."
@@ -1611,10 +1827,7 @@ pt-PT:
         no_service_fee_you_will_get_paypal_text: ~
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_paypal_text: ~
-        after_service_fee_you_will_get_stripe_text: ~
         payment_fee_info_link_text: ~
-        paypal_fee_info_link_text: ~
         delivery: ~
         shipping: ~
         shipping_price: ~
@@ -1717,12 +1930,14 @@ pt-PT:
       community_not_configured_for_payments: "%{service_name} não foi configurado para os pagamentos, pelo que (ainda) não pode criar novos anúncios. Por favor, %{contact_admin_link} para mais detalhes."
       payment_settings_link: ~
       community_not_configured_for_payments_admin: "%{service_name} não foi configurado para os pagamentos, pelo que não pode criar novos anúncios. Ir para %{payment_settings_link} para preencher os detalhes de pagamento."
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: ~
       day: ~
       night: ~
       week: ~
       month: ~
+      unit: ~
       custom: ~
     quantity_placeholder: ~
     please_comment: Comentar
@@ -1774,6 +1989,7 @@ pt-PT:
       night: ~
       week: ~
       month: ~
+      unit: ~
     verification_required:
       verification_required: ~
   listing_conversations:
@@ -1927,7 +2143,8 @@ pt-PT:
         other: "O acesso ao %{service_name} é restrito. Precisa de um endereço de email que mostre que está autorizado a aderir."
       family_name: Apelido
       given_name: Nome
-      i_accept_the: "Aceito os"
+      i_accept_the_terms_and_privacy: ~
+      admin_emails_consent: ~
       invalid_invitation_code: "O código de convite não é válido."
       invitation_code: "Código de convite"
       not_required: ", não necessaria"
@@ -1936,6 +2153,7 @@ pt-PT:
       show_my_name_to_others: "Mostrar o meu nome completo aos utilizadores do %{service_name}"
       sign_up: "Criar uma conta no %{service_name}"
       terms: "Termos de utilização"
+      privacy: ~
       username_is_in_use: "Este nome de utilizador já está em uso."
       username_is_invalid: "Nome de utilizador é inválido. Os caracteres permitidos são letras, números e sublinhado."
       visible_only_to_you: "visível apenas para si e para o administrador do mercado virtual"
@@ -1943,6 +2161,7 @@ pt-PT:
       create_account_with_facebook: "Registe-se com seu Facebook"
       OR: ~
       signup_with_email: "Registe-se com seu e-mail"
+      this_field_will_be_publicly_visible: ~
     profile_feedback:
       grade: "nota:"
       and_gave_following_feedback: "deu a seguinte opinião "
@@ -1982,6 +2201,8 @@ pt-PT:
       show_all_listings: "Mostrar todos os anúncios"
       show_all_open_listings: "Listar todos os anúncios ativos"
       show_all_reviews: ~
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: ~
       you_follow_singular: ~
@@ -2040,6 +2261,7 @@ pt-PT:
       delete_personal_information: "Se apagar a sua conta, as suas informações pessoais (nome, número de telefone, endereço, email, foto do perfil, etc.) serão apagadas permanentemente e não poderão ser recuperadas. Todos os anúncios que criou serão removidos. Não será possível reativar a conta."
       delete_information_others_involved: "Informação em que outros membros estejam envolvidos (conversas com outras pessoas, transações que realizou, avaliações que tenha feito dos outros, etc) não será removida quando apagar a sua conta. No entanto, o seu nome não aparecerá mais junto dessa informação."
       unfinished_transactions: ~
+      only_admin: ~
       new_password: "Nova palavra-passe"
       save: Salvar
       these_fields_are_shown_only_to_you: "Seu nome de utilizador é mostrado no seu perfil a menos que você tenha dado o seu nome. Outras informações só é mostrado a você."
@@ -2092,6 +2314,7 @@ pt-PT:
       display_name: ~
       display_name_description: ~
       location_description: "Indique a sua localização exata ou o seu código postal. Também pode selecionar uma posição no mapa abaixo."
+      profile_picture_description: ~
       phone_number: "Número de telefone"
       profile_picture: ~
       postal_code: "Código postal"
@@ -2104,6 +2327,8 @@ pt-PT:
       default_in_listing: "(usado apenas por defeito ao criar um novo anúncio)"
       invisible: "(não será mostrado a outros utilizadores)"
       image_is_processing: ~
+      shown_in_your_public_profile: ~
+      editing_profile_of: ~
     save_information: "Salvar informação"
   shipping_address:
     shipping_address: ~
@@ -2174,31 +2399,31 @@ pt-PT:
       friday: ~
       saturday: ~
     months:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
+      january: Janeiro
+      february: Fevereiro
+      march: Março
+      april: Abril
+      may: Maio
+      june: Junho
+      july: Julho
+      august: Agosto
+      september: Setembro
+      october: Outubro
+      november: Novembro
+      december: Dezembro
     months_short:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
+      january: Jan
+      february: Fev
+      march: Mar
+      april: Abr
+      may: Mai
+      june: Jun
+      july: Jul
+      august: Ago
+      september: Set
+      october: Out
+      november: Nov
+      december: Dez
     today: ~
     clear: ~
     format: dd/mm/yyyy
@@ -2207,7 +2432,7 @@ pt-PT:
       short: ~
       shorter: ~
       short_date: ~
-      hours_only: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "há %{count} dia"
     days_ago: "há %{count} dias"
@@ -2253,6 +2478,8 @@ pt-PT:
           saving_failed: ~
         working_hours:
           required: ~
+          overlaps: ~
+          covers: ~
       pricing_units:
         piece: ~
         hour: ~
@@ -2339,12 +2566,19 @@ pt-PT:
       need_info: ~
       select_country: ~
       legal_name: ~
+      first_name: ~
+      last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
       personal_id_number: ~
       address_country: ~
       address_state: ~
+      address_province: ~
       address_city: ~
       address_postal_code: ~
       address_line1: ~
@@ -2353,12 +2587,27 @@ pt-PT:
       save_details: ~
       edit: ~
       cancel: ~
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~
       bank_routing_1: ~
       bank_routing_2: ~
       bank_currency: ~
+      update_also_bank_account: ~
       messages:
         account_number: ~
         routing_number: ~
@@ -2383,17 +2632,18 @@ pt-PT:
     form_pin:
       social_insurance_number: ~
       social_security_number: ~
+      ssn_last_4: ~
       hong_kong_identity_card: ~
       singapore_identity_card: ~
       messages:
         social_insurance_number: ~
   payment_settings:
-    title: ~
+    title: "Preferências de pagamento"
     bank_account: ~
     paypal: ~
     bank_account_details: ~
     add_bank_details: ~
-    can_accept_stripe_and_paypal: ~
+    can_accept_stripe_and_paypal: "Pode receber dinheiro na sua conta bancária ou na sua conta PayPal."
     to_accept_paypal: ~
     connect_paypal: ~
     wrong_setup: ~

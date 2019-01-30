@@ -11,6 +11,7 @@
 #  created_at       :datetime
 #  updated_at       :datetime
 #  receiver_id      :string(255)
+#  blocked          :boolean          default(FALSE)
 #
 # Indexes
 #
@@ -28,10 +29,19 @@ class Testimonial < ApplicationRecord
   validates_inclusion_of :grade, :in => 0..1, :allow_nil => false
 
   scope :positive, -> { where("grade >= 0.5") }
+  scope :negative, -> { where("grade < 0.5") }
+  scope :id_order, -> { order("id DESC") }
+  scope :non_blocked, -> { where(blocked: false) }
+  scope :by_community, -> (community) {
+    joins(:tx).merge(Transaction.by_community(community.id).exist)
+  }
 
   # Formats grade so that it can be displayed in the UI
   def displayed_grade
     (grade * 4 + 1).to_i
   end
 
+  def positive?
+    grade >= 0.5
+  end
 end

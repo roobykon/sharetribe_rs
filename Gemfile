@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 ruby '2.3.4'
 
-gem 'rails', '5.1.1'
+gem 'rails', '5.1.6.1'
 
 gem 'coffee-rails', '~> 4.2.2'
 gem 'uglifier', '~> 3.2.0'
@@ -17,13 +17,14 @@ gem 'jquery-rails', '~> 4.3.1'
 # gem 'heroku' install the Heroku toolbelt (https://toolbelt.heroku.com/) instead (as gem had some problems)
 gem "passenger", '~> 5.1.4'
 
-gem "mysql2", '~> 0.4.6'
+gem "mysql2", '0.4.10'
+gem "bcrypt", '3.1.12'
 gem 'haml', '~> 5.0.1'
 gem 'sass', '~> 3.4.24'
 gem 'rack-attack', '~> 5.0.1'
 gem 'rest-client', '~> 2.0.2'
 
-gem 'paperclip', '~> 5.1.0'
+gem 'paperclip', '~> 5.2.1'
 gem 'delayed_paperclip', '~> 3.0.1'
 
 gem 'aws-sdk', '~> 2.9.25'
@@ -147,7 +148,7 @@ group :test do
   # required for CircleCI automatic test balancing
   gem 'rspec_junit_formatter'
 
-  gem 'fake_stripe'
+  gem 'fake_stripe', git: 'https://github.com/ithouse/fake_stripe.git', ref: '6848daab104333b2c0c493ab069731d4a0b87f6f'
 end
 
 group :development, :test do
@@ -172,6 +173,7 @@ gem 'intercom'
 gem 'twitter_cldr'
 gem 'memoist'
 gem 'biz'
+<<<<<<< HEAD
 
 gem 'daemons'
 gem 'puma'
@@ -182,3 +184,7 @@ gem 'capistrano-bundler', '~> 1.3'
 gem 'capistrano-rails', '~> 1.3'
 gem 'capistrano-npm'
 gem 'whenever'
+=======
+gem 'ffi', '>= 1.9.25'
+gem 'rubyzip', '~> 1.2.2'
+>>>>>>> 1ac316d1fcaa2fe83103acee9e38073482673079

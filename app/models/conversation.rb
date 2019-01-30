@@ -38,14 +38,24 @@ class Conversation < ApplicationRecord
 
   scope :for_person, -> (person){
     joins(:participations)
-    .where( { participations: { person_id: person }} )
+    .where( { participations: { person_id: person.id }} )
   }
-  scope :non_payment, -> { where(starting_page: nil).or(Conversation.where.not(starting_page: PAYMENT)) }
-  scope :payment, -> { where(starting_page: nil).or(Conversation.where(starting_page: PAYMENT)) }
-  scope :by_community, -> (community_id) { where(community_id: community_id) }
-  scope :non_payment_or_free, -> (community_id) do
-    subquery = Transaction.non_free.by_community(community_id).select('conversation_id').to_sql
-    by_community(community_id).where("id NOT IN (#{subquery})").non_payment
+  scope :non_payment, -> { where('starting_page IS NULL OR starting_page!=?', [PAYMENT]) }
+  scope :payment, -> { where('starting_page IS NULL OR starting_page=?', [PAYMENT]) }
+  scope :by_community, -> (community) { where(community: community) }
+  scope :non_payment_or_free, -> (community) do
+    subquery = Transaction.non_free.by_community(community.id).select('conversation_id').to_sql
+    by_community(community).where("conversations.id NOT IN (#{subquery})").non_payment
+  end
+  scope :by_keyword, -> (community, pattern) do
+    person_ids_sql = Person.search_name_or_email(community.id, pattern).select('people.id').to_sql
+    person_conversations_subquery = joins(:participants).where("people.id IN (#{person_ids_sql})").select('conversations.id').to_sql
+    by_community(community)
+    .joins(:messages).where("
+      (conversations.id IN (#{person_conversations_subquery}))
+      OR
+      (messages.content LIKE :pattern)
+    ", pattern: pattern)
   end
 
   # Creates a new message to the conversation
@@ -67,7 +77,7 @@ class Conversation < ApplicationRecord
   end
 
   def participation_for(person)
-    participations.find { |participation| participation.person_id == person.id }
+    participations.by_person(person)
   end
 
   def build_starter_participation(person)
@@ -98,7 +108,7 @@ class Conversation < ApplicationRecord
   end
 
   def other_party(person)
-    participants.reject { |p| p.id == person.id }.first
+    participations.other_party(person).first.try(:person)
   end
 
   def read_by?(person)
@@ -122,11 +132,15 @@ class Conversation < ApplicationRecord
   end
 
   def starter
-    Maybe(participations.find { |p| p.is_starter? }).person.or_else(nil)
+    participations.starter.first.try(:person)
+  end
+
+  def recipient
+    participations.recipient.first.try(:person)
   end
 
   def participant?(user)
-    participants.include? user
+    participations.by_person(user).any?
   end
 
   def with_type(&block)
@@ -139,5 +153,11 @@ class Conversation < ApplicationRecord
         block.call
       end
     end
+  end
+
+  def mark_as_read(person_id)
+    participations
+      .where({ person_id: person_id })
+      .update_all({is_read: true}) # rubocop:disable Rails/SkipsModelValidations
   end
 end

@@ -89,7 +89,7 @@ class Admin::ListingShapesController < Admin::AdminBaseController
 
       # Onboarding wizard step recording
       state_changed = Admin::OnboardingWizard.new(@current_community.id)
-        .update_from_event(:listing_shape_updated, [update_result.data])
+        .update_from_event(:listing_shape_updated, @current_community)
       if state_changed
         record_event(flash, "km_record", {km_event: "Onboarding payments setup"})
         record_event(flash, "km_record", {km_event: "Onboarding payment disabled"})
@@ -227,7 +227,6 @@ class Admin::ListingShapesController < Admin::AdminBaseController
       display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles.to_s == "true",
       knowledge_base_url: APP_CONFIG.knowledge_base_url,
       locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h,
-      availability_per_hour: FeatureFlagHelper.feature_enabled?(:availability_per_hour)
     }
   end
 
@@ -282,8 +281,8 @@ class Admin::ListingShapesController < Admin::AdminBaseController
 
   def process_summary
     @process_summary ||= processes.reduce({}) { |info, process|
-      info[:preauthorize_available] = true if process[:process] == :preauthorize
-      info[:request_available] = true if process[:author_is_seller] == false
+      info[:preauthorize_available] = true if process.process == :preauthorize
+      info[:request_available] = true if process.author_is_seller == false
       info
     }
   end

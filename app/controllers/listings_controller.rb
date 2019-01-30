@@ -107,7 +107,6 @@ class ListingsController < ApplicationController
     return redirect_to action: :new unless request.xhr?
 
     @listing = Listing.new
-    @listing.init_origin_location(@current_user.location)
 
     form_content
   end
@@ -121,6 +120,9 @@ class ListingsController < ApplicationController
   end
 
   def create
+    if new_listing_author != @current_user
+      logger.info "ADMIN ACTION: admin='#{@current_user.id}' create listing params=#{params.inspect}"
+    end
     params[:listing].delete("origin_loc_attributes") if params[:listing][:origin_loc_attributes][:address].blank?
 
     shape = get_shape(Maybe(params)[:listing][:listing_shape_id].to_i.or_else(nil))
@@ -142,7 +144,7 @@ class ListingsController < ApplicationController
     @listing = Listing.new(result.data)
 
     ActiveRecord::Base.transaction do
-      @listing.author = @current_user
+      @listing.author = new_listing_author
 
       if @listing.save
         @listing.upsert_field_values!(params.to_unsafe_hash[:custom_fields])
@@ -150,7 +152,8 @@ class ListingsController < ApplicationController
         notify_about_new_listing
 
         if shape.booking?
-          anchor = availability_per_hour_enabled && shape.booking_per_hour? ? 'manage-working-hours' : 'manage-availability'
+          anchor = shape.booking_per_hour? ? 'manage-working-hours' : 'manage-availability'
+          @listing.working_hours_new_set(force_create: true) if shape.booking_per_hour?
           redirect_to listing_path(@listing, anchor: anchor, listing_just_created: true), status: 303
         else
           redirect_to @listing, status: 303
@@ -211,6 +214,9 @@ class ListingsController < ApplicationController
     @listing.upsert_field_values!(params.to_unsafe_hash[:custom_fields])
 
     if update_successful
+      if shape.booking_per_hour? && !@listing.per_hour_ready
+        @listing.working_hours_new_set(force_create: true)
+      end
       if @listing.location
         location_params = ListingFormViewUtils.permit_location_params(params)
         @listing.location.update_attributes(location_params)
@@ -318,6 +324,10 @@ class ListingsController < ApplicationController
   def form_content
     make_listing_presenter
 
+    if @listing.new_record?
+      @listing.init_origin_location(@listing_presenter.new_listing_author.location)
+    end
+
     @listing.category = @current_community.categories.find(params[:subcategory].blank? ? params[:category] : params[:subcategory])
     @custom_field_questions = @listing.category.custom_fields
     @numeric_field_ids = numeric_field_ids(@custom_field_questions)
@@ -328,10 +338,10 @@ class ListingsController < ApplicationController
     @listing.transaction_process_id = shape[:transaction_process_id]
     @listing.listing_shape_id = shape[:id]
 
-    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+    payment_type = @current_community.active_payment_types
     allow_posting, error_msg = payment_setup_status(
                      community: @current_community,
-                     user: @current_user,
+                     user: @listing_presenter.new_listing_author,
                      listing: @listing,
                      payment_type: payment_type,
                      process: process)
@@ -381,8 +391,14 @@ class ListingsController < ApplicationController
   end
 
   def is_authorized_to_post
+    if new_listing_author != @current_user
+      unless @current_user.has_admin_rights?(@current_community)
+        flash[:error] = t("layouts.notifications.you_are_not_authorized_to_do_this")
+        redirect_to root_path
+      end
+    end
     if @current_community.require_verification_to_post_listings?
-      unless @current_user.has_admin_rights?(@current_community) || @current_community_membership.can_post_listings?
+      unless new_listing_author.has_admin_rights?(@current_community) || new_listing_author.community_membership.can_post_listings?
         redirect_to verification_required_listings_path
       end
     end
@@ -473,7 +489,7 @@ class ListingsController < ApplicationController
 
   def create_booking(shape, listing_uuid)
     if shape.present?
-      if availability_per_hour_enabled && shape.booking_per_hour?
+      if shape.booking_per_hour?
         true
       elsif APP_CONFIG.harmony_api_in_use && shape.booking?
         create_bookable(@current_community.uuid_object, listing_uuid, @current_user.uuid_object).success
@@ -485,7 +501,13 @@ class ListingsController < ApplicationController
     end
   end
 
-  def availability_per_hour_enabled
-    FeatureFlagHelper.feature_enabled?(:availability_per_hour)
+  def new_listing_author
+    @new_listing_author ||=
+      if params[:person_id].present? &&
+         @current_user.has_admin_rights?(@current_community)
+        @current_community.members.find_by!(username: params[:person_id])
+      else
+        @current_user
+      end
   end
 end

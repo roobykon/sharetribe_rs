@@ -85,6 +85,11 @@ FactoryGirl.define do
   end
 
   factory :person, aliases: [:author, :receiver, :recipient, :payer, :sender, :follower] do
+    transient do
+      member_of nil
+      member_is_admin false
+    end
+
     id
     is_admin 0
     community_id 1
@@ -98,6 +103,14 @@ FactoryGirl.define do
 
     has_many :emails do |person|
       FactoryGirl.build(:email, person: person)
+    end
+
+    after(:create) do |person, evaluator|
+      if evaluator.member_of
+        person.create_community_membership(community: evaluator.member_of,
+                                           admin: evaluator.member_is_admin)
+        person.update_column(:community_id, evaluator.member_of.id)
+      end
     end
   end
 
@@ -129,6 +142,10 @@ FactoryGirl.define do
     community_uuid { community.uuid } # raw UUID
     starter_uuid { starter.uuid } # raw UUID
     listing_author_uuid { listing.author.uuid } # raw UUID
+    payment_process :none
+    delivery_method "none"
+    payment_gateway :none
+    availability "none"
   end
 
   factory :conversation do
@@ -189,6 +206,7 @@ FactoryGirl.define do
     slogan "Test slogan"
     description "Test description"
     currency "EUR"
+    build_association(:marketplace_configurations, as: :configuration)
 
     has_many(:community_customizations) do |community|
       FactoryGirl.build(:community_customization, community: community)
@@ -311,7 +329,7 @@ FactoryGirl.define do
   end
 
   factory :custom_field_option_title do
-    value "Test option"
+    sequence(:value) { |n| "Test option #{n}" }
     locale "en"
   end
 
@@ -342,6 +360,34 @@ FactoryGirl.define do
     end
   end
 
+  factory :person_custom_field, parent: :custom_field do
+    entity_type :for_person
+
+    has_many :category_custom_fields do |custom_field|
+    end
+
+    factory :person_custom_dropdown_field, class: 'DropdownField' do
+      has_many :options do |custom_field|
+        [FactoryGirl.build(:custom_field_option), FactoryGirl.build(:custom_field_option)]
+      end
+    end
+
+    factory :person_custom_text_field, class: 'TextField'
+
+    factory :person_custom_numeric_field, class: 'NumericField' do
+      min 0
+      max 100
+    end
+
+    factory :person_custom_checkbox_field, class: 'CheckboxField' do
+      has_many :options do |custom_field|
+        [FactoryGirl.build(:custom_field_option), FactoryGirl.build(:custom_field_option)]
+      end
+    end
+
+    factory :person_custom_date_field, class: 'DateField'
+  end
+
   factory :transaction_transition do
     to_state "not_started"
     build_association(:transaction, as: :tx)
@@ -368,6 +414,7 @@ FactoryGirl.define do
   end
 
   factory :transaction_process do
+    community_id     1
     process          'preauthorize'
     author_is_seller true
   end
@@ -444,6 +491,8 @@ FactoryGirl.define do
 
   factory :listing_working_time_slot, class: 'Listing::WorkingTimeSlot' do
     listing_id 123
+    from       '09:00'
+    till       '17:00'
   end
 
   factory :billing_agreement do
@@ -451,5 +500,26 @@ FactoryGirl.define do
     billing_agreement_id  'zzz'
     paypal_username_to    'eloise.smith'
     request_token         'ddd'
+  end
+
+  factory :stripe_payment do
+    community_id      123
+    transaction_id    321
+    payer_id          "AAA"
+    receiver_id       "BBB"
+    status            "paid"
+    sum_cents         200
+    commission_cents  100
+    currency          "EUR"
+    stripe_charge_id  "CCC"
+    stripe_transfer_id nil
+    fee_cents         0
+    real_fee_cents    31
+    subtotal_cents    200
+  end
+
+  factory :stripe_account do
+    community_id      123
+    person_id         "ABC"
   end
 end

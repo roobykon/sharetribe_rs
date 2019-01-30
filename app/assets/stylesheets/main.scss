@@ -336,6 +336,23 @@ form {
       margin-top: lines(0.5) - em(3);
       margin-bottom: em(3);
       font-weight: 600;
+
+      &.disabled {
+        color: #c3c3c3;
+      }
+      &.error {
+        @include border-radius(em(5));
+        padding: em(5) em(10) em(10) em(10);
+        background: red;
+        color: $background;
+        display: block;
+        width: 100%;
+        margin: lines(0.5) 0 lines(0.5) 0;
+        position: relative;
+      }
+      &.label-normal {
+        font-weight: normal;
+      }
     }
 
     label.radio {
@@ -677,6 +694,7 @@ a.lightbox-x {
   right: 0;
   top: 0;
   color: #aaacad;
+  z-index: 1;
 
   &:hover {
     color: #919294;
@@ -2050,10 +2068,16 @@ figure.fluidratio {
       text-align: center;
       font-size: 4.25em;
     }
+    &.hidden-title-part {
+      opacity: 0 !important;
+    }
   }
 
   .marketplace-lander-content-description {
       color: $descriptioncolor;
+      &.hidden-title-part {
+        opacity: 0 !important;
+      }
   }
 
   .title-container {
@@ -2295,6 +2319,7 @@ figure.fluidratio {
     }
   }
 }
+<<<<<<< HEAD
 body {
   &.full-header {
     .marketplace-lander .marketplace-lander-content {
@@ -2645,3 +2670,21 @@ body.listings-page {
     }
   }
 }
+=======
+.text-center {
+  text-align: center;
+}
+.ui-tooltip {
+  background-color: #ffffff;
+}
+.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  a {
+    color: currentColor;
+    display: inline-block;  /* For IE11/ MS Edge bug */
+    pointer-events: none;
+    text-decoration: none;
+  }
+}
+>>>>>>> 1ac316d1fcaa2fe83103acee9e38073482673079

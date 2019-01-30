@@ -12,7 +12,7 @@ de:
       index:
         listing_categories: Kategorien
         create_a_new_category: "+ Neue Kategorie erstellen"
-        remove_category_confirmation: "Bist du sicher, dass du die Kategorie '%{category_name}' entfernen möchtest?"
+        remove_category_confirmation: "Bist du sicher, dass du die Kategorie '%{category_name}' entfernen möchtest? Dies kann nicht rückgängig gemacht werden."
         saving_order: "Reihenfolge der Kategorien speichern"
         save_order_successful: "Reihenfolge der Kategorien erfolgreich gespeichert"
         save_order_error: "Während des Speicherns der Kategorienreihenfolge ist ein Fehler aufgetreten. Bitte lade die Seite neu und versuche es noch einmal."
@@ -67,15 +67,19 @@ de:
         community_name: "Name des Marktplatzes"
         edit_community_name_description: "Der Name deines Marktplatzes. Dieser wird allen Nutzern in E-Mails und an verschiedenen anderen Stellen angezeigt."
         community_slogan: "Slogan des Marktplatzes"
+        community_slogan_display: "Slogan auf der Startseite anzeigen"
         edit_community_slogan_description: "Dies wird den Nutzern auf der Startseite des Marktplatzes angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: "Das hier wird auf Webbrowsern, Suchmaschinen, und sozialen Netzwerken angezeigt. Du kannst es auch auf der Startseite deines Marktplatzes den Nutzern anzeigen, die nicht angemeldet sind. %{see_how_it_looks_like}."
         community_description: "Beschreibung des Marktplatzes"
+        community_description_display: "Beschreibung auf der Startseite anzeigen"
         edit_community_description_description: "Dies wird den Nutzern auf der Startseite des Marktplatzes angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: "Das hier wird auf Webbrowsern, Suchmaschinen, und sozialen Netzwerken angezeigt. Du kannst es auch auf der Startseite deines Marktplatzes den Nutzern anzeigen, die nicht angemeldet sind. %{see_how_it_looks_like}."
         community_search_placeholder: "Hilfe-Text durchsuchen"
         edit_community_search_placeholder_description: "Dies wird auf der Homepage des Marktes als Platzhaltertext in der Suchleiste angezeigt. %{see_how_it_looks_like}"
         private_community_homepage_content: "Privater Inhalt der Marktplatz Startseite"
         edit_private_community_homepage_content_description: "Dieser Content ist nur bei privaten Marktplätzen sichtbar. User, die nicht eingeloggt sind, sehen den Text auf der Startseite. Beschreibe hier deinen Marktplatz und wie man ihm beitreten kann. Du kannst hier außerdem Bilder, Videos und HTML-Content hinzufügen. %{see_how_it_looks_like}."
         update_information: "Einstellungen speichern"
-        invite_people: "Lade Leute zu dem Marktplatz %{service_name} ein"
+        invite_people: "Lade Leute ein"
         edit_signup_info: Anmeldedaten
         edit_signup_info_description: "Dies ist ein Infotext, der den Nutzern auf der Anmeldeseite angezeigt wird. Hier kannst du den Nutzern Anleitungen zum Anmelden geben, wie z.B. Informationen darüber, wie sie eine Einladung erhalten können etc.. Standardgemäß gibt es hier keine Anweisungen, aber du kannst sie hinzufügen, wenn du auf den Link unten klickst."
         edit_info: "Angaben bearbeiten"
@@ -95,26 +99,28 @@ de:
         edit_community_look_and_feel: "Bearbeite das \"Look & Feel\" des Marktplatzes %{community_name}"
         community_logo: Logo
         community_logo_icon: "Logo für soziale Netzwerke und Mobilgeräte"
+        community_logo_icon_mobile: "Logo für den Startbildschirm von Mobilgeräten"
         community_cover_photo: Titelbild
         small_community_cover_photo: "Kleines Titelbild"
         favicon: Favicon
         favicon_info_text: "Das Favicon ersetzt das Standard Sharetribe Logo. Es sollte 32x32 Pixel groß sein. Hochgeladene Bilder werden auf diese Größe geändert."
-        community_custom_color1: Hauptfarbe
+        community_custom_color1: "Hauptfarbe des Marktplatzes"
         community_slogan_color: "Farbe des Marktplatz-Slogans"
         community_slogan_color_instructions_text: "Du kannst die Farbe des Slogans ändern, indem du den Hex-Wert einer Farbe eingibst. Der Slogan wird den nicht angemeldeten Benutzern angezeigt. %{colorpicker} kann dir helfen, die Farbe zu wählen und den Hex-Wert dieser Farbe zu bekommen. Danach kannst du den Hex-Wert hier kopieren. %{see_how_it_looks_like}."
         community_description_color: "Farbe der Marktplatz-Beschreibung"
         community_description_color_instructions_text: "Du kannst die Farbe der Beschreibung ändern, indem du den Hex-Wert einer Farbe eingibst. Die Beschreibung wird den nicht angemeldeten Benutzern angezeigt. %{colorpicker} kann dir helfen, die Farbe zu wählen und den Hex-Wert dieser Farbe zu bekommen. Danach kannst du den Hex-Wert hier kopieren. %{see_how_it_looks_like}."
         new_listing_button_custom_color: "Farbe der \"Neuen Eintrag erstellen\" Taste"
-        logo_instructions_text_with_dimensions: "Die Größe des Desktop-Logos sollte %{width}x%{height}px betragen. Es wird Benutzern mit größeren Bildschirmen angezeigt."
-        logo_instructions_text_with_dimensions_no_placing: "Die Größe des Logos sollte %{width}x%{height}px betragen."
-        logo_icon_instructions_text_with_dimensions: "Dieses quadratisches Logo wird angezeigt, wenn Leute deinen Marktplatz auf soziale Netzwerke teilen, wenn sie deinen Marktplatz auf einem Mobilgerät ansehen oder wenn sie ein Lesezeichen für deinen Marktplatz zum Hauptbildschirm ihres Mobilgeräten anheften. Die Größe dieses Icon-Logos sollte (mindestens) %{width}x%{height}px betragen."
-        logo_icon_instructions_text_with_dimensions_no_placing: "Dieses viereckige Logo wird angezeigt, wenn Leute deine Webseite auf Facebook teilen oder wenn sie deine Seite auf dem Startbildschirm ihres Mobilgerätes als Lesezeichen anheften. Die Bildgröße sollte (zumindest) %{width}x%{height} Pixels betragen."
+        logo_instructions_text_with_dimensions: "Die Größe des Desktop-Logos sollte %{width}x%{height} Pixel betragen. Es wird Benutzern mit größeren Bildschirmen angezeigt."
+        logo_instructions_text_with_dimensions_no_placing: "Die Größe des Logos sollte %{width}x%{height} Pixel betragen."
+        logo_icon_instructions_text_with_dimensions: "Dieses quadratisches Logo wird angezeigt, wenn Leute deinen Marktplatz auf soziale Netzwerke teilen, wenn sie deinen Marktplatz auf einem Mobilgerät ansehen oder wenn sie ein Lesezeichen für deinen Marktplatz zum Hauptbildschirm ihres Mobilgeräten anheften. Die Größe dieses Icon-Logos sollte (mindestens) %{width}x%{height} Pixel betragen."
+        logo_icon_instructions_text_with_dimensions_no_placing: "Dieses viereckige Logo wird angezeigt, wenn Leute deine Webseite auf Facebook teilen oder wenn sie deine Seite auf dem Startbildschirm ihres Mobilgerätes als Lesezeichen anheften. Die Bildgröße sollte (zumindest) %{width}x%{height} Pixel betragen."
+        logo_mobile_icon_instructions_text_with_dimensions: "Dieses viereckige Logo wird auf dem Mobil-Startbildschirm von deinen Benutzern angezeigt, wenn sie ein Lesezeichen für deinen Marktplatz auf ihren Mobilgeräten erstellen. Die Größe sollte (zumindest) %{width} x%{height} px betragen."
         cover_photo_visibility: "Das Titelbild wird den nicht angemeldeten Benutzern auf der Startseite angezeigt."
         cover_photo_instructions_text_with_dimensions: "Die Größe des Fotos wird auf %{width}x%{height} Pixel geändert, und größere Bilder werden in der Mitte geteilt. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Das kleine Titelfoto wird nicht angemeldeten Benutzern auf allen Seiten angezeigt, außer auf der Startseite."
         small_cover_photo_instructions_text_with_dimensions: "Die Größe des Fotos wird auf %{width}x%{height} Pixel geändert, und größere Bilder werden in der Mitte geteilt."
         main_content_width: "Wenn du ein Titelfoto aussuchst, beachte bitte, dass die Breite des Inhalts auf der Startseite höchstens %{main_width} Pixel beträgt. Überprüfe außerdem, wie dein Titelfoto auf kleineren Bildschirmen aussieht (z.B wenn du einen schmaleren Browser benutzt)."
-        custom_color1_instructions_text: "Du kannst die Hauptfarbe der Benutzeroberfläche ändern, indem du einen neuen Farbwert eingibst. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> kann dir helfen die Farbe auszuwählen, und den Hex-Wert der Farbe zu finden. Kopiere den Code hier ein."
+        custom_color1_instructions_text: "Du kannst die Hauptfarbe der Benutzeroberfläche ändern, indem du einen neuen Farbwert eingibst. <a href=\"http://www.webfx.com/web-design/color-picker/d96e21\" target=\"_blank\" rel=\"noreferrer\">WebFX.com</a> kann dir helfen die Farbe auszuwählen, und den Hex-Wert der Farbe zu finden. Kopiere den Code hier ein."
         new_listing_button_instructions_text: "Du kannst die Farbe des \"Neuen Eintrag erstellen\" Knopfes ändern, indem du den Hex-Wert einer neuen Farbe eingibst. %{link_to_colorpicker} kann dir helfen, eine Farbe zu wählen, und den Hex-Code der Farbe zu finden. Du musst nur den Code hier einfügen!"
         default_browse_view: Standardansicht
         default_browse_view_instructions_text: "Die Standardansicht legt fest, wie die Angebote auf der Webseite standardmäßig angezeigt werden."
@@ -129,6 +135,7 @@ de:
         invalid_color_code: "Der Farben Code sollte 6 Ziffern oder Buchstaben A-F haben, zum Beispiel D96E21"
         custom_head_script: "Angepasstes Skript"
         custom_head_script_instructions_text: "Dieses Skript ist im <head> Tag jeder Seite eingebettet und kann genutzt werden, um angepasstes CSS, JavaScript oder HTML einzubinden. Bitte beachte, dass zukünftige Änderungen an Sharetribe Deine Anpassungen inkompatibel machen können."
+        current_image: "Aktuelles Bild:"
       edit_text_instructions:
         edit_text_instructions: Anleitungstexte
       edit_welcome_email:
@@ -176,35 +183,41 @@ de:
       getting_started:
         getting_started: Kurzanleitung
       available_languages:
+        cs: ~
+        da-DK: Dänisch
+        de: Deutsch
         en: Englisch
         en-AU: "Englisch (Australien)"
         en-GB: "Englisch (Großbritannien)"
+        es: Spanisch
+        es-ES: "Spanisch (Spanien)"
+        fi: Finnisch
         fr: Französisch
         fr-CA: "Französisch (Canada)"
-        es: "Spanisch (Chile)"
-        es-ES: Spanisch
-        pt-PT: Portugiesisch
-        pt-BR: "Portugiesisch (Brasilien)"
-        nb: "Norwegisch Bokmål"
-        sv: Schwedisch
-        da-DK: Dänisch
-        fi: Finnisch
-        ru: Russisch
-        de: Deutsch
         el: Griechisch
-        nl: Holländisch
-        tr-TR: Türkisch
-        zh: Chinesisch
-        ja: Japanisch
         it: Italienisch
+        ja: Japanisch
+        ko: ~
+        nb: "Norwegisch Bokmål"
+        nl: Holländisch
+        pl: ~
+        pt-BR: "Portugiesisch (Brasilien)"
+        pt-PT: Portugiesisch
+        ru: Russisch
+        sv: Schwedisch
+        th-TH: ~
+        tr-TR: Türkisch
+        vi: ~
+        zh: Chinesisch
+        zh-TW: ~
       settings:
         settings: Einstellungen
         general: Allgemein
         access: Zugriffseinstellungen
-        join_with_invite_only: "Benutzer können diesem Marktplatz nur mit der Einladung eines Mitglieds beitreten"
-        users_can_invite_new_users: "Alle Mitglieder können neue Benutzer zu diesem Marktplatz einladen"
+        join_with_invite_only: "Neue Benutzer können diesem Marktplatz nur mit der Einladung eines Mitglieds beitreten"
+        users_can_invite_new_users: "Alle Mitglieder, nicht nur Admins, können neue Benutzer zu diesem Marktplatz einladen"
         private: "Dieser Marktplatz ist privat (nur registrierte Benutzer können den Inhalt sehen)"
-        require_verification_to_post_listings: "Nur verifizierte Benutzer können neue Einträge veröffentlichen"
+        require_verification_to_post_listings: "Nur von einem Admin verifizierte Benutzer können neue Einträge veröffentlichen"
         search_preferences: Sucheinstellungen
         default_search_type: "Suchtyp: %{select_search_type}"
         keyword_search: Schlagwortsuche
@@ -226,8 +239,7 @@ de:
         twitter_handle: "Twittername (wird mit dem Tweet-Button auf der Angebotsseite verwendet)"
         update_settings: "Einstellungen speichern"
         automatically_confirmed_no_escrow: "Der Auftrag wird automatisch als \"erledigt\" %{days_dropdown} Tage nach der Bezahlung markiert."
-        automatically_confirmed_no_escrow_stripe_info: "Kreditkartenzahlungen über Stripe werden erst auf das Anbieter-Bankkonto übertragen, sobald der Käufer die Transaktion als \"erledigt\" gekennzeichnet hat.%{learn_more}."
-        automatically_confirmed_after_end_time: "Die Transaktion wird durch den Käufer oder nach %{days_dropdown} Tagen nach Erfüllung als als erledigt klassifiziert."
+        automatically_confirmed_no_escrow_stripe_info: "Kreditkartenzahlungen über Stripe werden erst auf das Verkäufer-Bankkonto übertragen, sobald der Käufer die Transaktion als \"erledigt\" gekennzeichnet hat.%{learn_more}."
         automatic_newsletter_frequency: "Newsletter automatisch verschicken: %{frequency_dropdown}"
         newsletter_daily: Täglich
         newsletter_weekly: Wöchentlich
@@ -242,7 +254,7 @@ de:
         delete_this_marketplace: "Diesen Marktplatz löschen"
         payment_preferences: Zahlungssystem
       manage_members:
-        manage_members: "Benutzer verwalten"
+        manage_members: Benutzer
         email: E-Mail
         name: Name
         display_name: Anzeigename
@@ -255,12 +267,29 @@ de:
         export_all_as_csv: "Exportiere Alles als CSV Datei"
         save_user_status_error: "Speichern fehlgeschlagen. Bitte erneuere die Seite und versuch es noch einmal."
         ban_user_confirmation: "Dies entfernt den Benutzer von der Community und wird einen erneuten Zugriff mit diesem Account auf die Seite verhindern. Bist du sicher, dass du fortfahren möchtest?"
-        unban_user_confirmation: "Damit wird der Benutzer des Marktplatzes entsperrt und erhält wieder Zugang zu seinem Konto. Möchtest Du fortfahren?"
+        unban_user_confirmation: "Damit wird der Benutzer des Marktplatzes entsperrt und erhält wieder Zugang zu seinem Konto. Möchtest du fortfahren?"
         ban_me_error: "Du kannst dich nicht selber sperren."
         search: Suchen
         search_by_name_email: "Nach einem Nahmen, einer E-Mail Adresse, oder einem Anzeigenamen suchen"
         reset_search: "Alle anzeigen"
         for_search_terms: "für: %{terms}"
+        this_makes_the_user_an_admin: "Das macht den Nutzer zu einem Administrator. Du solltest den Nutzer über seinen Verantwortung informieren und auf die Sharetribe Nutzungsbedingungen hinweisen. Möchtest Du fortfahren?"
+        status_filter:
+          all: "Alle Status"
+          selected: "Gewählte Status: %{count}"
+          selected_js: "Gewählte Status: "
+          admin: Administrator
+          banned: Gesperrt
+          posting_allowed: "Veröffentlichen von Einträgen erlaubt"
+          accepted: Genehmigt
+          unconfirmed: Unbestätigt
+          pending: Ausstehend
+        this_user_hasnt_confirmed_their_email_address: "Dieser Benutzer hat nicht seine/ihre E-Mail-Adresse bestätigt. Möglicherweise hat er/sie die Bestätigungsmail nicht bekommen. Klicke bitte auf 'Erneut senden' om du sie erneut senden möchtest."
+        unconfirmed_user: "Unbestätigter Benutzer: %{name}"
+        resend: "Erneut senden"
+        cancel: Abbrechen
+        user_didnt_complete_the_signup_process: "Der/Die Benutzer registrierte sich mit Facebook, hat aber nicht den Registrierungsprozess beendet. Nachdem man sich mit Facebook registriert, muss man noch die Nutzungsbedingungen akzeptieren und die Benutzerfelder ausfüllen."
+        pending_user: "Ausstehend: %{name}"
       new_layout:
         new_layout: "Neues Layout"
         description_roadmap_new: "Sobald neue Layout-Komponenten für deinen Marktplatz verfügbar sind, kannst du wählen, ob du die neue Komponente verwenden möchtest, oder ob du weiterhin die alte verwenden willst. Du kannst die Auswahl auf dieser Seite jederzeit ändern. Es ist empfohlen, jederzeit die neuen Komponente zu verwenden, denn die alten Komponente können in der Zukunft auslaufen. Wenn eine Komponente, die du verwendest, auslaufen wird, werden wir jedoch dir im Voraus natürlich eine Nachricht schicken."
@@ -270,13 +299,21 @@ de:
         searchpage: "Neue Suchseite (benötigt das neue Top Bar)"
       social_media:
         social_media: "Social media"
+        logo: "Bild für soziale Netzwerke"
+        logo_info: "Dieses Bild wird auf sozialen Netzwerken (Facebook, Twitter, Linkedin) angezeigt, wenn jemand deine Domain teilt. Optimal sollte das Bild ein Seitenverhältnis von 2:1 haben, und eine minimale Größe von %{width} x %{height} Pixel."
+        social_media_title: "Soziale Netzwerke -Titel"
+        social_media_title_info: "Dieser Text wird auf den sozialen Netzwerken Facebook, Twitter, und Linkedin angezeigt, wenn jemand deinen Marktplatz teilt. Du kannst eine Vorschau ansehen %{facebook_preview_link}, %{twitter_preview_link} und %{linkedin_preview_link}."
+        link_for_facebook: "für Facebook"
+        link_for_linkedin: "für Linkedin"
+        link_for_twitter: "für Twitter"
+        social_media_description: "Soziales Netzwerk -Beschreibung"
         twitter_handle: Twittername
         twitter_handle_info_text: "Der Twitter Nutzername deines Marktplatzes (wenn du einen hast). Er wird genannt, wenn jemand den Tweet Button in einem Angebot nutzt."
         twitter_handle_info_text_with_instructions: "Der Twitter Nutzername deines Marktplatzes (wenn Du einen hast). Er wird genannt, wenn jemand den Tweet Button auf einer Eintrag-Seite klickt. %{instructions_link}."
         twitter_instructions_link_text: Weiterlesen
         twitter_handle_placeholder: Benutzername
         invalid_twitter_handle: "Ihr Twitter-Nutzername sollte höchstens 15 alphanumerische (Buchstaben A-Z und Nummern 0-9) Zeichen lang sein."
-        facebook_connect: Facebook
+        facebook_connect: "Facebook Login"
         facebook_connect_info_text: "Um die Facebook-Authentifizierung zu aktivieren, bitte erstellen Sie einen App für Ihren Marktplatz auf dem <a href='https://developers.facebook.com/'>Facebook Entwicklerpanel</a>. Fügen Sie die generierte ID und den Geheimschlüssel der App hier ein."
         facebook_connect_info_text_with_instructions: "Um die Facebook-Anmeldung zu aktivieren, bitte erstelle einen App für Deinen Marktplatz auf dem <a href='https://developers.facebook.com/'>Facebook Entwicklerpanel</a>. Füge die generierte ID und den Geheimschlüssel der App hier ein.%{instructions_link}"
         facebook_instructions_link_text: "Siehe die Anleitung für die Einrichtung von Facebook Connect."
@@ -284,20 +321,32 @@ de:
         invalid_facebook_connect_id: "Die Client-ID sollte nur aus Nummern bestehen."
         facebook_connect_secret: "Facebook Client-Geheimnis"
         invalid_facebook_connect_secret: "Der App-Secret sollte nur aus Nummern und Buchstaben a-f bestehen."
+        enable_facebook_login: "Nutzern erlauben, sich mit ihrem Facebook Account anzumelden"
         save: "Einstellungen speichern"
+        add_another_image: "Zusätzliches Bild hinzufügen"
       analytics:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
         google_analytics_key_info_text: "Tracking ID deines Google Analytics Kontos."
         google_analytics_key_info_text_with_instructions: "Tracking ID deines Google Analytics Kontos. %{instructions_link}"
         google_analytics_instructions_link_text: "Mehr über die Anbindung von Google Analytics hier lesen."
+        sharetribe_analytics: "Sharetribe Analytics"
+        sharetribe_analytics_info_text_with_instructions: "Um den Sharetribe Service und Support zu verbessern, werden die Aktivitäten der Marktplatz Mitglieder aufgezeichnet. Es werden keine persönlichen Informationen gesammelt und die Daten werden keinen weiteren Parteien außerhalb des Sharetribe Teams bereitgestellt. %{instructions_link}"
+        sharetribe_analytics_instructions_link_text: "Mehr über Sharetribe Analytics erfahren."
+        end_user_analytics: "Sharetribe die Aufzeichnung von Mitglieder Aktivitäten zur Verbesserung des Sharetribe Services erlauben."
         save: "Einstellungen speichern"
+      logo_link:
+        title: Logo-Link
+        info: "Du kannst den Link des Logos anpassen (und die standardmäßige Home-Taste auf dem Top Bar). Normalerweise leitet das Logo zu der Homeseite oder zu dem Landing Page."
+        url: URL
+        placeholder: "https://www.example.com"
       menu_links:
-        menu_links: Menü-Links
+        menu_links: "Benutzerdefinierte Menü-Links"
+        menu_links_display: ~
         save: "Einstellungen speichern"
         add_menu_link: "Einen neuen Link zum Menü hinzufügen"
         title_placeholder: "Link Titel"
-        url_placeholder: "http://example.com/de"
+        url_placeholder: "https://example.com/de"
         title: Titel
         language: Sprache
         url: URL
@@ -306,13 +355,36 @@ de:
         all: Alle
         max_number_of_links_info: "Der Link zu %{about_page} wird immer als der erste Menu-Link angezeigt."
         about_page: "Über uns Seite"
+      default_menu_links:
+        title: "Standard Menü-Links"
+        about_link_title: Über
+        contact_link_title: Kontakt
+        invite_link_title: "Neue Mitglieder einladen"
+        info: "Links zu den folgenden Seiten werden standardmäßig nicht anderswo auf deinem Marktplatz angezeigt: %{about_link}, %{contact_link}, %{invite_link}."
+        display_about: "Link zu der <i>Über</i>-Seite und anderen statischen Seiten anzeigen"
+        display_contact: "Link zu der <i>Kontakt</i>-Seite anzeigen"
+        display_invite: "Link zu der <i>neue Mitglieder einladen</i>-Seite anzeigen"
       topbar:
         topbar: "Top bar"
         new_listing_button_label: "Text auf der \"Neuen Eintrag erstellen\" Taste"
         invalid_post_listing_button_label: "Bitte einen gültigen Text für die \"Neuen Eintrag erstellen\" Taste eingeben."
       transactions:
         export_all_as_csv: "Exportiere Alles als CSV Datei"
-        transactions: "Transaktionen anzeigen"
+        processing_export: "CSV Export wird erstellt..."
+        transactions: Transaktionen
+        search_by_title_parties: "Nach einem Tltel der Transaktion oder beteiligten Parteien suchen"
+        search: Suchen
+        reset_search: "Alle anzeigen"
+        status_filter:
+          all: "Alle Status"
+          selected: "Gewählte Status: %{count}"
+          selected_js: "Gewählte Status: "
+          free: Unterhaltung
+          confirmed: Bestätigt
+          paid: Bezahlt
+          canceled: Abgebrochen
+          preauthorized: Vorautorisiert
+          rejected: Abgelehnt
         headers:
           conversation: Unterhaltungsverlauf
           listing: Eintrag
@@ -360,7 +432,7 @@ de:
             pending_ext: "Warte auf Stripe-Bezahlung"
         not_available: "nicht verfügbar"
       conversations:
-        conversations: "Unterhaltungen anzeigen"
+        conversations: Unterhaltungen
         headers:
           started_from: "Gestartet aus"
           status: Status
@@ -370,6 +442,97 @@ de:
           other_party: "Anderer Beteiligter"
         participants: "Unterhaltung: %{starter} mit %{author}"
         profile: "%{author}s Profil"
+        search_by_keyword: "Nach Name, E-mail oder Schlagwort suchen"
+        search: Suchen
+        reset_search: "Alle anzeigen"
+        for_keyword: "für: <b>%{keyword}</b>"
+      testimonials:
+        testimonials: Bewertungen
+        no_testimonials_found: "Keine Bewertungen gefunden."
+        displaying_xx_reviews: "<b>%{count}</b> Bewertungen werden angezeigt, unter Transaktionen %{tx_from} - %{tx_to} von insgesamt <b>%{all_count}</b> Transaktionen."
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
+        headers:
+          transaction: Transaktion
+          author: Author
+          receiver: Empfänger
+          status: Status
+          grade: Note
+          text: Text
+        status:
+          waiting: "Bewertung ausstehend"
+          skipped: Übersprungen
+          published: Veröffentlicht
+          blocked: Gesperrt
+        form:
+          review_text: Bewertungstext
+          save: Speichern
+          cancel: Abbrechen
+          delete_review: "Bewertung löschen"
+          block_review: "Bewertung sperren"
+          confirm_modify: "Bist du sicher, dass du die Bewertung ändern/löschen möchtest? Wenn sie die Bewertung ändern/löschen, ist es danach nicht mehr möglich, die alten Daten wiederherzustellen."
+          deleting_info: "Wird die Bewertung gelöscht, kann der/die Käufer/in eine neue Bewertung für dieselbe Transaktion schreiben."
+          blocking_info: "Wird die Bewertung gesperrt, kann der/die Käufer/in nicht mehr eine neue Bewertung für dieselbe Transaktion schreiben."
+      invitations:
+        invitations: Einladungen
+        used:
+          "yes": Ja
+          "no": Nein
+        headers:
+          sent_by: "Gesendet von"
+          message: Nachricht
+          sent_to: "Gesendet an"
+          used: Verwendet
+          date_sent: Sendungsdatum
+      listings:
+        listings: Einträge
+        search_by_title_author_category: "Nach dem Titel oder Autor des Eintrags, oder Kategoriename suchen"
+        search: Suchen
+        reset_search: "Alle anzeigen"
+        status:
+          all: "Alle Status"
+          selected_js: "Gewählte Status: "
+          open: Geöffnet
+          closed: Geschlossen
+          expired: Abgelaufen
+        headers:
+          title: Titel
+          author: Author
+          created: Erstellt
+          updated: Aktualisiert
+          category: Kategorie
+          status: Status
+        open: Geöffnet
+        closed: Geschlossen
+        expired: Abgelaufen
+      user_fields:
+        user_fields: "Benutzer Feld"
+      footer:
+        footer: Fußzeile
+        offer_pro: "Sharetribe-Branding aus der Fußzeile entfernen und die Fußzeile konfigurieren durch %{upgrade_pro_plan_link}"
+        upgrade_plan_link: "ein Upgrade auf den Pro Plan oder höher"
+        menu_links: Fußzeile-Links
+        language: Sprache
+        title: Titel
+        url: URL
+        add: "Füge einen Link der Fußzeile hinzu"
+        save: "Einstellungen speichern"
+        footer_style: "Stil der Fußzeile"
+        footer_copyright: "Urheberrecht (Fußzeilentext)"
+        footer_enabled: "Fußzeile aktiviert"
+        social_links: "Sozial-Links der Fußzeile"
+        title_placeholder: "Link Titel"
+        url_placeholder: "https://beispiel.com/benutzername"
+        style:
+          dark: Dunkel
+          light: Hell
+          marketplace_color: "Farbe des Marktplatzes"
+          logo: Logo
+        social:
+          title: Titel
+          url: URL
     custom_fields:
       edit:
         edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"
@@ -397,7 +560,7 @@ de:
         listing_fields: "Eintragsfelder & Filter"
         listing_fields_help: "Hier kannst du die Felder bearbeiten, die Nutzer ausfüllen müssen, wenn sie einen neuen Eintrag erstellen. Bitte beachte, dass einige Felder vorgegeben sind und nicht geändert werden können."
         add_new_field: "Neues Feld hinzufügen:"
-        remove_field_confirmation: "Willst du das Feld '%{field_name}' wirklich entfernen?"
+        remove_field_confirmation: "Willst du das Feld '%{field_name}' und sämtliche Inhalte wirklich entfernen? Dies kann nicht rückgängig gemacht werden."
         cancel: Abbrechen
         save: Speichern
         field_title: "Name des Feldes"
@@ -423,10 +586,36 @@ de:
         dropdown: Dropdown-Menü
         checkbox_group: "Checkbox Gruppe"
         date: Datum
+        file: Datei
+        location: Standort
+    person_custom_fields:
+      saving_failed: "Speicherung Benutzer Feld fehlgeschlagen"
+      index:
+        user_fields: "Benutzer Felder"
+        field_title: "Feld Name"
+        field_type: "Feld Typ"
+        signup: Anmeldung
+        public: Öffentlich
+        add_new_field: "Neues Feld hinzufügen:"
+        save: Speichern
+        cancel: Abbrechen
+        minimum_value: Minimum
+        maximum_value: Maximum
+        allow_decimals: "Dezimalstellen erlauben"
+        add_option: "Option hinzufügen"
+      new:
+        new_user_field: "Neues Benutzer Feld"
+      form:
+        field_required:
+          this_field_is_required: "Dieses Feld zum Pflichtfeld machen, wenn eine Registrierung auf dem Marktplatz erfolgt"
+          this_field_is_required_checkbox: "Dieses Feld zum Pflichtfeld machen, wenn eine Registrierung auf dem Marktplatz erfolgt (Nutzer muss mindestens eine Option auswählen)"
+          this_field_is_public: "Dieses Feld in der öffentlichen Profilseite anzeigen"
+      edit:
+        edit_user_field: "Benutzer Feld anpassen %{field_name}"
     emails:
       new:
-        send_email_to_members: "Sende eine E-Mail an alle Mitglieder"
-        send_email_to_members_title: "Sende eine E-Mail an alle Mitglieder"
+        send_email_to_members: "E-Mail an alle Mitglieder senden"
+        send_email_to_members_title: "Sende E-Mail an alle Mitglieder"
         send_email: "E-Mail senden"
         send_email_or: oder
         send_test_email: "Eine Test-E-Mail zu dir selber schicken"
@@ -437,6 +626,7 @@ de:
           title: "Wem willst du eine E-Mail schicken?"
           options:
             all_users: "Alle Benutzer"
+            posting_allowed: "Nutzer die Anzeigen veröffentlichen dürfen"
             with_listing: "Benutzer, die mindestens einen Eintrag erstellt haben"
             with_listing_no_payment: "Benutzer, die mindestens einen Eintrag erstellt haben, aber ihre Zahlungsdaten nicht eingetragen haben"
             with_payment_no_listing: "Benutzer, die ihre Zahlungsdaten eingetragen haben, aber keine Einträge erstellt haben"
@@ -448,9 +638,14 @@ de:
         any_language: "Beliebige Sprache"
         message_will_be_sent_only_to_people_with_this_language: "Die E-Mail wird nur an Mitglieder von %{service_name} verschickt, die auch die Sprache, die du gewählt hast, gewählt haben."
         email_sent: "E-Mail gesendet."
+        to_improve_email_deliverability: "Zur Verbesserung der Email Zustellbarkeit wird der Email Betreff automatisch generiert und kann nicht geändert werden."
+        email_subject_text: "Eine neue Nachricht vom %{service_name} Team"
+        firstname_cannot_be_removed: "Vorname kann nicht entfernt werden. Es wird der tatsächliche Vorname des jeweiligen Empfängers eingesetzt."
+        hello_firstname: "Hallo Vorname,"
+        hello_firstname_text: "Hallo %{person},"
     left_hand_navigation:
       general: Allgemein
-      users_and_transactions: "Benutzer & Transaktionen"
+      users_and_transactions: Verwalten
       configure: Konfiguration
       emails_title: E-Mails
       subscription: Abonnement
@@ -535,6 +730,7 @@ de:
         night: "Pro Nacht"
         week: "Pro Woche"
         month: "Pro Monat"
+        unit: "Pro Einheit"
       can_not_find: "Kann die Auftragsart mit dieser ID nicht finden: %{id}"
       add_custom_unit: "+ Füge eine angepasste Preis Einheit hinzu"
       delete_custom_unit: löschen
@@ -598,7 +794,7 @@ de:
       change_settings: "Einstellungen ändern"
       configure_stripe: "Stripe konfigurieren"
       configure_paypal: "PayPal konfigurieren"
-      transaction_fee_settings: "Einstellungen für Transaktionsgebühre"
+      transaction_fee_settings: "Einstellungen für Transaktionsgebühren"
       transaction_fee_save: Speichern
       stripe_fee: Stripe-Gebühren
       stripe_fee_notice: "%{stripe_fee_link} werden von deiner Transaktionsgebühr abgezogen."
@@ -638,11 +834,17 @@ de:
         payments_not_enabled: "Zahlungen sind nicht für diesen Marktplatz aktiviert"
     transaction_types:
       sell: Verkaufen
+      sell_w_online_payment: "Verkaufen mit Online-Zahlungen"
+      sell_wo_online_payment: "Verkaufen ohne Online-Zahlungen"
       rent: Vermieten
+      rent_w_online_payment: "Vermieten mit Online-Zahlungen"
+      rent_wo_online_payment: "Vermieten ohne Online-Zahlungen"
       give: "Umsonst abzugeben"
       lend: Verleihen
       swap: Tauschen
       service: Angebot
+      service_w_online_payment: "Angebot mit Online-Zahlungen"
+      service_wo_online_payment: "Angebot ohne Online-Zahlungen"
       request: Anfragen
       inquiry: Anfrage
       share_for_free: "Kostenlos teilen"
@@ -701,29 +903,22 @@ de:
     what_is_this: "Was ist das?"
     removed_user: "Entfernter Benutzer"
     payment_fee_info:
-      title: Zahlungsbearbeitungsgebühr
-      title_paypal: PayPal-Zahlungsbearbeitungsgebühr
+      title: "Provision und Zahlungsbearbeitungsgebühr"
       stripe: Stripe
       paypal: PayPal
-      info: "Zahlungen auf %{service_name} werden über die Zahlungsdienstleister Stripe oder PayPal verarbeitet. Beide Dienstleister erheben Zahlungsbearbeitungsgebühren bei jeder Transaktion."
+      info: "Zahlungen auf %{service_name} werden über die Zahlungsdienstleister Stripe (Kredit-/Debitkarte) oder PayPal abgewickelt. %{service_name} erhebt abhängig vom Zahlungsdienstleister eine Vermittlungsprovision. Der Zahlungsdienstleister erhebt ebenfalls eine Gebühr für jede Transaktion."
     paypal_fee_info:
       title: PayPal-Zahlungsbearbeitungsgebühr
       body_text: |-
-          Für jede Zahlung über PayPal erhebt %{service_name} eine Vermittlungsprovision in Höhe von %{paypal_commission}%. Die PayPal Gebühren sind nicht in der Vermittlungsprovision enthalten, diese musst du zusätzlich zu der Vermittlungsprovisionen von %{service_name} zahlen.
-          Wenn du dich bei deinem Paypal Account anmeldest, erhältst du unter dieser Adresse %{link_to_paypal} mehr Informationen auch zu internationalen Zahlungen. Nach jeder Transaktion bekommst du einen Beleg mit der exakten Gebühr.
+          Für jede über PayPal durchgeführte Zahlung erhebt %{service_name} eine Vermittlungsprovision von %{paypal_commission}%. Die Mindestprovision für jede Transaktion beträgt %{minimum_transaction_fee}. Die PayPal Gebühren sind nicht in der Vermittlungsprovision enthalten, diese musst du zusätzlich zu der Vermittlungsprovisionen von %{service_name} zahlen. Abhängig von Deinem monatlichen Verkaufsvolumen und dem Herkunftsland des Käufers, liegt die PayPal Gebühr zwischen 2% und 5% des Verkaufspreises. In der Regel liegen die Gebühren für inländische Verkäufe unter denen für Verkäufe ins Ausland und höhere monatliche Verkaufsvolumen führen zu ermäßigten Gebühren. 
+          Wenn du dich bei deinem Paypal Account anmeldest, erhältst du unter dieser Adresse %{link_to_paypal} Informationen zu den Gebühren. Nach jeder Transaktion bekommst du einen Beleg mit der exakten Gebühr.
       body_text_accept: |-
           Diese Zahlung wird durch PayPal verarbeitet. PayPal erhebt eine Transaktionsgebühr auf jede Zahlung. Diese Gebühr liegt zwischen 2% und 5% der Transaktionssumme, je nach monatlichem Umsatz und Land des Käufers. Normalerweise ist es günstiger, inländische Käufe zu tätigen, und größere monatliche Transaktionsvolumen bedeuten einen Rabatt.
           Wenn du dich bei deinem Paypal Account anmeldest, erhälst du unter dieser Adresse %{link_to_paypal} mehr Informationen auch zu internationalen Zahlungen. Nach jeder Transaktion bekommst du einen Beleg mit der exakten Gebühr.
       link_to_paypal_text: hier
-    paypal_only_fee_info:
-      title: "Zahlungsbearbeitungsgebühr von PayPal"
-      body_text: |-
-          Die Zahlungen auf %{service_name} werden durch PayPal verarbeitet. PayPal erhebt eine Transaktionsgebühr auf jede Zahlung. Diese Gebühr liegt zwischen 2% und 5% der Transaktionssumme, je nach monatlichem Umsatz und Land des Käufers. Normalerweise ist es günstiger, inländische Käufe zu tätigen, und größere monatliche Transaktionsvolumen bedeuten einen Rabatt.
-          Wenn du dich bei deinem Paypal Account anmeldest, erhälst du unter dieser Adresse %{link_to_paypal} mehr Informationen auch zu internationalen Zahlungen. Nach jeder Transaktion bekommst du einen Beleg mit der exakten Gebühr.
-      link_to_paypal_text: hier
     stripe_fee_info:
       title: "Zahlungsbearbeitungsgebühr von Stripe"
-      body_text: "Bei Zahlungen auf %{service_name}, die über Stripe abgewickelt werden, entstehen neben den Vermittlungsprovisionen (%{stripe_commission}%) keine zusätzlichen Transaktionskosten für dich."
+      body_text: "Für Zahlungen, die über Stripe abgewickelt werden, erhebt %{service_name} eine Vermittlungsprovision von %{stripe_commission}%. Die Mindestprovision für jede Transaktion beträgt %{minimum_transaction_fee}. Die Stripe Gebühren sind bereits darin enthalten."
       link_to_stripe_text: hier
   conversations:
     accept:
@@ -796,6 +991,9 @@ de:
       canceled_offer: "Angebot abgebrochen"
       paid: "bezahlt %{sum}"
       payment_preauthorized: "Zahlung wurde autorisiert: %{sum}"
+      stripe:
+        held_payment: "Die Anfrage wurde akzeptiert. Die Zahlung in Höhe von %{sum} wird von %{service_name} verwahrt bis der Auftrag als erledigt markiert wird."
+        confirmed_request: "Hat den Auftrag als erledigt markiert. Die Zahlung wurde oder wird in Kürze auf das Bankkonto von %{author_name} transferiert."
     new:
       message: Nachricht
       message_to: "Nachricht an %{author_name}"
@@ -825,7 +1023,7 @@ de:
     status:
       payment_errored: "Zahlung nicht erfolgreich. Bitte versuche es erneut!"
       payment_errored_starter: "Zahlung nicht erfolgreich. Bitte versuche es erneut. Wenn das Problem weiter besteht, wende dich bitte an unseren Kundenservice."
-      payment_errored_author: "Zahlung nicht erfolgreich. Bitte kontaktiere %{starter_name} und bitte ihn die Zahlung erneut zu versuchen."
+      payment_errored_author: "Zahlung nicht erfolgreich. Bitte kontaktiere %{starter_name} und bitte ihn/sie die Zahlung erneut zu versuchen."
       cancel_payed_transaction: Abbruch
       feedback_given: "Bewertung abgegeben"
       feedback_skipped: "Keine Bewertung abgegeben"
@@ -868,6 +1066,8 @@ de:
           intl: "Warten darauf, dass du die PayPal-Zahlung akzeptierst"
           unknown_reason: "Zahlung ausstehend. Melde dich in deinem PayPal-Konto an, um mehr Details zu sehen."
           verify: "Warten, dass du dein PayPal Konto bestätigst"
+      stripe:
+        waiting_confirmation_from_requester: "Warten bis %{requester_name} den Auftrag als erledigt markiert hat. Sobald der Auftrag als erledigt markiert wurde, erfolgt der Transfer der Zahlung auf Dein Bankkonto."
     status_link:
       accept_offer: "Angebot annehmen"
       accept_request: "Anfrage annehmen"
@@ -937,6 +1137,8 @@ de:
       has_marked_request_as_canceled: "%{other_party_full_name} hat deine Anfrage '%{request}' abgelehnt. Du kannst trotzdem %{other_party_given_name} Feedback geben."
       giving_feedback_is_good_idea: "Feedback zu geben, ist immer eine gute Idee. Wenn alles gut war, solltest du es andere wissen lassen, dass %{other_party_given_name} vertraut werden kann. Wenn es Probleme gab, dann ist es gut, dies auch zu erwähnen."
       give_feedback_to: "Gib %{other_party_given_name} ein Feedback"
+      stripe:
+        has_marked_request_as_confirmed: "%{other_party_full_name} hat den Auftrag \"%{request}\" als erledigt markiert. Die Überweisung der Zahlung auf Dein Bankkonto für diese Transaktion wurde soeben angestoßen. Du kannst %{other_party_given_name} nun ein Feedback geben."
     transaction_automatically_confirmed:
       subject: "Anfrage wurde automatisch abgeschlossen - bitte denk daran, Feedback zu geben."
       we_have_marked_request_as_confirmed: "Wir haben die Anfrage zu '%{request}' als erledigt markiert. Der Auftrag wurde automatisch erledigt, weil %{days_passed} Tage vergangen sind, seit der Antrag angenommen wurde."
@@ -961,10 +1163,10 @@ de:
       message_not_displaying_correctly: "Wird diese E-Mail nicht richtig dargestellt?"
       view_it_in_your_browser: "Sieh es dir in deinem Browser an"
       or: oder
-      unsubscribe_from_these_emails_info: "Du erhältst diese Email, weil Du ein Mitglied von %{service_name} bist."
+      unsubscribe_from_these_emails_info: "Du erhältst diese Email, weil du ein Mitglied von %{service_name} bist."
       unsubscribe_from_these_emails: "bestelle diese E-Mails ab"
-      unsubscribe_from_invitation_emails_info: "Du erhältst diese Email, weil ein Mitglied von %{service_name} Dich eingeladen hat beizutreten."
-      unsubscribe_from_invitation_emails: "Email-Einladungen von %{service_name} abbestellen."
+      unsubscribe_from_invitation_emails_info: "Du erhältst diese Email, weil ein Mitglied von %{service_name} dich eingeladen hat beizutreten."
+      unsubscribe_from_invitation_emails: "Email-Einladungen von %{service_name} abbestellen"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} hat dein Angebot %{listing} akzeptiert."
       has_accepted_your_request: "%{accepter} hat deine Anfrage %{listing} akzeptiert."
@@ -980,7 +1182,7 @@ de:
       remember_to_confirm: "Wenn der Auftrag erfüllt ist, denke daran, ihn als erledigt zu markieren. Wenn der Auftrag noch nicht erfüllt ist, hast du %{days_to_automatic_confirmation} Tage, um ihn abzubrechen. Sonst wird er automatisch als erledigt markiert."
     invitation_to_kassi:
       hi: Hallo!
-      you_have_been_invited_to_kassi: "%{inviter} hat dich eingeladen, %{service_name} zu benutzen"
+      you_have_been_invited_to_kassi: "%{inviter} hat dich eingeladen, %{service_name} zu benutzen."
       here_is_a_message_from: "Persönliche Nachricht von %{inviter}:"
       join_now: "Jetzt Mitglied werden"
       invitation_code: "Einladungscode %{code}"
@@ -998,7 +1200,7 @@ de:
       new_payment: "Du hast eine neue Zahlung erhalten"
       price_per_unit_type: "Preis pro %{unit_type}"
       quantity: "Anzahl:"
-      you_have_received_new_payment: "Für die Buchung von %{payer_full_name} für <b>%{listing_title}</b> von  <b>%{payment_sum}</b> hast du eine Zahlung erhalten. Hier ist die Quittung dazu."
+      you_have_received_new_payment: "Für die Buchung von %{payer_full_name} für <b>%{listing_title}</b> von <b>%{payment_sum}</b> hast du eine Zahlung erhalten. Hier ist die Quittung dazu."
       listing_per_unit_title: "%{title}, pro %{unit_type}"
     payment_receipt_to_seller:
       payment_gateway_fee: "Zahlungsbearbeitungsgebühr:"
@@ -1011,6 +1213,8 @@ de:
       price_per_unit_type: "Preis pro %{unit_type}"
       quantity: "Anzahl:"
       you_have_received_new_payment: "Du hast eine Zahlung in Höhe von <b>%{payment_sum}</b> für <b>%{listing_title}</b> durch %{payer_full_name} erhalten. Hier ist deine Quittung."
+      stripe:
+        you_have_received_new_payment: "Der Betrag in Höhe von <b>%{payment_sum}</b> für <b>%{listing_title}</b> wurde von %{payer_full_name} gezahlt. Das Geld wird solange von %{service_name} geblockt, bis der Auftrag als erledigt markiert wird. Als Anlage erhältst Du Deinen Beleg."
     payment_receipt_to_payer:
       receipt_of_payment: Zahlungsbestätigung
       you_have_made_new_payment: "Du hast <b>%{payment_sum}</b> bezahlt für <b>%{listing_title}</b> an %{recipient_full_name}. Hier ist eine Quittung für deine Zahlung."
@@ -1026,7 +1230,7 @@ de:
       paypal_gateway_fee: "Gebühr von PayPal:"
       money_will_be_transferred: "Das Geld wird an %{recipient_name} übertragen werden, wenn a) du die Anfrage als abgeschlossen markiert hast, oder b) %{automatic_confirmation_days} Tage sind vergangen, seit du bezahlt hast."
     paypal_new_payment:
-      paypal_gateway_fee: "PayPal's Gebühr:"
+      paypal_gateway_fee: "PayPal Gebühr:"
       shipping_total: "Versand:"
     braintree_new_payment:
       product: "Produkt:"
@@ -1048,6 +1252,8 @@ de:
       paypal_gateway_fee: "Gebühr von PayPal:"
       money_will_be_transferred: "Das Geld wird an %{recipient_name} übertragen werden, wenn a) Du die Anfrage als abgeschlossen markiert hast, oder b) %{automatic_confirmation_days} Tage sind vergangen, seit du bezahlt hast."
       listing_per_unit_title: "%{title}, pro %{unit_type}"
+      stripe:
+        you_have_made_new_payment: "Du hast <b>%{payment_sum}</b> für <b>%{listing_title}</b> gezahlt. Das Geld wird vorübergehend von %{service_name} bewahrt. Sobald du den Auftrag als erledigt markiert hast, wird das Geld an %{recipient_full_name} überwiesen. Als Anlage erhältst du deinen Zahlungsbeleg."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} hat dich auf %{service_name} bewertet"
       you_can_give_feedback_to: "Du hast %{name} noch nicht bewertet."
@@ -1081,7 +1287,7 @@ de:
     transaction_preauthorized:
       subject: "%{requester} hat %{listing_title} angefragt und eine Zahlung autorisiert auf %{service_name}"
       transaction_requested_by_user: "Gute Nachrichten! %{requester} hat \"%{listing_title}\" angefragt und eine Zahlung autorisiert."
-      you_have_time_to_accept: "Du musst die Anfrage innerhalb von %{payment_expires_in} akzeptieren oder ablehnen. Wenn Du innerhalb dieses Zeitrahmens akzeptierst, wird die Zahlung durchgehen. Wenn Du nicht zustimmst, wird die Anfrage automatisch abgelehnt, und Du wirst nicht bezahlt."
+      you_have_time_to_accept: "Du musst die Anfrage innerhalb von %{payment_expires_in} akzeptieren oder ablehnen."
       if_you_do_accept: "Wenn du die Anfrage innerhalb dieses Zeitrahmens akzeptierst, wirst du das Geld sofort auf dein Konto bekommen."
       if_you_do_accept_stripe: "Wenn du die Anfrage innerhalb von diesem Zeitraum akzeptierst, wird die Zahlung erfolgreich bearbeitet. Das Geld wird zu deinem Bankkonto überwiesen, nachdem du %{listing_title} zu %{requester} geliefert hast."
       if_you_do_not_accept: "Wenn du die Anfrage ablehnst, oder sie nicht innerhalb dieses Zeitrahmens akzeptierst, wird die Transaktion automatisch abgebrochen, %{requester} wird nicht belastet, und du bekommst das Geld nicht."
@@ -1135,6 +1341,8 @@ de:
       reject_authorization_error: "Bei dem Versuch, eine vorab autorisierte PayPal Zahlung abzulehnen, ist ein Fehler aufgetreten. Bitte versuche es erneut."
     stripe:
       generic_error: "Während des Zahlungsvorgangs ist ein Fehler aufgetreten. Die Stripe Zahlung konnte nicht abgeschlossen werden."
+      accept_authorization_error: "Es ist ein Fehler während der Authorisierung der Stripe Zahlung aufgetreten. Bitte erneut versuchen."
+      reject_authorization_error: "Es ist ein Fehler während der Ablehnung der Stripe Zahlung aufgetreten. Bitte erneut versuchen."
   error_pages:
     back_to_kassi_front_page: "Zurück zur Startseite"
     error_404:
@@ -1173,6 +1381,7 @@ de:
       after: "muss nach %{restriction} sein"
       on_or_after: "muss genau oder nach %{restriction} sein"
       positive_number: "Bitte eine Zahl eingeben."
+      from_must_be_less_than_till: "\"Startzeit\" muss vor der \"Endzeit\" sein"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} hat zugestimmt %{listing_title} an %{requester_name}% zu verleihen vor {time_ago}."
@@ -1289,7 +1498,7 @@ de:
       message: "Eine persönliche Nachricht"
       send_invitation: "Einladung senden"
       add_email_addresses_description: "Füge die E-Mail-Adressen der Leute, die du einladen möchtest, in das obere Feld ein. Wenn du mehrere E-Mail-Adressen hinzufügst, unterteile sie mit einem Komma."
-      add_lots_of_email_addresses: "Wenn Du sehr viele Einladungen verschicken möchtest, solltest Du lieber ein Email-Tool verwenden. Lies %{this_article_link}, um mehr über geeignete Email-Dienste zu erfahren."
+      add_lots_of_email_addresses: "Wenn du sehr viele Einladungen verschicken möchtest, solltest du lieber ein Email-Tool verwenden. Lies %{this_article_link}, um mehr über geeignete Email-Dienste zu erfahren."
       this_article_link: "diesen Artikel"
       invitation_emails_field_placeholder: "freund1@beispiel.com, freund2@beispiel.com, ..."
       invitation_message_field_placeholder: "Ich bin diesem tollen Marktplatz beigetreten. Das solltest du auch tun!"
@@ -1328,7 +1537,7 @@ de:
       default_about_text: "Diese Website wurde mit Hilfe der Sharetribe-Plattform angelegt. Jeder kann mit Sharetribe seinen eigenen Marktplatz erstellen. Es ist kostenlos und dauert nur eine Minute. %{click_here_link}, um mehr zu erfahren!"
       click_here_link_text: "Hier klicken"
     how_to_use:
-      default_title: "So funktioniert's"
+      default_title: "So funktioniert es"
       default_content: "Hier findest du Informationen darüber, wie %{marketplace_name} funktioniert."
   landing_page:
     hero:
@@ -1356,7 +1565,7 @@ de:
       dont_use_to_contact_support: "Wir haben gemerkt, dass du ein Administrator von %{service_name} bist. Durch dieses Formular werden deine Kunden dir Nachrichten senden. Du kannst dieses Formular nicht verwenden, um Sharetribe Support zu kontaktieren. Stattdessen kannst du den Support-Widget in der unterer rechten Ecke verwenden, um Sharetribe zu kontaktieren."
       feedback_forum: Feedback-Forum
       feedback_handle: Feedback
-      give_feedback: "Kontaktiere uns"
+      give_feedback: Kontakt
       or_check_our: "...oder überprüfe unser"
       send_feedback_to_admin: "Nachricht senden"
       to_see_what_others_have_suggested: "um zu sehen, was andere Benutzer vorgeschlagen haben und um die für die Ideen zu stimmen."
@@ -1377,7 +1586,7 @@ de:
       select_language: "Sprache auswählen"
     infos:
       about: Info
-      how_to_use: "So funktioniert's"
+      how_to_use: "So funktioniert es"
       info_about_kassi: "Informationen über %{service_name}"
       news: News
       register_details: "Impressum & Datenschutz"
@@ -1432,7 +1641,7 @@ de:
       feedback_sent_to: "Feedback an %{target_person} gesendet."
       feedback_skipped: "Bewertung übersprungen"
       invitation_cannot_be_sent: "Einladung konnte nicht gesendet werden"
-      invitation_cannot_unsubscribe: "Abbestellung der Email-Einladungen nicht möglich."
+      invitation_cannot_unsubscribe: "Abbestellung der Email-Einladungen nicht möglich"
       invitation_limit_reached: "Du hast zu viele Einladungen verschickt. Das Tageslimit ist erreicht."
       invitation_sent: "Einladung erfolgreich gesendet"
       invitation_successfully_unsubscribed: "Email-Einladungen erfolgreich abbestellt."
@@ -1457,7 +1666,7 @@ de:
       listing_updated_successfully: "Eintrag wurde erfolgreich aktualisiert"
       listing_updated_availability_management_enabled: "Eintrag wurde erfolgreich aktualisiert. Verfügbarkeitsverwaltung aktiviert."
       listing_updated_availability_management_disabled: "Eintrag wurde erfolgreich aktualisiert. Verfügbarkeitsverwaltung deaktiviert."
-      only_kassi_administrators_can_access_this_area: "Nur %{service_name} Administratoren können diesen Bereich aufrufen"
+      only_kassi_administrators_can_access_this_area: "Bitte mit einem Administratorkonto einloggen, um diesen Bereich zu betreten"
       only_listing_author_can_close_a_listing: "Nur der erstellende Anbieter kann ein Angebot deaktivieren"
       only_listing_author_can_edit_a_listing: "Nur Autoren eines Eintrags können den Eintrag bearbeiten"
       payment_successful: "erfolgreiche Bezahlung"
@@ -1529,6 +1738,9 @@ de:
         one: "Die Webseite geht offline für Wartungsarbeiten in %{count} Minute."
         other: "Die Webseite geht offline für Wartungsarbeiten in %{count} Minuten."
       automatically_logged_out_please_sign_in: "Du wurdest automatisch ausgeloggt. Bitte melde dich erneut an."
+      stripe_you_account_balance_is_not_0: "Dein Kontostand beträgt nicht 0 und kann daher nicht gelöscht werden. Möglicherweise müssen Transaktionen noch beendet werden oder Geld auf Dein Bankkonto überwiesen werden. Bitte kontaktiere das %{service_name} Team, um mehr zu erfahren."
+      visit_admin: "Würdest Du gerne %{link}?"
+      visit_admin_link: "Deinen Admin Bereich besuchen"
     settings:
       account: Konto
       notifications: Benachrichtigungen
@@ -1537,6 +1749,8 @@ de:
       paypal_payments: "PayPal Zahlungen"
       stripe_payments: "Stripe Zahlungen"
       payments: Zahlungen
+      listings: ~
+      listings_search_placeholder: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Du hast keine Berechtigung, diesen Eintrag anzuschauen."
@@ -1633,11 +1847,8 @@ de:
         after_service_fee_you_will_get: "Nach Abzug der %{service_name} Servicegebühr und der Gebühren des Zahlungssystems, wirst du %{sum_with_currency} erhalten"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} wird vom Preis abgezogen."
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} wird vom Preis abgezogen."
-        after_service_fee_you_will_get_payment_text: "Bei jedem Kauf wird die %{service_name} Gebühr (%{sum_with_currency}) und gegebenenfalls eine %{payment_fee_info_link} von dem Preis abgezogen."
-        after_service_fee_you_will_get_paypal_text: "Bei jedem Kauf wird die %{service_name} Gebühr (%{sum_with_currency}) und gegebenenfalls eine %{paypal_fee_info_link} von dem Preis abgezogen."
-        after_service_fee_you_will_get_stripe_text: "Wenn jemand den Auftrag kauft, wird die Gebühr von %{service_name} (%{sum_with_currency}) vom Betrag abgezogen."
-        payment_fee_info_link_text: Zahlungsbearbeitungsgebühr
-        paypal_fee_info_link_text: PayPal-Zahlungsbearbeitungsgebühr
+        after_service_fee_you_will_get_payment_text: "Bei jedem Kauf wird die %{payment_fee_info_link} vom Preis einbehalten."
+        payment_fee_info_link_text: "%{service_name} Vermittlungsprovision und ggf. eine Zahlungsbearbeitungsgebühr"
         delivery: Lieferart
         shipping: Versand
         shipping_price: Versandkostenpauschale
@@ -1740,12 +1951,14 @@ de:
       community_not_configured_for_payments: "%{service_name} wurde nicht für Zahlungen konfiguriert, deswegen kannst Du keine Angebote veröffentlichen. Bitte kontaktiere %{contact_admin_link} für Einzelheiten."
       payment_settings_link: Zahlungseinstellungen
       community_not_configured_for_payments_admin: "%{service_name} wurde nicht für Zahlungen konfiguriert, deswegen kannst Du keine Angebote veröffentlichen. Gehe zu %{payment_settings_link} um die Zahlungsangaben einzutragen."
+      you_are_now_posting_a_listing_on_behalf_of: "Du veröffentlichst jetzt einen Eintrag im Auftrag von %{name}"
     quantity:
       hour: "Anzahl Stunden:"
       day: "Anzahl Tage:"
       night: "Anzahl Nächte:"
       week: "Anzahl Wochen:"
       month: "Anzahl Monate:"
+      unit: Stückzahl
       custom: "Anzahl:"
     quantity_placeholder: Anzahl
     please_comment: Kommentar
@@ -1797,6 +2010,7 @@ de:
       night: Nacht
       week: Woche
       month: Monat
+      unit: Einheit
     verification_required:
       verification_required: "Verifizierung erforderlich"
   listing_conversations:
@@ -1950,7 +2164,8 @@ de:
         other: "Der Zugang zu %{service_name} ist beschränkt. Um beitreten zu können, brauchst du eine E-Mail-Adresse, die belegt, dass deine Teilnahme erlaubt ist."
       family_name: Nachname
       given_name: Vorname
-      i_accept_the: "Ich akzeptiere die"
+      i_accept_the_terms_and_privacy: "Ich akzeptiere die %{privacy} und %{terms}"
+      admin_emails_consent: "Ich bin damit einverstanden, gelegentlich Emails vom %{service_name} Team zu erhalten und habe zur Kenntnis genommen, dass ich es mir jederzeit anders überlegen kann."
       invalid_invitation_code: "Der Einladungs-Code ist ungültig."
       invitation_code: Einladungscode
       not_required: ", nicht erforderlich"
@@ -1959,6 +2174,7 @@ de:
       show_my_name_to_others: "Anderen %{service_name} Benutzern meinen richtigen Namen anzeigen"
       sign_up: "Ein neues Konto bei %{service_name} erstellen"
       terms: Nutzungsbedingungen
+      privacy: Datenschutz
       username_is_in_use: "Dieser Benutzername wird bereits verwendet."
       username_is_invalid: "Der Benutzername ist ungültig. Erlaubte Zeichen sind Buchstaben (keine Umlaute), Ziffern und Unterstriche."
       visible_only_to_you: "nur für dich und den Admin von %{service_name} sichtbar"
@@ -1966,6 +2182,7 @@ de:
       create_account_with_facebook: "Mit Facebook registrieren"
       OR: ODER
       signup_with_email: "Registriere dich mit deiner E-Mail-Adresse"
+      this_field_will_be_publicly_visible: "(Dieses Feld ist öffentlich einsehbar)"
     profile_feedback:
       grade: "Note:"
       and_gave_following_feedback: "und gab das folgende Feedback"
@@ -2005,6 +2222,8 @@ de:
       show_all_listings: "Alle Einträge anzeigen"
       show_all_open_listings: "Zeige alle offenen Einträge an"
       show_all_reviews: "Alle Bewertungen anzeigen"
+      admin_actions: Admin-Maßnahmen
+      post_listing_as: "Eintrag veröffentlichen als"
     followed_people:
       you_follow_plural: "Du folgst %{count} Personen"
       you_follow_singular: "Du folgst %{count} Person"
@@ -2060,9 +2279,10 @@ de:
       delete_account_confirmation_popup: "Bist du sicher, dass du dein Benutzerkonto und alle damit verbundenen Daten endgültig löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden."
       email_addresses: E-Mail-Adressen
       new_email: "Neue E-Mail-Adresse"
-      delete_personal_information: "Wenn Du Dein Konto löschst, werden Deine persönlichen Daten (Name, Telefonnummer, Adresse, E-Mail, Profilbild, etc.) endgültig gelöscht und können nicht wiederhergestellt werden. Alle Angebote, die Du erstellt hast, werden entfernt. Du wirst nicht in der Lage sein, Dein Konto zu reaktivieren."
-      delete_information_others_involved: "Informationen, wo andere Mitglieder beteiligt sind (Unterhaltungen mit anderen Menschen, Transaktionen, die Du vorgenommen hast, Reviews die Du an andere gegeben haben, usw.) werden nicht entfernt, wenn Du Dein Konto löschst. Allerdings wird dein Name nicht mehr neben diesen Informationen angezeigt werden."
+      delete_personal_information: "Wenn Du Dein Konto löschst, werden Deine persönlichen Daten (Name, Telefonnummer, Adresse, E-Mail, Profilbild, etc.) endgültig gelöscht und können nicht wiederhergestellt werden. Alle Angebote, die Du erstellt hast, werden entfernt. Du wirst nicht in der Lage sein, Dein Konto zu reaktivieren. Dein Benutzername wird für neue Mitglieder beim Registrieren wieder verfügbar auf %{service_name}."
+      delete_information_others_involved: "Informationen, an denen andere Mitglieder beteiligt sind (Unterhaltungen mit anderen Menschen, Transaktionen, die Du durchgeführt hast, Bewertungen, die Du vorgenommen hast usw.) werden nicht entfernt, wenn Du Dein Konto löschst. Allerdings wird dein Name nicht mehr neben diesen Informationen angezeigt werden."
       unfinished_transactions: "Dein Konto kann nicht gelöscht werden, weil Du laufende Transaktionen hast. Bitte schließe alle Transaktionen vor dem Löschen Deines Kontos ab."
+      only_admin: "Dein Konto kann nicht gelöscht werden, da Du der einzige Administrator in dem Marktplatz bist."
       new_password: "Neues Passwort"
       save: Speichern
       these_fields_are_shown_only_to_you: "Dein Benutzername wird dir in deinem Profil angezeigt, es sei denn, du hast deinen Namen angegeben. Andere Informationen sind nur für dich sichtbar."
@@ -2082,7 +2302,7 @@ de:
         status_confirmed: Bestätigt
         status_pending: Ausstehend
     notifications:
-      email_from_admins: "Ich möchte gelegentlich Neuigkeiten von den Administratoren empfangen"
+      email_from_admins: "Ich möchte gelegentlich Neuigkeiten von den Administratoren von %{service_name} empfangen"
       i_want_to_get_email_notification_when: "Ich möchte eine E-Mail-Benachrichtigung erhalten, wenn..."
       newsletters: "E-mails von Administatoren"
       community_updates: Newsletters
@@ -2098,7 +2318,7 @@ de:
       email_when_conversation_rejected: "...jemand mein Angebot oder meine Anfrage ablehnt"
       email_about_completed_transactions: "...jemand mein Angebot oder meine Anfrage als erledigt markiert"
       email_about_new_payments: "...ich eine neue Zahlung erhalte"
-      email_about_new_listings_by_followed_people: "... jemand dem ich folge, veröffentlicht einen neuen Eintrag"
+      email_about_new_listings_by_followed_people: "... jemand dem ich folge, einen neuen Eintrag veröffentlicht"
       unsubscribe_succesful: "Abbestellen erfolgreich"
       unsubscribe_info_text: "Du wirst keine dieser E-Mails mehr erhalten. Überprüfe deine %{settings_link} und wähle die E-Mails aus, die du empfangen möchtest von %{service_name} oder gehe zurück zu %{homepage_link}."
       settings_link: Einstellungen
@@ -2115,18 +2335,21 @@ de:
       display_name: Anzeigename
       display_name_description: "Wenn du eine Organisation vertrittst, kannst du den Namen deiner Organisation als Anzeigename verwenden. Der Anzeigename wird den anderen Nutzern statt deines Vor- und Nachnamens angezeigt."
       location_description: "Du kannst entweder deinen exakten Standort oder nur deine Postleitzahl angeben. Es ist eine gute Idee, das Land auch einzugeben. Beispiele: \"10117 Berlin, Deutschland\" oder \"2000 Sand Hill Road, CA, USA\"."
+      profile_picture_description: "Das Bild sollte ein quadratisches Seitenverhältnis haben (1:1), zum Beispiel 800x800 Pixel. Ansonsten wird es beschnitten."
       phone_number: Telefonnummer
       profile_picture: Profilbild
       postal_code: Postleitzahl
       profile_page: "auf deiner Profil-Seite"
       profilemap: Kartenansicht
       street_address: Standort
-      these_fields_are_shown_in_your: "Diese Informationen sind für alle %{service_name} Mitglieder sichtbar"
+      these_fields_are_shown_in_your: "Ein Teil dieser Informationen sind für alle %{service_name} Mitglieder sichtbar"
       visible_to_everybody: "für jeden sichtbar"
       visible_to_registered_users: "(sichtbar für angemeldete Benutzer)"
       default_in_listing: "(wird nur beim Erstellen eines neuen Eintrags als Standardeinstellung benutzt)"
       invisible: "(wird anderen Benutzern nicht angezeigt)"
       image_is_processing: "Dein Profilbild wird verarbeitet. Es wird gleich fertig sein."
+      shown_in_your_public_profile: "(wird im öffentlichen Profil angezeigt)"
+      editing_profile_of: "Du bearbeitest jetzt das Profil von %{name}"
     save_information: "Informationen speichern"
   shipping_address:
     shipping_address: Lieferadresse
@@ -2230,7 +2453,7 @@ de:
       short: "%e %b %Y at %H:%M"
       shorter: "%e %b at %H:%M"
       short_date: "%e %b %Y"
-      hours_only: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "Vor %{count} Tag"
     days_ago: "Vor %{count} Tagen"
@@ -2245,7 +2468,7 @@ de:
     years_ago: "Vor %{count} Jahren"
     days_since:
       one: "%{count} Tag"
-      other: "%{count} Tage"
+      other: "%{count} Tagen"
     time_to:
       seconds:
         one: "%{count} Sekunde"
@@ -2269,6 +2492,9 @@ de:
       booked_nights_label:
         one: "Gebuchte Nacht:"
         other: "Gebuchte Nächte:"
+      booked_hours_label:
+        one: "Gebuchte Stunde:"
+        other: "Gebuchte Stunden:"
       price_per_day: "Preis pro Tag:"
       price_per_night: "Preis pro Nacht:"
       price_per_hour: "Preis pro Stunde:"
@@ -2277,13 +2503,10 @@ de:
       subtotal: "Zwischensumme:"
       shipping-price: "Versandkosten:"
       stripe-fee: "Stripe Gebühr (geschätzt):"
-      start_end_time: "%{start_time} bis %{end_time}"
-      booked_hours_label:
-        one: "Gebuchte Stunde:"
-        other: "Gebuchte Stunden:"
       duration_in_hours:
         one: "(Eine Stunde)"
         other: "(%{count} Stunden)"
+      start_end_time: "%{start_time} bis %{end_time}"
     price_per_quantity: "Preis pro %{unit_type}"
     price: "Preis:"
     quantity: "Anzahl: %{quantity}"
@@ -2301,6 +2524,8 @@ de:
           saving_failed: "Wir können die Änderungen an der Verfügbarkeit nicht speichern. Bitte versuche, die Seite erneut zu laden."
         working_hours:
           required: Pflichteingabe
+          overlaps: überschneidet
+          covers: beinhaltet
       pricing_units:
         piece: Stück
         hour: Stunde
@@ -2312,7 +2537,7 @@ de:
       save_and_close_availability_editing: "Speichern und schließen"
       confirm_discarding_unsaved_availability_changes_explanation: "Einige Änderungen zu der Verfügbarkeit wurden noch nicht gespeichert. Beim Fortsetzen gehen diese Änderungen verloren."
       confirm_discarding_unsaved_availability_changes_question: "Bist du sicher, dass du diese Änderungen verwerfen willst?"
-      edit_listing_availability: "Verfügbarkeit der Anzeige bearbeiten"
+      edit_listing_availability: "Verfügbarkeit des Angebots bearbeiten"
       working_hours:
         default_schedule: Standardplan
         i_am_available_on: "Ich bin verfügbar am..."
@@ -2379,14 +2604,14 @@ de:
       community_members_entries_info:
         single_page:
           zero: "Keine %{model} gefunden"
-          one: "%{accepted_count} aktive %{accepted_model} und %{banned_count} gesperrte %{banned_model} werden angezeigt. "
-          other: "%{accepted_count} aktive %{accepted_model} und %{banned_count} gesperrte %{banned_model} werden angezeigt. "
+          one: "%{accepted_count} genehmigter %{accepted_model} und %{other_count} anderer %{other_model} werden angezeigt"
+          other: "%{accepted_count} genehmigte %{accepted_model} und %{other_count} andere %{other_model} werden angezeigt"
         single_page_html:
           zero: "Keine %{model} gefunden"
-          one: "<b>%{accepted_count}</b> aktive %{accepted_model} und %{banned_count} gesperrte %{banned_model} werden angezeigt."
-          other: "<b>%{accepted_count}</b> aktive %{accepted_model} und %{banned_count} gesperrte %{banned_model} werden angezeigt."
-        multi_page: "%{model} %{from} - %{to} von %{accepted_count} aktiven %{accepted_model}n und %{banned_count} gesperrten %{banned_model}n werden angezeigt."
-        multi_page_html: "%{model} <b>%{from}&nbsp;-%nbsp;%{to}</b> von <b>%{accepted_count}</b> aktiven %{accepted_model}n und %{banned_count} gesperrten %{banned_model}n werden angezeigt."
+          one: "<b>%{accepted_count} </b> genehmigter %{accepted_model} und %{other_count} anderer %{other_model} werden angezeigt"
+          other: "<b>%{accepted_count} </b> genehmigte %{accepted_model} und %{other_count} andere %{other_model} werden angezeigt"
+        multi_page: "%{model} %{from} - %{to} von %{accepted_count} genehmigte %{accepted_model} und %{other_count} andere %{other_model} werden angezeigt"
+        multi_page_html: "%{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> von <b>%{accepted_count}</b> genehmigte %{accepted_model} und %{other_count} andere %{other_model} werden angezeigt"
   stripe_accounts:
     admin_account_not_connected: "Die Nutzung des Zahlungssystem von %{service_name} zum Empfang von Zahlungen ist nicht möglich, da es noch nicht konfiguriert wurde. Bitte %{contact_admin_link} für Details."
     contact_admin_link_text: "kontaktiere den Administrator von %{service_name}"
@@ -2407,12 +2632,19 @@ de:
       need_info: "Wir brauchen einige Informationen über dich, um dir Geld überweisen zu können."
       select_country: "Land wählen..."
       legal_name: "Gesetzlicher Name"
+      first_name: Vorname
+      last_name: Nachname
+      first_name_kana: "Vorname kana"
+      last_name_kana: "Nachname kana"
+      first_name_kanji: "Vorname kanji"
+      last_name_kanji: "Nachname kanji"
       country: Land
       birth_date: Geburtsdatum
       ssn_last_4: "Sozialversicherungsnummer, letzte 4 Ziffern"
       personal_id_number: Personalausweisnummer
       address_country: Land
       address_state: Staat
+      address_province: Bundesland
       address_city: Stadt
       address_postal_code: Postleitzahl
       address_line1: Adresse
@@ -2421,12 +2653,27 @@ de:
       save_details: "Details speichern"
       edit: "Details bearbeiten"
       cancel: Abbrechen
+      gender: Geschlecht
+      phone_number: Telefonnummer
+      address_kana_postal_code: "Postleitzahl kana"
+      address_kana_state: "Staat kana"
+      address_kana_city: "Stadt kana"
+      address_kana_town: "Stadt kana"
+      address_kana_line1: "Adresse kana"
+      address_kanji_postal_code: "Postleitzahl kanji"
+      address_kanji_state: "Staat kanji"
+      address_kanji_city: "Stadt kanji"
+      address_kanji_town: "Stadt kanji"
+      address_kanji_line1: "Adresse kanji"
+      male: männlich
+      female: weiblich
     form_bank:
       bank_account_number: Kontonummer
       bank_routing_number: Bankleitzahl
       bank_routing_1: Bankleitzahl
       bank_routing_2: Branch/Filialcode
       bank_currency: "Währung des Bankkontos"
+      update_also_bank_account: "Bankkonto ebenfalls aktualisieren"
       messages:
         account_number: Kontonummer
         routing_number: Bankleitzahl
@@ -2451,6 +2698,7 @@ de:
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN; Sozialversicherungsnummer)"
       social_security_number: "Social Security Number (SSN; Sozialversicherungsnummer)"
+      ssn_last_4: "Die letzten 4 Ziffern der Sozialversicherungsnummer (SVNR)"
       hong_kong_identity_card: "Hong Kong Identity Card Number (HKID; Hong Kong Personalausweisnummer)"
       singapore_identity_card: "National Registration Identity Card (NRIC; Personalausweisnummer) oder Foreign Identification Number (Ausländeridentifikationsnummer)"
       messages:
@@ -2464,6 +2712,6 @@ de:
     can_accept_stripe_and_paypal: "Du kannst deinen Kunden Kreditkartenzahlungen, PayPal-Zahlungen oder beides anbieten."
     to_accept_paypal: "Um PayPal Zahlungen von Kunden empfangen zu können, musst du dein PayPal Konto hier verknüpfen."
     connect_paypal: "PayPal-Konto verknüpfen"
-    wrong_setup: "Etwas ist schief gegangen mit dem Zahlungssystem dieses Marktplatzes: Plattform wurde nicht registriert. Bitte kontaktiere die Marktplatz-Administratoren und erzähle ihnen, dass sie ihre Plattform bei Stripe registrieren sollten."
+    wrong_setup: "Etwas ist schief gegangen mit dem Zahlungssystem dieses Marktplatzes: Stripe Connect ist nicht aktiviert. Bitte kontaktiere die Marktplatz-Administratoren und erzähle ihnen, dass sie Stripe Connect auf ihrem Stripe Dashboard aktivieren sollten."
     invalid_bank_account_number: "Bitte sicherstellen, dass dein Bankkonto ist richtig eingetragen und mit deinem Land zustimmt."
     invalid_postal_code: "Ungültige Postleitzahl für %{country}"

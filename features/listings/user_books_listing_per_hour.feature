@@ -8,7 +8,6 @@ Feature: User books listing per hour
       | kassi_testperson2 |
     # If tests failed then set current time in the furure!
     And it is currently "2050-11-28 05:00:00"
-    Given community "test" has feature flag "availability_per_hour" enabled
     Given community "test" has payment method "paypal" provisioned
     Given community "test" has payment method "paypal" enabled by admin
     Given community "test" has a listing shape offering services per hour
@@ -67,4 +66,21 @@ Feature: User books listing per hour
     Then I should see "Booked hour: Mon, Nov 28, 2050 - 10:00 am to 11:00 am (1 hour)"
     Then I should see "Price per hour: $1.55"
     Then I should see "Total: $1.55"
+
+  Scenario: Reach payment step successfully. Transaction agreement in use.
+    Given this community has transaction agreement in use
+    When I am logged in as "kassi_testperson2"
+    And I am on the home page
+    And I follow "Massage"
+    Then I should see "Massage"
+    When I focus on "#start-on"
+    Then I should see "November 2050"
+    When I click on datepicker day "28"
+    Then I select "9:00 am" from "start_time"
+    Then I select "12:00 pm" from "end_time"
+    When I press "Request"
+    Then I should see "Booked hours: Mon, Nov 28, 2050 - 9:00 am to 12:00 pm (3 hours)"
+    Then I should see "Price per hour: $1.55"
+    Then I should see "Subtotal: $4.65"
+    Then I should see "Total: $4.65"
 

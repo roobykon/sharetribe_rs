@@ -2,94 +2,101 @@
 #
 # Table name: communities
 #
-#  id                                               :integer          not null, primary key
-#  uuid                                             :binary(16)       not null
-#  ident                                            :string(255)
-#  domain                                           :string(255)
-#  use_domain                                       :boolean          default(FALSE), not null
-#  created_at                                       :datetime
-#  updated_at                                       :datetime
-#  settings                                         :text(65535)
-#  consent                                          :string(255)
-#  transaction_agreement_in_use                     :boolean          default(FALSE)
-#  email_admins_about_new_members                   :boolean          default(FALSE)
-#  use_fb_like                                      :boolean          default(FALSE)
-#  real_name_required                               :boolean          default(TRUE)
-#  automatic_newsletters                            :boolean          default(TRUE)
-#  join_with_invite_only                            :boolean          default(FALSE)
-#  allowed_emails                                   :text(16777215)
-#  users_can_invite_new_users                       :boolean          default(TRUE)
-#  private                                          :boolean          default(FALSE)
-#  label                                            :string(255)
-#  show_date_in_listings_list                       :boolean          default(FALSE)
-#  all_users_can_add_news                           :boolean          default(TRUE)
-#  custom_frontpage_sidebar                         :boolean          default(FALSE)
-#  event_feed_enabled                               :boolean          default(TRUE)
-#  slogan                                           :string(255)
-#  description                                      :text(65535)
-#  country                                          :string(255)
-#  members_count                                    :integer          default(0)
-#  user_limit                                       :integer
-#  monthly_price_in_euros                           :float(24)
-#  logo_file_name                                   :string(255)
-#  logo_content_type                                :string(255)
-#  logo_file_size                                   :integer
-#  logo_updated_at                                  :datetime
-#  cover_photo_file_name                            :string(255)
-#  cover_photo_content_type                         :string(255)
-#  cover_photo_file_size                            :integer
-#  cover_photo_updated_at                           :datetime
-#  small_cover_photo_file_name                      :string(255)
-#  small_cover_photo_content_type                   :string(255)
-#  small_cover_photo_file_size                      :integer
-#  small_cover_photo_updated_at                     :datetime
-#  custom_color1                                    :string(255)
-#  custom_color2                                    :string(255)
-#  slogan_color                                     :string(6)
-#  description_color                                :string(6)
-#  stylesheet_url                                   :string(255)
-#  stylesheet_needs_recompile                       :boolean          default(FALSE)
-#  service_logo_style                               :string(255)      default("full-logo")
-#  currency                                         :string(3)        not null
-#  facebook_connect_enabled                         :boolean          default(TRUE)
-#  minimum_price_cents                              :integer
-#  hide_expiration_date                             :boolean          default(TRUE)
-#  facebook_connect_id                              :string(255)
-#  facebook_connect_secret                          :string(255)
-#  google_analytics_key                             :string(255)
-#  google_maps_key                                  :string(64)
-#  name_display_type                                :string(255)      default("first_name_with_initial")
-#  twitter_handle                                   :string(255)
-#  use_community_location_as_default                :boolean          default(FALSE)
-#  preproduction_stylesheet_url                     :string(255)
-#  show_category_in_listing_list                    :boolean          default(FALSE)
-#  default_browse_view                              :string(255)      default("grid")
-#  wide_logo_file_name                              :string(255)
-#  wide_logo_content_type                           :string(255)
-#  wide_logo_file_size                              :integer
-#  wide_logo_updated_at                             :datetime
-#  listing_comments_in_use                          :boolean          default(FALSE)
-#  show_listing_publishing_date                     :boolean          default(FALSE)
-#  require_verification_to_post_listings            :boolean          default(FALSE)
-#  show_price_filter                                :boolean          default(FALSE)
-#  price_filter_min                                 :integer          default(0)
-#  price_filter_max                                 :integer          default(100000)
-#  automatic_confirmation_after_days                :integer          default(14)
-#  favicon_file_name                                :string(255)
-#  favicon_content_type                             :string(255)
-#  favicon_file_size                                :integer
-#  favicon_updated_at                               :datetime
-#  default_min_days_between_community_updates       :integer          default(7)
-#  listing_location_required                        :boolean          default(FALSE)
-#  custom_head_script                               :text(65535)
-#  follow_in_use                                    :boolean          default(TRUE), not null
-#  logo_processing                                  :boolean
-#  wide_logo_processing                             :boolean
-#  cover_photo_processing                           :boolean
-#  small_cover_photo_processing                     :boolean
-#  favicon_processing                               :boolean
-#  deleted                                          :boolean
-#  automatic_confirmation_after_days_after_end_time :integer          default(2)
+#  id                                         :integer          not null, primary key
+#  uuid                                       :binary(16)       not null
+#  ident                                      :string(255)
+#  domain                                     :string(255)
+#  use_domain                                 :boolean          default(FALSE), not null
+#  created_at                                 :datetime
+#  updated_at                                 :datetime
+#  settings                                   :text(65535)
+#  consent                                    :string(255)
+#  transaction_agreement_in_use               :boolean          default(FALSE)
+#  email_admins_about_new_members             :boolean          default(FALSE)
+#  use_fb_like                                :boolean          default(FALSE)
+#  real_name_required                         :boolean          default(TRUE)
+#  automatic_newsletters                      :boolean          default(TRUE)
+#  join_with_invite_only                      :boolean          default(FALSE)
+#  allowed_emails                             :text(16777215)
+#  users_can_invite_new_users                 :boolean          default(TRUE)
+#  private                                    :boolean          default(FALSE)
+#  label                                      :string(255)
+#  show_date_in_listings_list                 :boolean          default(FALSE)
+#  all_users_can_add_news                     :boolean          default(TRUE)
+#  custom_frontpage_sidebar                   :boolean          default(FALSE)
+#  event_feed_enabled                         :boolean          default(TRUE)
+#  slogan                                     :string(255)
+#  description                                :text(65535)
+#  country                                    :string(255)
+#  members_count                              :integer          default(0)
+#  user_limit                                 :integer
+#  monthly_price_in_euros                     :float(24)
+#  logo_file_name                             :string(255)
+#  logo_content_type                          :string(255)
+#  logo_file_size                             :integer
+#  logo_updated_at                            :datetime
+#  cover_photo_file_name                      :string(255)
+#  cover_photo_content_type                   :string(255)
+#  cover_photo_file_size                      :integer
+#  cover_photo_updated_at                     :datetime
+#  small_cover_photo_file_name                :string(255)
+#  small_cover_photo_content_type             :string(255)
+#  small_cover_photo_file_size                :integer
+#  small_cover_photo_updated_at               :datetime
+#  custom_color1                              :string(255)
+#  custom_color2                              :string(255)
+#  slogan_color                               :string(6)
+#  description_color                          :string(6)
+#  stylesheet_url                             :string(255)
+#  stylesheet_needs_recompile                 :boolean          default(FALSE)
+#  service_logo_style                         :string(255)      default("full-logo")
+#  currency                                   :string(3)        not null
+#  facebook_connect_enabled                   :boolean          default(TRUE)
+#  minimum_price_cents                        :integer
+#  hide_expiration_date                       :boolean          default(TRUE)
+#  facebook_connect_id                        :string(255)
+#  facebook_connect_secret                    :string(255)
+#  google_analytics_key                       :string(255)
+#  google_maps_key                            :string(64)
+#  name_display_type                          :string(255)      default("first_name_with_initial")
+#  twitter_handle                             :string(255)
+#  use_community_location_as_default          :boolean          default(FALSE)
+#  preproduction_stylesheet_url               :string(255)
+#  show_category_in_listing_list              :boolean          default(FALSE)
+#  default_browse_view                        :string(255)      default("grid")
+#  wide_logo_file_name                        :string(255)
+#  wide_logo_content_type                     :string(255)
+#  wide_logo_file_size                        :integer
+#  wide_logo_updated_at                       :datetime
+#  listing_comments_in_use                    :boolean          default(FALSE)
+#  show_listing_publishing_date               :boolean          default(FALSE)
+#  require_verification_to_post_listings      :boolean          default(FALSE)
+#  show_price_filter                          :boolean          default(FALSE)
+#  price_filter_min                           :integer          default(0)
+#  price_filter_max                           :integer          default(100000)
+#  automatic_confirmation_after_days          :integer          default(14)
+#  favicon_file_name                          :string(255)
+#  favicon_content_type                       :string(255)
+#  favicon_file_size                          :integer
+#  favicon_updated_at                         :datetime
+#  default_min_days_between_community_updates :integer          default(7)
+#  listing_location_required                  :boolean          default(FALSE)
+#  custom_head_script                         :text(65535)
+#  follow_in_use                              :boolean          default(TRUE), not null
+#  logo_processing                            :boolean
+#  wide_logo_processing                       :boolean
+#  cover_photo_processing                     :boolean
+#  small_cover_photo_processing               :boolean
+#  favicon_processing                         :boolean
+#  deleted                                    :boolean
+#  end_user_analytics                         :boolean          default(TRUE)
+#  show_slogan                                :boolean          default(TRUE)
+#  show_description                           :boolean          default(TRUE)
+#  footer_theme                               :integer          default("dark")
+#  footer_copyright                           :text(65535)
+#  footer_enabled                             :boolean          default(FALSE)
+#  hsts_max_age                               :integer
+#  logo_link                                  :string(255)
 #
 # Indexes
 #
@@ -106,12 +113,13 @@ class Community < ApplicationRecord
   include EmailHelper
 
   has_many :community_memberships, :dependent => :destroy
-  has_many :members, -> { where("community_memberships.status = 'accepted'") }, :through => :community_memberships, :source => :person
-  has_many :admins, -> { where("community_memberships.admin = true AND community_memberships.status <> 'banned'") }, :through => :community_memberships, :source => :person
+  has_many :members, -> { merge(CommunityMembership.accepted) }, :through => :community_memberships, :source => :person
+  has_many :admins, -> { merge(CommunityMembership.admin.not_banned) }, :through => :community_memberships, :source => :person
   has_many :invitations, :dependent => :destroy
   has_one :location, :dependent => :destroy
   has_many :community_customizations, :dependent => :destroy
-  has_many :menu_links, -> { order("sort_priority") }, :dependent => :destroy
+  has_many :menu_links, -> { for_topbar.sorted }, :dependent => :destroy
+  has_many :footer_menu_links, -> { for_footer.sorted }, :class_name => "MenuLink",  :dependent => :destroy
 
   has_many :categories, -> { order("sort_priority") }
   has_many :top_level_categories, -> { where("parent_id IS NULL").order("sort_priority") }, :class_name => "Category"
@@ -128,10 +136,22 @@ class Community < ApplicationRecord
 
   has_one :paypal_account # Admin paypal account
 
-  has_many :custom_fields, :dependent => :destroy
-  has_many :custom_dropdown_fields, -> { where("type = 'DropdownField'") }, :class_name => "CustomField", :dependent => :destroy
-  has_many :custom_numeric_fields, -> { where("type = 'NumericField'") }, :class_name => "NumericField", :dependent => :destroy
+  has_many :custom_fields, -> { for_listing },  :dependent => :destroy
+  has_many :custom_dropdown_fields, -> { for_listing.dropdown }, :class_name => "CustomField", :dependent => :destroy
+  has_many :custom_numeric_fields, -> { for_listing.numeric }, :class_name => "NumericField", :dependent => :destroy
+  has_many :person_custom_fields, -> { for_person.sorted }, :class_name => "CustomField",  :dependent => :destroy
+  has_many :person_custom_dropdown_fields, -> { for_person.sorted.dropdown }, :class_name => "CustomField", :dependent => :destroy
+  has_many :person_custom_numeric_fields, -> { for_person.sorted.numeric }, :class_name => "NumericField", :dependent => :destroy
   has_many :marketplace_sender_emails
+
+  has_one :configuration, class_name: 'MarketplaceConfigurations'
+  has_one :social_logo, :dependent => :destroy
+  has_many :social_links, -> { sorted }, :dependent => :destroy
+
+  accepts_nested_attributes_for :social_logo
+  accepts_nested_attributes_for :footer_menu_links, allow_destroy: true
+  accepts_nested_attributes_for :social_links, allow_destroy: true
+  accepts_nested_attributes_for :community_customizations
 
   after_create :initialize_settings
 
@@ -260,6 +280,14 @@ class Community < ApplicationRecord
   process_in_background :favicon
 
   before_save :cache_previous_image_urls
+
+  FOOTER_THEMES = {
+    FOOTER_DARK = 'dark'.freeze => 0,
+    FOOTER_LIGHT = 'light'.freeze => 1,
+    FOOTER_MARKETPLACE_COLOR = 'marketplace_color'.freeze => 2,
+    FOOTER_LOGO = 'logo'.freeze => 3
+  }.freeze
+  enum footer_theme: FOOTER_THEMES
 
   def uuid_object
     if self[:uuid].nil?
@@ -572,7 +600,7 @@ class Community < ApplicationRecord
   #
   # There is a method `payment_type` is community service. Use that instead.
   def payments_in_use?
-    MarketplaceService::Community::Query.payment_type(id).present?
+    active_payment_types.present?
   end
 
   def self.all_with_custom_fb_login
@@ -609,6 +637,18 @@ class Community < ApplicationRecord
     attrs = super(options)
     uuid = UUIDUtils.parse_raw(attrs["uuid"])
     attrs.merge({"uuid" => uuid.to_s})
+  end
+
+  # FIXME-RF not the best place
+  def active_payment_types
+    supported = []
+    supported << :paypal if PaypalHelper.paypal_active?(self.id)
+    supported << :stripe if StripeHelper.stripe_active?(self.id)
+    supported.size > 1 ? supported : supported.first
+  end
+
+  def is_person_only_admin(person)
+    admins.count == 1 && admins.first == person
   end
 
   private

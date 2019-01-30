@@ -47,6 +47,7 @@
 #  shipping_price_cents            :integer
 #  shipping_price_additional_cents :integer
 #  availability                    :string(32)       default("none")
+#  per_hour_ready                  :boolean          default(FALSE)
 #
 # Indexes
 #
@@ -58,6 +59,7 @@
 #  index_listings_on_new_category_id   (category_id)
 #  index_listings_on_open              (open)
 #  index_listings_on_uuid              (uuid) UNIQUE
+#  index_on_author_id_and_deleted      (author_id,deleted)
 #  person_listings                     (community_id,author_id)
 #  updates_email_listings              (community_id,open,updates_email_at)
 #
@@ -103,7 +105,25 @@ class Listing < ApplicationRecord
   before_validation :set_valid_until_time
 
   validates_presence_of :author_id
-  validates_length_of :title, :in => 2..60, :allow_nil => false
+  validates_length_of :title, :in => 2..65, :allow_nil => false
+
+  scope :exist, -> { where(deleted: false) }
+
+  scope :search_title_author_category, ->(pattern) do
+    joins(:author)
+      .joins(:category => :translations)
+      .where("listings.title like :pattern
+        OR (category_translations.locale = :locale AND category_translations.name like :pattern)
+        OR (people.given_name like :pattern OR people.family_name like :pattern OR people.display_name like :pattern)",
+        locale: I18n.locale,
+        pattern: "%#{pattern}%")
+  end
+
+  scope :status_open, ->   { where(open: true) }
+  scope :status_closed, -> { where(open: false) }
+  scope :status_expired, -> { where('valid_until < ?', DateTime.now) }
+  scope :status_active, -> { where('valid_until > ? or valid_until is null', DateTime.now) }
+
 
   before_create :set_sort_date_to_now
   def set_sort_date_to_now
@@ -239,7 +259,7 @@ class Listing < ApplicationRecord
   end
 
   def answer_for(custom_field)
-    custom_field_values.find { |value| value.custom_field_id == custom_field.id }
+    custom_field_values.by_question(custom_field).first
   end
 
   def unit_type
@@ -355,5 +375,21 @@ class Listing < ApplicationRecord
 
   def logger_metadata
     { listing_id: id }
+  end
+
+  def self.delete_by_author(author_id)
+    listings = Listing.where(author_id: author_id)
+    listings.update_all(
+      # Delete listing info
+      description: nil,
+      origin: nil,
+      open: false,
+      deleted: true
+    )
+    listings.each do |listing|
+      listing.location&.destroy
+    end
+    ids = listings.pluck(:id)
+    ListingImage.where(listing_id: ids).destroy_all
   end
 end

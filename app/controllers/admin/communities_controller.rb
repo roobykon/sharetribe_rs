@@ -111,6 +111,8 @@ class Admin::CommunitiesController < Admin::AdminBaseController
   def social_media
     @selected_left_navi_link = "social_media"
     @community = @current_community
+    @community.build_social_logo unless @community.social_logo
+    find_or_initialize_customizations
     render "social_media", :locals => {
       display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles,
       knowledge_base_url: APP_CONFIG.knowledge_base_url}
@@ -158,59 +160,6 @@ class Admin::CommunitiesController < Admin::AdminBaseController
     redirect_to admin_new_layout_path
   end
 
-  def topbar
-    @selected_left_navi_link = "topbar"
-
-    if FeatureFlagHelper.feature_enabled?(:topbar_v1) || CustomLandingPage::LandingPageStore.enabled?(@current_community.id)
-      limit_priority_links = MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:limit_priority_links]
-      all = view_context.t("admin.communities.menu_links.all")
-      limit_priority_links_options = (0..5).to_a.map {|o| [o, o]}.concat([[all, -1]])
-      limit_priority_links_selected = Maybe(limit_priority_links).or_else(-1)
-    end
-
-    # Limits are by default nil
-    render :topbar, locals: {
-             community: @current_community,
-             limit_priority_links: limit_priority_links,
-             limit_priority_links_options: limit_priority_links_options,
-             limit_priority_links_selected: limit_priority_links_selected
-           }
-  end
-
-  def update_topbar
-    @community = @current_community
-    h_params = params.to_unsafe_hash
-
-    menu_links_params = Maybe(params)[:menu_links].permit!.or_else({menu_link_attributes: {}})
-
-    if FeatureFlagHelper.feature_enabled?(:topbar_v1) || CustomLandingPage::LandingPageStore.enabled?(@current_community.id)
-      limit_priority_links = params[:limit_priority_links].to_i
-      MarketplaceService::API::Api.configurations.update({
-        community_id: @current_community.id,
-        configurations: {
-          limit_priority_links: limit_priority_links
-        }
-      })
-    end
-
-    translations = h_params[:post_new_listing_button].map{ |k, v| {locale: k, translation: v}}
-
-    if translations.any?{ |t| t[:translation].blank? }
-      flash[:error] = t("admin.communities.topbar.invalid_post_listing_button_label")
-      redirect_to admin_topbar_edit_path and return
-    end
-
-    translations_group = [{
-      translation_key: "homepage.index.post_new_listing",
-      translations: translations
-    }]
-    TranslationService::API::Api.translations.create(@community.id, translations_group)
-
-    update(@community,
-            menu_links_params,
-            admin_topbar_edit_path,
-            :topbar)
-  end
 
   def landing_page
     @selected_left_navi_link = "landing_page"
@@ -229,7 +178,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
 
     # When feature flag is removed, make this pretty
     if(FeatureFlagHelper.location_search_available)
-      marketplace_configurations = MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data
+      marketplace_configurations = @current_community.configuration
 
       keyword_and_location =
         if FeatureFlagService::API::Api.features.get_for_community(community_id: @current_community.id).data[:features].include?(:topbar_v1)
@@ -312,7 +261,16 @@ class Admin::CommunitiesController < Admin::AdminBaseController
     end
 
     social_media_params = params.require(:community).permit(
-      :twitter_handle, :facebook_connect_id, :facebook_connect_secret
+      :twitter_handle, :facebook_connect_id, :facebook_connect_secret, :facebook_connect_enabled,
+      social_logo_attributes: [
+        :id,
+        :image
+      ],
+      community_customizations_attributes: [
+        :id,
+        :social_media_title,
+        :social_media_description
+      ]
     )
 
     update(@current_community,
@@ -326,7 +284,12 @@ class Admin::CommunitiesController < Admin::AdminBaseController
     @selected_left_navi_link = "analytics"
 
     params[:community][:google_analytics_key] = nil if params[:community][:google_analytics_key] == ""
-    analytic_params = params.require(:community).permit(:google_analytics_key)
+    analytic_params = if APP_CONFIG.admin_enable_tracking_config
+                        params.require(:community).permit(:google_analytics_key,
+                                                          :end_user_analytics)
+                      else
+                        params.require(:community).permit(:google_analytics_key)
+                      end
 
     update(@current_community,
             analytic_params,
@@ -348,23 +311,17 @@ class Admin::CommunitiesController < Admin::AdminBaseController
       :automatic_confirmation_after_days,
       :automatic_newsletters,
       :default_min_days_between_community_updates,
-      :email_admins_about_new_members,
-      :automatic_confirmation_after_days_after_end_time
+      :email_admins_about_new_members
     ]
     settings_params = params.require(:community).permit(*permitted_params)
 
-    maybe_update_payment_settings(@current_community.id, params[:community][:automatic_confirmation_after_days],
-                                 params[:community][:automatic_confirmation_after_days_after_end_time])
+    maybe_update_payment_settings(@current_community.id, params[:community][:automatic_confirmation_after_days])
 
-    if(FeatureFlagHelper.location_search_available)
-      MarketplaceService::API::Api.configurations.update({
-        community_id: @current_community.id,
-        configurations: {
-          main_search: params[:main_search],
-          distance_unit: params[:distance_unit],
-          limit_search_distance: params[:limit_distance].present?
-        }
-      })
+    if FeatureFlagHelper.location_search_available
+      @current_community.configuration.update(
+        main_search: params[:main_search],
+        distance_unit: params[:distance_unit],
+        limit_search_distance: params[:limit_distance].present?)
     end
 
     update(@current_community,
@@ -420,8 +377,8 @@ class Admin::CommunitiesController < Admin::AdminBaseController
   # those are only used with paypal for now. During the transition
   # period we simply mirror community setting to payment settings in
   # case of paypal.
-  def maybe_update_payment_settings(community_id, automatic_confirmation_after_days, automatic_confirmation_after_days_after_end_time)
-    return unless (automatic_confirmation_after_days && automatic_confirmation_after_days_after_end_time)
+  def maybe_update_payment_settings(community_id, automatic_confirmation_after_days)
+    return unless automatic_confirmation_after_days
 
     p_set = Maybe(payment_settings_api.get(
                    community_id: community_id,
@@ -430,10 +387,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
             .map {|res| res[:success] ? res[:data] : nil}
             .or_else(nil)
 
-    if p_set
-      payment_settings_api.update(p_set.merge({confirmation_after_days: automatic_confirmation_after_days.to_i,
-                                               confirmation_after_days_after_end_time: automatic_confirmation_after_days_after_end_time.to_i}))
-    end
+    payment_settings_api.update(p_set.merge({confirmation_after_days: automatic_confirmation_after_days.to_i})) if p_set
 
     p_set = Maybe(payment_settings_api.get(
                    community_id: community_id,
@@ -442,10 +396,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
             .map {|res| res[:success] ? res[:data] : nil}
             .or_else(nil)
 
-    if p_set
-      payment_settings_api.update(p_set.merge({confirmation_after_days: automatic_confirmation_after_days.to_i,
-                                               confirmation_after_days_after_end_time: automatic_confirmation_after_days_after_end_time.to_i}))
-    end
+    payment_settings_api.update(p_set.merge({confirmation_after_days: automatic_confirmation_after_days.to_i})) if p_set
   end
 
   def payment_settings_api
@@ -495,5 +446,17 @@ class Admin::CommunitiesController < Admin::AdminBaseController
     } unless community_disabled.blank?
 
     Result.all(*updates)
+  end
+
+  def find_or_initialize_customizations
+    @current_community.locales.each do |locale|
+      next if @current_community.community_customizations.find_by_locale(locale)
+      @current_community.community_customizations.create(
+        slogan: @current_community.slogan,
+        description: @current_community.description,
+        search_placeholder: t("homepage.index.what_do_you_need", locale: locale),
+        locale: locale
+      )
+    end
   end
 end

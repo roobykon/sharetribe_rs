@@ -5,8 +5,6 @@ require 'spec_helper'
 # Override the API with test API
 require_relative '../../services/plan_service/api/api'
 
-class TransactionMailer; end
-
 describe IntApi::MarketplacesController, type: :controller do
 
   before(:each) do
@@ -49,7 +47,10 @@ describe IntApi::MarketplacesController, type: :controller do
       expect(c.ident).to eql "imaginationtraders"
       s = c.shapes.first
       expect(s.price_enabled).to eql true
-      expect(s.units.empty?).to eql true
+      expect(s.units.empty?).to eql false
+
+      default_per_unit = {kind: "quantity", name_tr_key: nil, quantity_selector: "number", selector_tr_key: nil, unit_type: "unit"}
+      expect(s.units.first).to eql default_per_unit
 
       payment_settings = TransactionService::API::Api.settings.get_active_by_gateway(community_id: c.id, payment_gateway: :paypal)
       expect(payment_settings[:data][:payment_gateway]).to eql :paypal
@@ -89,7 +90,7 @@ describe IntApi::MarketplacesController, type: :controller do
       expect(c.ident).to eql "imaginationtraders"
       s = c.shapes.first
       expect(s.price_enabled).to eql true
-      expect(s.units.empty?).to eql true
+      expect(s.units.empty?).to eql false
 
       p = c.admins.first
       expect(p).to_not be_nil
@@ -125,7 +126,7 @@ describe IntApi::MarketplacesController, type: :controller do
       expect(c.ident).to eql "imaginationtraders"
       s = c.shapes.first
       expect(s.price_enabled).to eql true
-      expect(s.units.empty?).to eql true
+      expect(s.units.empty?).to eql false
 
       p = c.admins.first
       expect(p).to_not be_nil
@@ -161,7 +162,7 @@ describe IntApi::MarketplacesController, type: :controller do
       expect(c.ident).to eql "imaginationtraders"
       s = c.shapes.first
       expect(s.price_enabled).to eql true
-      expect(s.units.empty?).to eql true
+      expect(s.units.empty?).to eql false
 
       p = c.admins.first
       expect(p).to_not be_nil

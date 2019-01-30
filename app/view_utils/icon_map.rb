@@ -72,6 +72,7 @@ ICON_MAP = {
       "download" => "ss-download",
       "credit_card" => "ss-creditcard",
       "academy" => "ss-bookmark",
+      "plus" => "ss-plus",
 
 
       # Default category & share type icons
@@ -159,6 +160,10 @@ ICON_MAP = {
       "cars" => "ss-car",
       "raclette_grill" => "ss-cookingutensils",
       "topbar_menu" => "ss-signpost",
+      "user_edit" => "ss-userprofile",
+      "picture" => "ss-picture",
+      "footer_menu" => "ss-downloadbox",
+      "invitations" => "ss-adduser",
     },
     "font-awesome" => {
       "map" => "fa fa-map-marker",
@@ -252,6 +257,7 @@ ICON_MAP = {
       "reply" => "fa fa-reply",
       "topbar_menu" => "fa fa-minus",
 
+<<<<<<< HEAD
       "details" => "fa fa-file",
       "profile" => "fa fa-file",
       "account_settings" => "fa fa-lock",
@@ -268,5 +274,28 @@ ICON_MAP = {
       "academy" => "fa fa-bookmark",
       "grid" => "fa fa-th-large",
       "check" => "fa fa-ok",
+=======
+      "details" => "icon-file-alt",
+      "profile" => "icon-file-alt",
+      "account_settings" => "icon-lock",
+      "notification_settings" => "icon-bell-alt",
+      "rows" => "icon-reorder",
+      "form" => "icon-table",
+      "order_types" => "icon-shopping-cart",
+      "payments" => "icon-money",
+      "social_media" => "icon-share",
+      "analytics" => "icon-bar-chart",
+      "send" => "icon-envelope",
+      "coins" => "icon-inbox",
+      "openbook" => "icon-book",
+      "academy" => "icon-bookmark",
+      "grid" => "icon-th-large",
+      "check" => "icon-ok",
+      "user_edit" => "icon-user",
+      "picture" => "icon-picture",
+      "footer_menu" => "icon-download-alt",
+      "invitations" => "icon-random",
+      "plus" => "icon-plus",
+>>>>>>> 1ac316d1fcaa2fe83103acee9e38073482673079
     }
   }

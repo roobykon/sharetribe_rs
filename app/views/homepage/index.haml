@@ -19,6 +19,7 @@
 
 - content_for :title_header do
   - is_homepage = params[:controller] == "homepage" && params[:action] == "index"
+<<<<<<< HEAD
   -# - if @big_cover_photo
   %h1.marketplace-lander-content-title= community_slogan.html_safe
   %p.marketplace-lander-content-description= community_description.html_safe
@@ -28,6 +29,28 @@
         %a.inline-big-button{href: sign_up_path}
           .content
             = t("layouts.application.connect")
+=======
+  - if @big_cover_photo
+    - hidden_slogan = !@current_community.show_slogan? ? "hidden-title-part" : ""
+    - hidden_description = !@current_community.show_description? ? "hidden-title-part" : ""
+    %h1.marketplace-lander-content-title{class: hidden_slogan}= community_slogan.html_safe
+    %p.marketplace-lander-content-description{class: hidden_description}= community_description.html_safe
+    - unless (is_homepage && !@current_community.private? && FeatureFlagHelper.feature_enabled?(:topbar_v1))
+      .search-form
+        - if @current_community.private?
+          %a.inline-big-button{href: sign_up_path}
+            .content
+              = t("layouts.application.connect")
+        - else
+          - if(main_search == :location)
+            = render partial: "location_bar"
+          - else
+            = render partial: "search_bar"
+  - elsif !(is_homepage && FeatureFlagHelper.feature_enabled?(:topbar_v1))
+    .browse-view-search-form
+      - if(main_search == :location)
+        = render partial: "location_bar"
+>>>>>>> 1ac316d1fcaa2fe83103acee9e38073482673079
       - else
         - if(main_search == :location)
           = render partial: "location_bar"

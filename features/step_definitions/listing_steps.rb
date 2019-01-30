@@ -1,8 +1,9 @@
-Given /^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with category "([^"]*)")?(?: and with listing shape "([^"]*)")?$/ do |title, author, category_name, shape_name|
+Given /^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with category "([^"]*)")?(?: and with listing shape "([^"]*)")?(?: and it is valid "([^"]*)" days)?$/ do |title, author, category_name, shape_name, valid_days|
   opts = Hash.new
   opts[:title] = title
   opts[:category] = find_category_by_name(category_name) if category_name
   opts[:author] = Person.find_by(username: author) if author
+  opts[:valid_until] = DateTime.current + valid_days.to_i.days if valid_days
 
   shape =
     if shape_name
@@ -68,7 +69,7 @@ end
 
 When /^I save the listing$/ do
   steps %Q{
-    And I press "Save listing"
+    And I press "Post listing"
   }
 end
 
@@ -83,7 +84,7 @@ When /^I create a new listing "(.*?)" with price(?: "([^"]*)")?$/ do |title, pri
     And I select "Selling" from listing type menu
     And I fill in "listing_title" with "#{title}"
     And I fill in "listing_price" with "dsfsdf"
-    And I press "Save listing"
+    And I press "Post listing"
     Then I should see "You need to insert a valid monetary value."
     When I fill in "listing_price" with "#{price}"
     And I save the listing
@@ -208,7 +209,7 @@ Then(/^I should see working hours save button finished$/) do
 end
 
 Given(/^that listing availability is booking$/) do
-  @listing.update_attribute(:availability, :booking)
+  @listing.update_attributes(availability: :booking, quantity_selector: 'number')
 end
 
 Given(/^that listing has default working hours$/) do
@@ -223,3 +224,18 @@ Given(/^that listing have booking at "(.*?)" from "(.*?)" till "(.*?)"$/) do |da
   transaction = FactoryGirl.create(:transaction, community: community, listing: @listing, current_state: 'paid')
   FactoryGirl.create(:booking, tx: transaction, start_time: start_time, end_time: end_time, per_hour: true)
 end
+
+Then(/^(?:|I )should not see payment logos$/) do
+  expect(page).not_to have_css('.submit-payment-form-link')
+end
+
+Then(/^(?:|I )should see payment logos$/) do
+  expect(page).to have_css('.submit-payment-form-link')
+end
+
+Given(/^listing with title "(.*?)" has author "(.*?)"$/) do |title, username|
+  listing = Listing.find_by(title: title)
+  author = Person.find_by(username: username)
+  expect(listing.author).to eq author
+end
+

@@ -46,6 +46,7 @@
 #  shipping_price_cents            :integer
 #  shipping_price_additional_cents :integer
 #  availability                    :string(32)       default("none")
+#  per_hour_ready                  :boolean          default(FALSE)
 #
 # Indexes
 #
@@ -57,6 +58,7 @@
 #  index_listings_on_new_category_id   (category_id)
 #  index_listings_on_open              (open)
 #  index_listings_on_uuid              (uuid) UNIQUE
+#  index_on_author_id_and_deleted      (author_id,deleted)
 #  person_listings                     (community_id,author_id)
 #  updates_email_listings              (community_id,open,updates_email_at)
 #
@@ -122,6 +124,7 @@ describe Listing, type: :model do
     let(:community) { FactoryGirl.create(:community, private: true) }
     let(:community2) { FactoryGirl.create(:community) }
     let(:person) { FactoryGirl.create(:person, communities: [community]) }
+    let(:admin) { FactoryGirl.create(:person, member_of: community, member_is_admin: true) }
     let(:listing) { FactoryGirl.create(:listing, community_id: community.id, listing_shape_id: 123) }
 
     it "is not visible, if the listing doesn't belong to the given community" do
@@ -151,6 +154,13 @@ describe Listing, type: :model do
       expect(listing.visible_to?(person, community)).to be_falsey
       expect(listing.visible_to?(nil, community)).to be_falsey
     end
+
+    it "is visible to admin if the listing is closed" do
+      listing.update_attribute(:open, false)
+
+      expect(listing.visible_to?(person, community)).to be_falsey
+      expect(listing.visible_to?(admin, community)).to be_truthy
+    end
   end
 
   context "with listing type 'offer'" do
@@ -175,6 +185,26 @@ describe Listing, type: :model do
         expect(periods[date].first.start_time.to_s).to eq "#{date} 09:00:00 UTC"
         expect(periods[date].first.end_time.to_s).to eq "#{date} 17:00:00 UTC"
       end
+    end
+  end
+
+  describe "delete_listings" do
+    let(:location) { FactoryGirl.create(:location) }
+    let(:hammer) { FactoryGirl.create(:listing, title: "Hammer", listing_shape_id: 123, location: location)}
+    let(:author) { hammer.author }
+
+    it "delete_listings by author" do
+      # Guard
+      expect(hammer.deleted?).to eq(false)
+
+      Listing.delete_by_author(author.id)
+      hammer.reload
+
+      expect(hammer.description).to be_nil
+      expect(hammer.origin).to be_nil
+      expect(hammer.open).to be false
+      expect(hammer.location).to be_nil
+      expect(hammer.deleted?).to be true
     end
   end
 end

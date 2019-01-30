@@ -126,12 +126,20 @@ class ShapeService
   end
 
   def add_kind(unit)
-    unit.merge(kind: unit[:unit_type] == 'custom' ? unit[:kind] : 'time')
+    kind =
+      case unit[:unit_type]
+      when 'custom' then unit[:kind]
+      when 'unit' then 'quantity'
+      else
+        'time'
+      end
+
+    unit.merge(kind: kind)
   end
 
   def select_process(online_payments, author_is_seller, processes)
     process = online_payments ? :preauthorize : :none
-    selected = processes.find { |p| p[:author_is_seller] == author_is_seller && p[:process] == process }
+    selected = processes.find { |p| p.author_is_seller == author_is_seller && p.process == process }
 
     raise ArgumentError.new("Cannot find suitable process") if selected.nil?
 
@@ -152,8 +160,7 @@ class ShapeService
   end
 
   def enabled_units
-    units = ['day', 'night']
-    units.push('hour') if FeatureFlagHelper.feature_enabled?(:availability_per_hour)
+    units = ['day', 'night', 'hour']
     units
   end
 end

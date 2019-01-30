@@ -1,7 +1,8 @@
 class ListingPresenter < MemoisticPresenter
   include ListingAvailabilityManage
+  include Rails.application.routes.url_helpers
   attr_accessor :listing, :current_community, :form_path, :params, :current_image, :prev_image_id, :next_image_id
-  attr_reader :shape
+  attr_reader :shape, :current_user
 
   def initialize(listing, current_community, params, current_user)
     @listing = listing
@@ -54,11 +55,11 @@ class ListingPresenter < MemoisticPresenter
   end
 
   def received_testimonials
-    TestimonialViewUtils.received_testimonials_in_community(@listing.author, @current_community)
+    @listing.author.received_testimonials.by_community(@current_community)
   end
 
   def received_positive_testimonials
-    TestimonialViewUtils.received_positive_testimonials_in_community(@listing.author, @current_community)
+    @listing.author.received_positive_testimonials.by_community(@current_community)
   end
 
   def feedback_positive_percentage
@@ -84,40 +85,6 @@ class ListingPresenter < MemoisticPresenter
 
   def delivery_opts
     delivery_config(@listing.require_shipping_address, @listing.pickup_enabled, @listing.shipping_price, @listing.shipping_price_additional, @listing.currency)
-  end
-
-  def availability_enabled
-    @listing.availability.to_sym == :booking
-  end
-
-  def blocked_dates_start_on
-    1.day.ago.to_date
-  end
-
-  def blocked_dates_end_on
-    if stripe_in_use
-      APP_CONFIG.stripe_max_booking_date.days.from_now.to_date
-    else
-      12.months.from_now.to_date
-    end
-  end
-
-  def blocked_dates_result
-    if availability_enabled
-
-      get_blocked_dates(
-        start_on: blocked_dates_start_on,
-        end_on: blocked_dates_end_on,
-        community: @current_community,
-        user: @current_user,
-        listing: @listing)
-    else
-      Result::Success.new([])
-    end
-  end
-
-  def blocked_dates_end_on_midnight
-    DateUtils.to_midnight_utc(blocked_dates_end_on)
   end
 
   def listing_unit_type
@@ -155,36 +122,12 @@ class ListingPresenter < MemoisticPresenter
     }
 
     TransactionService::API::Api.processes.get(opts)
-      .maybe[:process]
+      .maybe
+      .process
       .or_else(nil)
       .tap { |process|
         raise ArgumentError.new("Cannot find transaction process: #{opts}") if process.nil?
       }
-  end
-
-  def get_blocked_dates(start_on:, end_on:, community:, user:, listing:)
-    HarmonyClient.get(
-      :query_timeslots,
-      params: {
-        marketplaceId: community.uuid_object,
-        refId: listing.uuid_object,
-        start: start_on,
-        end: end_on
-      }
-    ).rescue {
-      Result::Error.new(nil, code: :harmony_api_error)
-    }.and_then { |res|
-      available_slots = dates_to_ts_set(
-        res[:body][:data].map { |timeslot| timeslot[:attributes][:start].to_date }
-      )
-      Result::Success.new(
-        dates_to_ts_set(start_on..end_on).subtract(available_slots)
-      )
-    }
-  end
-
-  def dates_to_ts_set(dates)
-    Set.new(dates.map { |d| DateUtils.to_midnight_utc(d) })
   end
 
   def delivery_type
@@ -246,8 +189,10 @@ class ListingPresenter < MemoisticPresenter
         minimum_price_cents: 0,
         payment_gateway: nil,
         paypal_commission: 0,
+        paypal_minimum_transaction_fee: 0,
         seller_commission_in_use: false,
         stripe_commission: 0,
+        stripe_minimum_transaction_fee: 0,
       }
     when matches([:paypal]), matches([:stripe]), matches([ [:paypal, :stripe] ])
       p_set = Maybe(payment_settings_api.get_active_by_gateway(community_id: @current_community.id, payment_gateway: payment_type))
@@ -255,24 +200,26 @@ class ListingPresenter < MemoisticPresenter
         .map {|res| res[:data]}
         .or_else({})
 
-      stripe_commission = Maybe(payment_settings_api.get_active_by_gateway(community_id: @current_community.id, payment_gateway: :stripe))
+      stripe_settings = Maybe(payment_settings_api.get_active_by_gateway(community_id: @current_community.id, payment_gateway: :stripe))
         .select {|res| res[:success]}
         .map {|res| res[:data]}
-        .or_else({})[:commission_from_seller]
+        .or_else({})
 
-      paypal_commission = Maybe(payment_settings_api.get_active_by_gateway(community_id: @current_community.id, payment_gateway: :paypal))
+      paypal_settings = Maybe(payment_settings_api.get_active_by_gateway(community_id: @current_community.id, payment_gateway: :paypal))
         .select {|res| res[:success]}
         .map {|res| res[:data]}
-        .or_else({})[:commission_from_seller]
+        .or_else({})
 
       {
         commission_from_seller: p_set[:commission_from_seller],
         minimum_commission: Money.new(p_set[:minimum_transaction_fee_cents], currency),
         minimum_price_cents: p_set[:minimum_price_cents],
         payment_gateway: payment_type,
-        paypal_commission: paypal_commission,
+        paypal_commission: paypal_settings[:commission_from_seller],
+        paypal_minimum_transaction_fee: Money.new(paypal_settings[:minimum_transaction_fee_cents], currency),
         seller_commission_in_use: p_set[:commission_type] != :none,
-        stripe_commission: stripe_commission
+        stripe_commission: stripe_settings[:commission_from_seller],
+        stripe_minimum_transaction_fee: Money.new(stripe_settings[:minimum_transaction_fee_cents], currency),
       }
     else
       raise ArgumentError.new("Unknown payment_type, process combination: [#{payment_type}, #{process}]")
@@ -336,6 +283,38 @@ class ListingPresenter < MemoisticPresenter
 
   def subcategory_id
     @listing.category.parent_id ?  @listing.category.id : nil
+  end
+
+  def payments_enabled?
+    process == :preauthorize
+  end
+
+  def acts_as_person
+    if params[:person_id].present? &&
+       current_user.has_admin_rights?(current_community)
+      current_community.members.find_by!(username: params[:person_id])
+    end
+  end
+
+  def new_listing_author
+    acts_as_person || @current_user
+  end
+
+  def listing_form_menu_titles
+    {
+      "category" => I18n.t("listings.new.select_category"),
+      "subcategory" => I18n.t("listings.new.select_subcategory"),
+      "listing_shape" => I18n.t("listings.new.select_transaction_type")
+    }
+  end
+
+  def new_listing_form
+    {
+      locale: I18n.locale,
+      category_tree: category_tree,
+      menu_titles: listing_form_menu_titles,
+      new_form_content_path: acts_as_person ? new_form_content_person_listings_path(person_id: new_listing_author.username, locale: I18n.locale) : new_form_content_listings_path(locale: I18n.locale)
+    }
   end
 
   memoize_all_reader_methods

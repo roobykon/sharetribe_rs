@@ -58,9 +58,13 @@ he-IL:
         community_name: "שם האתר"
         edit_community_name_description: "שם האתר שלך. זה מוצג למשתמשים בהודעות דוא\"ל ובמקומות אחרים."
         community_slogan: "סיסמת האתר"
+        community_slogan_display: ~
         edit_community_slogan_description: "זה מוצג בדף הבית של האתר עבור משתמשים שאינם מחוברים.‎%{see_how_it_looks_like}‎"
+        edit_community_slogan_description_hideable: ~
         community_description: "תיאור האתר"
+        community_description_display: ~
         edit_community_description_description: "זה מוצג בדף הבית של האתר עבור משתמשים שאינם מחוברים. ‎%{see_how_it_looks_like}‎"
+        edit_community_description_description_hideable: ~
         community_search_placeholder: "חפש טקסט עזרה"
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
@@ -74,7 +78,7 @@ he-IL:
         verification_to_post_listings_info_content: "טקסט מידע למשתמשים לא מאומתים"
         verification_to_post_listings_info_content_description: "בשלב זה אתה דורש שהמשתמשים שלך יאומתו באופן ידני על ידך לפני שהם יוכלו לפרסם רישומים. כאן תוכל להגדיר את טקסט ברירת המחדל שמוצג למשתמשים שאינם מאומתים כאשר הם מנסים לפרסם רישום חדש."
         verification_to_post_listings_info_content_default: ~
-        contact_admin_link_text: "שלח הודעה לצוות האתר"
+        contact_admin_link_text: "שלח/י הודעה לצוות האתר"
         save: "שמור הגדרות"
         transaction_agreement: "הסכם עסקה"
         transaction_agreement_checkbox: "דרוש מהמשתמשים לקבל הסכם לפני העסקה"
@@ -86,6 +90,7 @@ he-IL:
         edit_community_look_and_feel: "ערוך את המראה והתחושה של האתר \"‎%{community_name}‎\""
         community_logo: לוגו
         community_logo_icon: "לוגו עבור רשתות חברתיות ומכשירים ניידים"
+        community_logo_icon_mobile: ~
         community_cover_photo: "תמונת רקע"
         small_community_cover_photo: "תמונת שער קטנה"
         favicon: ~
@@ -100,6 +105,7 @@ he-IL:
         logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: "לוגו מרובע זה יוצג כאשר אנשים משתפים את האתר שלך ב- Facebook, כאשר הם מציגים את האתר שלך במכשיר נייד או כאשר הם מסמלים את האתר שלך למסך דף הבית של המכשיר הנייד. על המאפיינים להיות (לפחות)‎%{height}‎‎%{width}‎."
         logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "תמונת השער מוצגת בדף הבית עבור משתמשים שאינם מחוברים."
         cover_photo_instructions_text_with_dimensions: "התמונה תשנה את גודלה ל - ‎%{height}‎‎%{width}‎ פיקסל ותמונות גבוהות יותר ייחתכו באמצע. ‎%{see_how_it_looks_like}‎"
         small_cover_photo_visibility: "תמונת שער קטנה מוצגת בכל הדפים, למעט בדף הבית עבור משתמשים שאינם מחוברים."
@@ -120,13 +126,14 @@ he-IL:
         invalid_color_code: "קוד צבע צריך להכיל 6 מספרים או אותיות A-F, לדוגמה D96E21"
         custom_head_script: "סקריפט מותאם אישית"
         custom_head_script_instructions_text: "סקריפט זה מוזרק בתוך התג <head> של כל דף, וניתן להשתמש בו כדי להוסיף CSS, JavaScript או HTML מותאמים אישית. שים לב ששינויים עתידיים ב- Sharetribe עשויים להפוך את הסקריפט שלך לבלתי תואם."
+        current_image: ~
       edit_text_instructions:
         edit_text_instructions: "טקסטים להוראה"
       edit_welcome_email:
         welcome_email_content: "ברוכים הבאים תוכן הדוא\"ל"
         welcome_email_content_description: "ההודעה הבאה תישלח לכל משתמש חדש כאשר הם יצטרפו. באפשרותך להתאים אישית את ההודעה כך שתתאים לשוק שלך. על ידי לחיצה על '‎%{send_test_message_link}‎' תוכל לשלוח הודעת תצוגה מקדימה לכתובת הדוא\"ל שלך, כך שתוכל לראות כיצד היא נראית בדוא\"ל אצל הלקוח ."
-        edit_message: "ערוך הודעה"
-        send_test_message: "ערוך הודעה"
+        edit_message: "עריכת הודעה"
+        send_test_message: "עריכת הודעה"
       outgoing_email:
         title: ~
         info: ~
@@ -167,27 +174,33 @@ he-IL:
       getting_started:
         getting_started: ~
       available_languages:
+        cs: ~
+        da-DK: ~
+        de: ~
         en: ~
         en-AU: ~
         en-GB: ~
-        fr: ~
-        fr-CA: ~
         es: ~
         es-ES: ~
-        pt-PT: ~
-        pt-BR: ~
-        nb: ~
-        sv: ~
-        da-DK: ~
         fi: ~
-        ru: ~
-        de: ~
+        fr: ~
+        fr-CA: ~
         el: ~
-        nl: ~
-        tr-TR: ~
-        zh: ~
-        ja: ~
         it: ~
+        ja: ~
+        ko: ~
+        nb: ~
+        nl: ~
+        pl: ~
+        pt-BR: ~
+        pt-PT: ~
+        ru: ~
+        sv: ~
+        th-TH: ~
+        tr-TR: ~
+        vi: ~
+        zh: ~
+        zh-TW: ~
       settings:
         settings: הגדרות
         general: כללי
@@ -218,7 +231,6 @@ he-IL:
         update_settings: "שמור הגדרות"
         automatically_confirmed_no_escrow: ~
         automatically_confirmed_no_escrow_stripe_info: ~
-        automatically_confirmed_after_end_time: ~
         automatic_newsletter_frequency: "שלח עלון אוטומטי: ‎%{frequency_dropdown}‎"
         newsletter_daily: יומי
         newsletter_weekly: שבועי
@@ -252,6 +264,23 @@ he-IL:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          admin: ~
+          banned: ~
+          posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -261,6 +290,14 @@ he-IL:
         searchpage: ~
       social_media:
         social_media: ~
+        logo: ~
+        logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
         twitter_handle_info_text_with_instructions: ~
@@ -275,16 +312,28 @@ he-IL:
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
+        enable_facebook_login: ~
         save: ~
+        add_another_image: ~
       analytics:
         analytics: ~
         google_analytics_key: ~
         google_analytics_key_info_text: ~
         google_analytics_key_info_text_with_instructions: ~
         google_analytics_instructions_link_text: ~
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: ~
+      logo_link:
+        title: ~
+        info: ~
+        url: ~
+        placeholder: ~
       menu_links:
         menu_links: "תפריט קישורים"
+        menu_links_display: ~
         save: "שמור הגדרות"
         add_menu_link: "הוסף לינק חדש לתפריט"
         title_placeholder: "כותרת הלינק"
@@ -297,13 +346,36 @@ he-IL:
         all: ~
         max_number_of_links_info: ~
         about_page: ~
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
       topbar:
         topbar: "סרגל עליון"
         new_listing_button_label: "טקסט ל\"צור שירות חדש\""
         invalid_post_listing_button_label: "אנא הכנס טקסט תקין לכפתור \"צור שירות חדש\""
       transactions:
         export_all_as_csv: ~
+        processing_export: ~
         transactions: "הצג עסקאות"
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          preauthorized: ~
+          rejected: ~
         headers:
           conversation: ~
           listing: שירות
@@ -361,6 +433,97 @@ he-IL:
           other_party: "צד אחר"
         participants: שיחה
         profile: "‎%{author}‎ פרופיל"
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
+      testimonials:
+        testimonials: ~
+        no_testimonials_found: ~
+        displaying_xx_reviews: ~
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
+        headers:
+          transaction: ~
+          author: ~
+          receiver: ~
+          status: ~
+          grade: ~
+          text: ~
+        status:
+          waiting: ~
+          skipped: ~
+          published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
+      listings:
+        listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
+        headers:
+          title: ~
+          author: ~
+          created: ~
+          updated: ~
+          category: ~
+          status: ~
+        open: ~
+        closed: ~
+        expired: ~
+      user_fields:
+        user_fields: ~
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        title_placeholder: ~
+        url_placeholder: ~
+        style:
+          dark: ~
+          light: ~
+          marketplace_color: ~
+          logo: ~
+        social:
+          title: ~
+          url: ~
     custom_fields:
       edit:
         edit_listing_field: "ערוך את ‎%{field_name}‎"
@@ -414,6 +577,32 @@ he-IL:
         dropdown: "התפריט הנפתח"
         checkbox_group: ~
         date: תאריך
+        file: ~
+        location: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        signup: ~
+        public: ~
+        add_new_field: ~
+        save: ~
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
     emails:
       new:
         send_email_to_members: "שלח אימייל למשתמשים"
@@ -428,6 +617,7 @@ he-IL:
           title: ~
           options:
             all_users: ~
+            posting_allowed: ~
             with_listing: ~
             with_listing_no_payment: ~
             with_payment_no_listing: ~
@@ -439,6 +629,11 @@ he-IL:
         any_language: "כל שפה"
         message_will_be_sent_only_to_people_with_this_language: "הודעת האימייל תישלח רק למשתמשים המשתמשים ב-‎%{service_name}‎ בשפה שתבחר."
         email_sent: "הדוא\"ל נשלח."
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
     left_hand_navigation:
       general: ~
       users_and_transactions: ~
@@ -514,6 +709,7 @@ he-IL:
         night: ללילה
         week: לשבוע
         month: לחודש
+        unit: ~
       can_not_find: ~
       add_custom_unit: ~
       delete_custom_unit: ~
@@ -613,11 +809,17 @@ he-IL:
         payments_not_enabled: ~
     transaction_types:
       sell: מוכר
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
       rent: משכיר
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
       give: מוסר
       lend: משאיל
       swap: מחליף
       service: מציעה
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
       request: מחפש
       inquiry: הַכרָזָה
       share_for_free: "שיתוף בחינם"
@@ -626,7 +828,7 @@ he-IL:
         rent: להשכיר
         request: הצעה
         offer: בקשה
-        inquiry: "שלח הודעה"
+        inquiry: "שלח/י הודעה"
   common:
     edit_page: "ערוך דף"
     default_community_slogan: ~
@@ -677,7 +879,6 @@ he-IL:
     removed_user: "משתמש שנמחק"
     payment_fee_info:
       title: ~
-      title_paypal: ~
       stripe: ~
       paypal: ~
       info: ~
@@ -685,10 +886,6 @@ he-IL:
       title: "עמלות פייפל"
       body_text: ~
       body_text_accept: ~
-      link_to_paypal_text: ~
-    paypal_only_fee_info:
-      title: ~
-      body_text: ~
       link_to_paypal_text: ~
     stripe_fee_info:
       title: ~
@@ -765,17 +962,20 @@ he-IL:
       canceled_offer: "ביטל את ההזמנה"
       paid: "שולם ‎%{sum}‎"
       payment_preauthorized: ~
+      stripe:
+        held_payment: ~
+        confirmed_request: ~
     new:
       message: הודעה
       message_to: "‎%{author_name}‎ הודעה ל‎"
       optional_message_to: "‎%{author_name}‎ הודעה אופציונלית אל"
-      send_message: שלח
+      send_message: שלח/י
       send: שלח
       this_message_is_private: "‎%{person}‎ יקבל הודעה על הודעה זו בדוא\"ל. התכתבות פרטית עם %{person}"
       you_will_get_notified_of_acceptance: "מקבל או דוחה את ההצעה שלך ‎%{person}‎ תקבל הודעת אימייל כאשר"
       you_will_get_notified: "עונה לך ‎%{person}‎ תקבל הודעת אימייל כאשר"
       title: כותרת
-      send_message_to_user: "‎%{person}‎ שלח הודעה ל"
+      send_message_to_user: "‎%{person}‎ שלח/י הודעה ל"
       about_listing: "‎%{listing_title}‎ לגבי"
       author_has_to_accept_request: "‎%{author_name}‎ צריך לקבל את הבקשה לפני שתוכל לשלם"
     show:
@@ -837,6 +1037,8 @@ he-IL:
           intl: ~
           unknown_reason: ~
           verify: ~
+      stripe:
+        waiting_confirmation_from_requester: ~
     status_link:
       accept_offer: "קבל/י הצעה"
       accept_request: "קבל/י בקשה"
@@ -906,6 +1108,8 @@ he-IL:
       has_marked_request_as_canceled: ~
       giving_feedback_is_good_idea: ~
       give_feedback_to: "לתת משוב ל ‎%{other_party_given_name}‎"
+      stripe:
+        has_marked_request_as_confirmed: ~
     transaction_automatically_confirmed:
       subject: "ההזמנה הושלמה באופן אוטומטי - זכור לתת משוב"
       we_have_marked_request_as_confirmed: ~
@@ -980,6 +1184,8 @@ he-IL:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: ~
+      stripe:
+        you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1017,6 +1223,8 @@ he-IL:
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
       listing_per_unit_title: ~
+      stripe:
+        you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "‎‎%{service_name}‎ נתן לך משוב ב ‎%{name}‎"
       you_can_give_feedback_to: "‎%{name}‎ עדיין לא נתת משוב ל"
@@ -1106,6 +1314,8 @@ he-IL:
       reject_authorization_error: ~
     stripe:
       generic_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "בחזרה לעמוד הראשי"
     error_404:
@@ -1131,7 +1341,7 @@ he-IL:
       contact_us: "צור קשר"
       send_feedback: שלח
       your_feedback_to_admins: "‎%{service_name}‎ ההודעה שלך לצוות"
-    send: שלח
+    send: שלח/י
     your_email_address: "כתובת הדואר האלקטרוני שלך"
   errors:
     messages:
@@ -1144,6 +1354,7 @@ he-IL:
       after: "חייב להיות אחרי ‎%{restriction}‎"
       on_or_after: "חייב להיות על או אחרי ‎%{restriction}‎"
       positive_number: ~
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "‎%{offerer_name}‎ הסכים להשאיל ‎%{listing_title}‎ ל‎%{requester_name}‎ ‎%{time_ago}‎"
@@ -1180,9 +1391,9 @@ he-IL:
     search_kassi: "חיפוש ‎%{service_name}‎"
     create_new_marketplace: "צור אתר חדש"
     contact_us: "צור קשר"
-    profile: "החשבון שלי"
+    profile: פרופיל
     manage_listings: ניהול
-    invite: "הזמן את החברים שלך"
+    invite: "הזמנת חברים"
     login: כניסה
     signup: "הרשמו עכשיו"
     menu: תפריט
@@ -1258,12 +1469,12 @@ he-IL:
     invitation_form:
       email: "הכניסו את המיילים של החברים"
       message: "הודעה אישית"
-      send_invitation: שלח
+      send_invitation: שלח/י
       add_email_addresses_description: "עזרו לנו לבנות הקהילה! שתפו עם החברים."
       add_lots_of_email_addresses: ~
       this_article_link: ~
       invitation_emails_field_placeholder: ~
-      invitation_message_field_placeholder: "אני כבר הצטרפתי. כדי לך!"
+      invitation_message_field_placeholder: "אני כבר הצטרפתי. כדאי לך!"
       errors_in_emails: "ודא שכתובות האימייל שהוספת תקינות ואינן מכילות תווים יוצאי דופן. אם הוספת מספר כתובות, ודא שהן מופרדות בפסיקים."
     list_item:
       review: ביקורת
@@ -1329,7 +1540,7 @@ he-IL:
       feedback_handle: משוב
       give_feedback: "צור קשר"
       or_check_our: "... או בדוק את ה"
-      send_feedback_to_admin: שלח
+      send_feedback_to_admin: שלח/י
       to_see_what_others_have_suggested: "ראה והצביע מה משתמשים אחרים הציעו."
       your_email_address: "כתובת הדואר האלקטרוני שלך ( ליצור קשר איתך)"
       connect: "הרשמו עכשיו"
@@ -1379,7 +1590,7 @@ he-IL:
       sign_up: "הרשמו עכשיו"
     notifications:
       listing_could_not_be_saved: ~
-      contact_admin_link_text: "שלח הודעה לצוות האתר"
+      contact_admin_link_text: "שלח/י הודעה לצוות האתר"
       test_welcome_email_delivered_to: "נשלח הודעת דוא\"ל לבדיקה אל ‎%{email}‎"
       something_went_wrong: "משהוא השתבש"
       community_updated: "הפרטים עודכנו."
@@ -1428,7 +1639,7 @@ he-IL:
       listing_updated_successfully: "המודעה עודכנה בהצלחה"
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
-      only_kassi_administrators_can_access_this_area: "הגישה ניתנת רק למנהלי ‎%{service_name}‎"
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "רק מפרסם המודעה יכול לסגור את המודעה"
       only_listing_author_can_edit_a_listing: "רק מפרסם המודעה יכול לערוך את המודעה"
       payment_successful: "התשלום הצליח"
@@ -1496,6 +1707,9 @@ he-IL:
       listing_author_payment_details_missing: "צור קשר עם המחבר על ידי לחיצה על הלחצן 'צור קשר' בהמשך. הם צריכים לעדכן את פרטי התשלום שלהם כדי לקבל תשלומים."
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
+      stripe_you_account_balance_is_not_0: ~
+      visit_admin: ~
+      visit_admin_link: ~
     settings:
       account: חשבון
       notifications: התראות
@@ -1504,12 +1718,14 @@ he-IL:
       paypal_payments: ~
       stripe_payments: ~
       payments: תשלומים
+      listings: ~
+      listings_search_placeholder: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "אין לך הרשאה לראות את המודעה."
     comment:
       wrote: כתבתי
-      send_private_message: "‎%{person}‎ שלח הודעה פרטית אל"
+      send_private_message: "‎%{person}‎ שלח/י הודעה פרטית ל"
       delete: ~
       are_you_sure: ~
     comment_form:
@@ -1522,10 +1738,10 @@ he-IL:
       you_must: אנא
       subscribe_to_comments: "עדכן אותי על תגובות חדשות"
     edit:
-      edit_listing: ערוך
+      edit_listing: עריכה
     edit_links:
       close_listing: סגור
-      edit_listing: ערוך
+      edit_listing: עריכה
       reopen_listing: "פרסם את המודעה מחדש"
       move_to_top: הקפץ
       show_in_updates_email: "הצג בעלון הבא"
@@ -1601,10 +1817,7 @@ he-IL:
         no_service_fee_you_will_get_paypal_text: ~
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: "‎(‎‎‎%{sum_with_currency}‎‎)‎ לאחר הזמנה תנכה עמלה בסך ‎‎%{service_name}‎ \"\"\"‎%{payment_fee_info_link}‎\"\"\" בנוסף לעמלות פייפל"
-        after_service_fee_you_will_get_paypal_text: "‎(‎‎%{sum_with_currency}‎)‎ לאחר הזמנה תנכה עמלה בסך ‎%{service_name}‎ \"\"\"‎%{paypal_fee_info_link}‎\"\"\" בנוסף לעמלות פייפל"
-        after_service_fee_you_will_get_stripe_text: ~
         payment_fee_info_link_text: ~
-        paypal_fee_info_link_text: ~
         delivery: "סוג משלוח"
         shipping: משלוח
         shipping_price: "דמי משלוח"
@@ -1703,16 +1916,18 @@ he-IL:
       select_subcategory: "בחר תת קטגוריה"
       select_transaction_type: "בחר סוג המודעה"
       you_need_to_fill_payout_details_before_accepting: ~
-      contact_admin_link_text: "שלח הודעה לצוות האתר"
+      contact_admin_link_text: "שלח/י הודעה לצוות האתר"
       community_not_configured_for_payments: ~
       payment_settings_link: "הגדרות תשלום"
       community_not_configured_for_payments_admin: ~
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: "מספר שעות:"
       day: ":מספר ימים"
       night: ~
       week: "מספר שבועות:"
       month: "מספר חודשים:"
+      unit: ~
       custom: ~
     quantity_placeholder: ~
     please_comment: תגובה
@@ -1723,7 +1938,7 @@ he-IL:
       add_profile_picture: "הוסף תמונת פרופיל"
       comments: תגובות
       contact_by_phone: "צור קשר טלפוני:"
-      contact: "שלח הודעה"
+      contact: "שלח/י הודעה"
       favor_offer: "סוג הצעה"
       favor_request: "בקשה לשירות"
       inquiry: הַכרָזָה
@@ -1740,7 +1955,7 @@ he-IL:
       request: בקשה
       rideshare_offer: ~
       rideshare_request: ~
-      send_private_message: "שלח הודעה פרטית"
+      send_private_message: "שלח/י הודעה פרטית"
       tags: תוויות
       time: זמן
       times: זמנים
@@ -1764,6 +1979,7 @@ he-IL:
       night: ~
       week: שבוע
       month: חודש
+      unit: ~
     verification_required:
       verification_required: "נדרש אימות"
   listing_conversations:
@@ -1840,7 +2056,7 @@ he-IL:
     new:
       payout_info_you_need_to_connect: "‎%{service_name}‎ מבקש לחבר את חשבונך בפייפל על מנת לקבל תשלומים."
       payout_info_text: "כדי לחבר את חשבונך, בצע את השלבים הבאים."
-      contact_admin_link_text: "שלח הודעה לצוות האתר"
+      contact_admin_link_text: "שלח/י הודעה לצוות האתר"
       admin_account_not_connected: ~
       paypal_account_email: "חבר את חשבון פייפל שלך"
       paypal_account_email_placeholder: "כתובת האימייל שלך ב- פייפל"
@@ -1917,7 +2133,8 @@ he-IL:
         other: "הגישה אל ‎‎%{service_name}‎‎ מוגבלת. כדי להצטרף אתה צריך כתובת דוא\"ל '‎%{allowed_emails}‎'."
       family_name: "שם משפחה"
       given_name: "שם פרטי"
-      i_accept_the: "אני מאשר"
+      i_accept_the_terms_and_privacy: ~
+      admin_emails_consent: ~
       invalid_invitation_code: "קוד ההזמנה לא תקין"
       invitation_code: "קוד הזמנה"
       not_required: "לא דרוש"
@@ -1926,6 +2143,7 @@ he-IL:
       show_my_name_to_others: "אחרים ‎%{service_name}‎ הצג את השם האמיתי שלי למשתמשי"
       sign_up: "‎%{service_name}‎ צור חשבון חדש ב‎"
       terms: "תנאי שימוש"
+      privacy: ~
       username_is_in_use: ".שם המשתמש כבר קיים"
       username_is_invalid: "שם משתמש לא חוקי. תווים מותרים הם אותיות, מספרים וקו תחתון."
       visible_only_to_you: "גלוי רק לך ולמנהל האתר"
@@ -1933,6 +2151,7 @@ he-IL:
       create_account_with_facebook: "התחבר באמצעות פייסבוק"
       OR: או
       signup_with_email: "צור/י חשבון באמצעות כתובת הדואר האלקטרוני"
+      this_field_will_be_publicly_visible: ~
     profile_feedback:
       grade: "ציון:"
       and_gave_following_feedback: "ונתן את המשוב הבא"
@@ -1941,14 +2160,14 @@ he-IL:
       show_only_open: "הצג שירותים פעילים בלבד"
       no_image: "אין תמונה"
     show:
-      contact: "‎%{person}‎ שלח הודעה ל‎"
+      contact: "‎%{person}‎ שלח/י הודעה ל‎"
       about_me: "קצת עלי:"
       add_description: "שתף משהו על עצמך"
       add_location: "הוסף מיקום"
       add_phone_number: "הוסף מספר טלפון"
       address: "מיקום:"
       as_expected: כצפוי
-      edit_profile_info: "ערוך פרופיל"
+      edit_profile_info: "עריכת פרופיל"
       exceeded_expectations: "מעבר למצופה"
       positive: חיובי
       hide_description: "הראי פחות"
@@ -1972,6 +2191,8 @@ he-IL:
       show_all_listings: הכל
       show_all_open_listings: "הצג את כל המודעות הפתוחות"
       show_all_reviews: "הצג את כל הביקורות"
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "‎%{count}‎ אתה עוקב אחר"
       you_follow_singular: "‎%{count}‎ אתה עוקב אחר"
@@ -2030,6 +2251,7 @@ he-IL:
       delete_personal_information: ~
       delete_information_others_involved: ~
       unfinished_transactions: ~
+      only_admin: ~
       new_password: "סיסמה חדשה"
       save: שמור
       these_fields_are_shown_only_to_you: "שם המשתמש יוצר בחשבון שלך אלא אם רשמת את השם שלך. כל המידע נוסף יוצג רק לך."
@@ -2082,6 +2304,7 @@ he-IL:
       display_name: "שם לתצוגה"
       display_name_description: "אם אתה מייצג חברה, אתה יכול להשתמש בשם החברה כשם לתצוגה באתר. שם זה מוצג למשתמשים אחרים במקום השם הפרטי ושם המשפחה שלך."
       location_description: "לדוגמה תל אביב"
+      profile_picture_description: ~
       phone_number: "מספר טלפון"
       profile_picture: "תמונת פרופיל"
       postal_code: מיקוד
@@ -2094,6 +2317,8 @@ he-IL:
       default_in_listing: "משמש רק בתור ברירת מחדל בעת יצירת רשימה חדשה"
       invisible: "לא יוצג למשתמשים אחרים"
       image_is_processing: ~
+      shown_in_your_public_profile: ~
+      editing_profile_of: ~
     save_information: "שמור פרטים"
   shipping_address:
     shipping_address: "כתובת למשלוח"
@@ -2250,6 +2475,8 @@ he-IL:
           saving_failed: ~
         working_hours:
           required: ~
+          overlaps: ~
+          covers: ~
       pricing_units:
         piece: ~
         hour: שעה
@@ -2331,12 +2558,19 @@ he-IL:
       need_info: ~
       select_country: ~
       legal_name: ~
+      first_name: ~
+      last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
       personal_id_number: ~
       address_country: ~
       address_state: ~
+      address_province: ~
       address_city: ~
       address_postal_code: ~
       address_line1: ~
@@ -2345,12 +2579,27 @@ he-IL:
       save_details: ~
       edit: ~
       cancel: ~
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~
       bank_routing_1: ~
       bank_routing_2: ~
       bank_currency: ~
+      update_also_bank_account: ~
       messages:
         account_number: ~
         routing_number: ~
@@ -2375,6 +2624,7 @@ he-IL:
     form_pin:
       social_insurance_number: ~
       social_security_number: ~
+      ssn_last_4: ~
       hong_kong_identity_card: ~
       singapore_identity_card: ~
       messages:

@@ -110,6 +110,7 @@ Rails.application.routes.draw do
   get '/406' => 'errors#not_acceptable', :as => :error_not_acceptable
   get '/410' => 'errors#gone', as: :error_gone
   get '/community_not_found' => 'errors#community_not_found', as: :community_not_found
+  get '/not_available' => 'application#not_available', as: :community_not_available
 
   resources :communities, only: [:new, :create]
 
@@ -121,7 +122,7 @@ Rails.application.routes.draw do
 
     put '/mercury_update' => "mercury_update#update", :as => :mercury_update
 
-    get "/transactions/op_status/:process_token" => "transactions#paypal_op_status", as: :paypal_op_status
+    get "/transactions/op_status/:process_token" => "paypal_service/checkout_orders#paypal_op_status", as: :paypal_op_status
     get "/transactions/transaction_op_status/:process_token" => "transactions#transaction_op_status", :as => :transaction_op_status
     get "/transactions/created/:transaction_id" => "transactions#created", as: :transaction_created
     get "/transactions/finalize_processed/:process_token" => "transactions#finalize_processed", as: :transaction_finalize_processed
@@ -151,7 +152,8 @@ Rails.application.routes.draw do
     get "/listing_bubble/:id" => "listings#listing_bubble", :as => :listing_bubble
     get "/listing_bubble_multiple/:ids" => "listings#listing_bubble_multiple", :as => :listing_bubble_multiple
     get '/:person_id/settings/payments' => 'payment_settings#index', :as => :person_payment_settings
-    post '/:person_id/settings/payments' => 'payment_settings#update', :as => :update_person_payment_settings
+    post '/:person_id/settings/payments' => 'payment_settings#create', :as => :create_person_payment_settings
+    put '/:person_id/settings/payments' => 'payment_settings#update', :as => :update_person_payment_settings
     get '/:person_id/settings/payments/paypal_account' => 'paypal_accounts#index', :as => :paypal_account_settings_payment
 
     # community membership related actions
@@ -176,7 +178,7 @@ Rails.application.routes.draw do
 
     namespace :admin do
       get '' => "getting_started_guide#index"
-      
+
       # Payments
       resources :payment_preferences, only: [:index], param: :payment_gateway do
         collection do
@@ -192,7 +194,7 @@ Rails.application.routes.draw do
       get  "/paypal_preferences" => redirect("/%{locale}/admin/payment_preferences")
       get  "/paypal_preferences/account_create"       => "paypal_preferences#account_create"
       get  "/paypal_preferences/permissions_verified" => "paypal_preferences#permissions_verified"
-      
+
       # Settings
       get   "/settings" => "communities#settings",        as: :settings
       patch "/settings" => "communities#update_settings", as: :update_settings
@@ -205,6 +207,7 @@ Rails.application.routes.draw do
       get "getting_started_guide/payment"                => "getting_started_guide#payment",                as: :getting_started_guide_payment
       get "getting_started_guide/listing"                => "getting_started_guide#listing",                as: :getting_started_guide_listing
       get "getting_started_guide/invitation"             => "getting_started_guide#invitation",             as: :getting_started_guide_invitation
+      get "getting_started_guide/skip_payment"           => "getting_started_guide#skip_payment",           as: :getting_started_guide_skip_payment
 
       # Details and look 'n feel
       get   "/look_and_feel/edit" => "communities#edit_look_and_feel",          as: :look_and_feel_edit
@@ -215,8 +218,12 @@ Rails.application.routes.draw do
       patch "/new_layout"         => "communities#update_new_layout",           as: :update_new_layout
 
       # Topbar menu
-      get   "/topbar/edit"        => "communities#topbar",                      as: :topbar_edit
-      patch "/topbar"             => "communities#update_topbar",               as: :topbar
+      get   "/topbar/edit"        => "communities/topbar#edit",                 as: :topbar_edit
+      patch "/topbar"             => "communities/topbar#update",               as: :topbar
+
+      # Footer menu
+      get   "/footer/edit"        => "communities/footer#edit",                 as: :footer_edit
+      patch "/footer"             => "communities/footer#update",               as: :footer
 
       # Landing page menu
       get   "/landing_page"         => "communities#landing_page",                  as: :landing_page
@@ -271,13 +278,22 @@ Rails.application.routes.draw do
           get "getting_started_guide/invitation",             to: redirect("/admin/getting_started_guide/invitation")
 
         end
-        resources :transactions, controller: :community_transactions, only: :index
+        resources :listings, controller: :community_listings, only: [:index]
+        resources :transactions, controller: :community_transactions, only: :index do
+          collection do
+            get 'export'
+            get 'export_status'
+          end
+        end
         resources :conversations, controller: :community_conversations, only: [:index, :show]
+        resources :testimonials, controller: :community_testimonials, only: [:index, :edit, :update, :new, :create]
+        resources :invitations, controller: :community_invitations, only: [:index]
         resources :emails
         resources :community_memberships do
           member do
             put :ban
             put :unban
+            put :resend_confirmation
           end
           collection do
             post :promote_admin
@@ -307,6 +323,11 @@ Rails.application.routes.draw do
           put :update_location
           get :edit_expiration
           put :update_expiration
+        end
+      end
+      resources :person_custom_fields, path: 'user_fields' do
+        collection do
+          post :order
         end
       end
       resources :categories do
@@ -430,6 +451,9 @@ Rails.application.routes.draw do
             put :move_to_top
             put :show_in_updates_email
           end
+          collection do
+            get :new_form_content
+          end
         end
         resources :person_messages
 
@@ -477,6 +501,7 @@ Rails.application.routes.draw do
             get :account
             get :notifications
             get :unsubscribe
+            get :listings
           end
         end
         resources :testimonials

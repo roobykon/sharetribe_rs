@@ -11,7 +11,9 @@ class StripePayoutJob < Struct.new(:transaction_id, :community_id)
   end
 
   def perform
-    tx = TransactionService::Transaction.query transaction_id
+    tx = Transaction.find(transaction_id)
     StripeService::API::Api.payments.payout(tx)
+  rescue => exception
+    error(self, exception)
   end
 end

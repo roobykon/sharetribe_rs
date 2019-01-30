@@ -146,10 +146,18 @@ window.ST = window.ST || {};
       var outputElement = outputElements[outputElementId];
 
       if (outputElementId === "booking-end-output" && !nightPicker) {
-        // Add one day to end date if the picker is day picker
-        // End date should be excluded
-        newDate.setDate(newDate.getDate() + 1);
+        var oneDayMore = new Date(newDate);
+        oneDayMore.setDate(oneDayMore.getDate() + 1);
+        if (oneDayMore <= endDate) {
+          newDate = oneDayMore;
+        }
       }
+
+      if (outputElementId === "booking-start-output") {
+        $("#start-on").datepicker('hide')
+        $("#end-on").focus().datepicker('show')
+      }
+
       outputElement.val(module.utils.toISODate(newDate));
       setTimeout(function() { $("#end-on").valid(); }, 360);
     });

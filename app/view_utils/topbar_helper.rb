@@ -9,7 +9,7 @@ module TopbarHelper
 
     main_search =
       if FeatureFlagHelper.location_search_available
-        MarketplaceService::API::Api.configurations.get(community_id: community.id).data[:main_search]
+        community.configuration.main_search
       else
         :keyword
       end
@@ -22,6 +22,7 @@ module TopbarHelper
     })
 
     given_name, family_name = *PersonViewUtils.person_display_names(user, community)
+    avatar_image = user&.image&.present? && !user.image_processing ? { url: user.image.url(:thumb) } : nil
 
     {
       logo: {
@@ -29,7 +30,8 @@ module TopbarHelper
           community_id: community.id,
           default_locale: community.default_locale,
           logged_in: user.present?,
-          locale_param: locale_param
+          locale_param: locale_param,
+          custom: true
         ),
         text: community.name(I18n.locale),
         image: community.wide_logo.present? ? community.stable_image_url(:wide_logo, :header) : nil,
@@ -42,12 +44,12 @@ module TopbarHelper
       search_path: search_path_string,
       menu: {
         links: links,
-        limit_priority_links: Maybe(MarketplaceService::API::Api.configurations.get(community_id: community.id).data)[:limit_priority_links].or_else(nil)
+        limit_priority_links: community.configuration.limit_priority_links
       },
       locales: landing_page ? nil : locale_props(community, I18n.locale, path_after_locale_change, user.present?),
       avatarDropdown: {
         avatar: {
-          image: user&.image.present? ? { url: user.image.url(:thumb) } : nil,
+          image: avatar_image,
           givenName: given_name,
           familyName: family_name,
         },
@@ -67,7 +69,7 @@ module TopbarHelper
         loggedInUsername: user&.username,
         isAdmin: user&.has_admin_rights?(community) || false,
       },
-      unReadMessagesCount: MarketplaceService::Inbox::Query.notification_count(user&.id, community.id)
+      unReadMessagesCount: InboxService.notification_count(user&.id, community.id)
     }
   end
 
@@ -91,24 +93,31 @@ module TopbarHelper
           community_id: community.id,
           logged_in: user.present?,
           default_locale: community.default_locale,
-          locale_param: locale_param
+          locale_param: locale_param,
+          custom: true
         ),
         title: I18n.t("header.home"),
         priority: -1
-      },
-      {
+      }
+    ]
+
+    if community.configuration.display_about_menu
+      links << {
         link: paths.about_infos_path(locale: locale_param),
         title: I18n.t("header.about"),
         priority: 0
-      },
-      {
+      }
+    end
+
+    if community.configuration.display_contact_menu
+      links << {
         link: paths.new_user_feedback_path(locale: locale_param),
         title: I18n.t("header.contact_us"),
         priority: !user_links.empty? ? user_links.last[:priority] + 1 : 1
       }
-    ]
+    end
 
-    if user&.has_admin_rights?(community) || community.users_can_invite_new_users
+    if community.users_can_invite_new_users && community.configuration.display_invite_menu
       links << {
         link: paths.new_invitation_path(locale: locale_param),
         title: I18n.t("header.invite"),

@@ -67,6 +67,7 @@ class Person < ApplicationRecord
 
   include ErrorsHelper
   include ApplicationHelper
+  include DeletePerson
 
   self.primary_key = "id"
 
@@ -93,9 +94,9 @@ class Person < ApplicationRecord
   has_many :participations, :dependent => :destroy
   has_many :conversations, :through => :participations, :dependent => :destroy
   has_many :authored_testimonials, :class_name => "Testimonial", :foreign_key => "author_id", :dependent => :destroy
-  has_many :received_testimonials, -> { order("id DESC")}, :class_name => "Testimonial", :foreign_key => "receiver_id", :dependent => :destroy
-  has_many :received_positive_testimonials, -> { where("grade IN (0.5,0.75,1)").order("id DESC") }, :class_name => "Testimonial", :foreign_key => "receiver_id"
-  has_many :received_negative_testimonials, -> { where("grade IN (0.0,0.25)").order("id DESC") }, :class_name => "Testimonial", :foreign_key => "receiver_id"
+  has_many :received_testimonials, -> { id_order.non_blocked }, :class_name => "Testimonial", :foreign_key => "receiver_id", :dependent => :destroy
+  has_many :received_positive_testimonials, -> { positive.id_order.non_blocked }, :class_name => "Testimonial", :foreign_key => "receiver_id"
+  has_many :received_negative_testimonials, -> { negative.id_order.non_blocked }, :class_name => "Testimonial", :foreign_key => "receiver_id"
   has_many :messages, :foreign_key => "sender_id"
   has_many :authored_comments, :class_name => "Comment", :foreign_key => "author_id", :dependent => :destroy
   belongs_to :community
@@ -111,10 +112,23 @@ class Person < ApplicationRecord
   has_many :followed_people, :through => :inverse_follower_relationships, :source => "person"
 
   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"
+  has_many :custom_field_values, :dependent => :destroy
+  has_many :custom_dropdown_field_values, :class_name => "DropdownFieldValue"
+  has_many :custom_checkbox_field_values, :class_name => "CheckboxFieldValue"
 
   deprecate communities: "Use accepted_community instead.",
             community_memberships: "Use community_membership instead.",
             deprecator: MethodDeprecator.new
+
+  scope :by_community, ->(community_id) { where(community_id: community_id) }
+  scope :search_name_or_email, ->(community_id, pattern) {
+    by_community(community_id)
+      .joins(:emails)
+      .where("#{Person.search_by_pattern_sql('people')}
+        OR emails.address like :pattern", pattern: pattern)
+  }
+
+  accepts_nested_attributes_for :custom_field_values
 
   def to_param
     username
@@ -148,8 +162,8 @@ class Person < ApplicationRecord
 
   validates_length_of :phone_number, :maximum => 25, :allow_nil => true, :allow_blank => true
   validates_length_of :username, :within => 3..20
-  validates_length_of :given_name, :within => 1..255, :allow_nil => true, :allow_blank => true
-  validates_length_of :family_name, :within => 1..255, :allow_nil => true, :allow_blank => true
+  validates_length_of :given_name, :within => 1..30, :allow_nil => true, :allow_blank => true
+  validates_length_of :family_name, :within => 1..30, :allow_nil => true, :allow_blank => true
   validates_length_of :display_name, :within => 1..30, :allow_nil => true, :allow_blank => true
 
   validates_format_of :username,
@@ -346,22 +360,18 @@ class Person < ApplicationRecord
     listings.requests
   end
 
-  # The percentage of received testimonials with positive grades
-  # (grades between 3 and 5 are positive, 1 and 2 are negative)
   def feedback_positive_percentage_in_community(community)
-    # NOTE the filtering with communinity can be removed when
-    # user accounts are no more shared among communities
-    received_testimonials = TestimonialViewUtils.received_testimonials_in_community(self, community)
-    positive_testimonials = TestimonialViewUtils.received_positive_testimonials_in_community(self, community)
-    negative_testimonials = TestimonialViewUtils.received_negative_testimonials_in_community(self, community)
+    received = received_testimonials.by_community(community)
+    positive = received_positive_testimonials.by_community(community)
+    negative = received_negative_testimonials.by_community(community)
 
-    if positive_testimonials.size > 0
-      if negative_testimonials.size > 0
-        (positive_testimonials.size.to_f/received_testimonials.size.to_f*100).round
+    if positive.size > 0
+      if negative.size > 0
+        (positive.size.to_f/received.size.to_f*100).round
       else
         return 100
       end
-    elsif negative_testimonials.size > 0
+    elsif negative.size > 0
       return 0
     end
   end
@@ -459,9 +469,7 @@ class Person < ApplicationRecord
   end
 
   def confirmed_notification_emails
-    emails.select do |email|
-      email.send_notifications && email.confirmed_at.present?
-    end
+    emails.send_notifications.confirmed
   end
 
   def confirmed_notification_email_addresses
@@ -622,6 +630,15 @@ class Person < ApplicationRecord
     super
   end
 
+  def unsubscribe_from_community_updates
+    self.min_days_between_community_updates = 100000
+    self.save!
+  end
+
+  def custom_field_value_for(custom_field)
+    custom_field_values.by_question(custom_field).first
+  end
+
   private
 
   def digest(password, salt)
@@ -637,5 +654,11 @@ class Person < ApplicationRecord
 
   def logger_metadata
     { person_uuid: uuid }
+  end
+
+  class << self
+    def search_by_pattern_sql(table, pattern=':pattern')
+      "(#{table}.given_name LIKE #{pattern} OR #{table}.family_name LIKE #{pattern} OR #{table}.display_name LIKE #{pattern})"
+    end
   end
 end

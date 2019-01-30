@@ -88,6 +88,7 @@ class PersonMailer < ActionMailer::Base
     set_up_layout_variables(recipient, community, @email_type)
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @testimonial = testimonial
+      @wating_testimonial = @testimonial.tx.waiting_testimonial_from?(@testimonial.receiver.id)
       premailer_mail(:to => recipient.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
                      :subject => t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => PersonViewUtils.person_display_name(testimonial.author, community)))
@@ -342,10 +343,12 @@ class PersonMailer < ActionMailer::Base
   # A message from the community admin to a community member
   def self.community_member_email_from_admin(sender, recipient, community, email_content, email_locale, test = false)
     if recipient.should_receive?("email_from_admins") && (email_locale.eql?("any") || recipient.locale.eql?(email_locale))
-      subject = I18n.t('admin.emails.new.email_subject_text', :service_name => community.name(email_locale))
+      subject = I18n.t('admin.emails.new.email_subject_text',
+                       :service_name => community.name(email_locale), :locale => recipient.locale)
       subject = "[TEST] #{subject}" if test
       content_hello = I18n.t('admin.emails.new.hello_firstname_text',
-                             :person => PersonViewUtils.person_display_name_for_type(recipient, "first_name_only"))
+                             :person => PersonViewUtils.person_display_name_for_type(recipient, "first_name_only"),
+                             :locale => recipient.locale)
       content = "#{content_hello}<BR />\n #{email_content}"
       begin
         MailCarrier.deliver_now(community_member_email(sender, recipient, subject, content, community))

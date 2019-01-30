@@ -141,7 +141,7 @@ Before you get started, the following needs to be installed:
     ```
 
 
-Congratulations! Sharetribe should now be up and running for development purposes. Open a browser and go to the server URL (e.g. http://lvh.me:3000). Fill in the form to create a new marketplace and admin user. You should be now able to access your marketplace and modify it from the admin area.
+Congratulations! Sharetribe should now be up and running for development purposes. Open a browser and go to the server URL (e.g. http://lvh.me:3000 or http://lvh.me:5000). Fill in the form to create a new marketplace and admin user. You should be now able to access your marketplace and modify it from the admin area.
 
 ### Mailcatcher
 
@@ -328,6 +328,8 @@ You need to configure a couple scheduled tasks in order to properly run your mar
 
 1. Change the value of the `use_domain` column to `true` (or `1`) in the `communities` table.
 
+1. If you wish to enable [HTTP Strict Transport Security](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security) (recommended), set also the `hsts_max_age` column in `communities` table to a non-zero number of seconds. For instance `31536000 ` (1 year).
+
 
 #### Setting up S3
 
@@ -394,11 +396,17 @@ Stripe can be used in the open-source alternative, as long as your country and c
 
 ### Enable Stripe
 
-Starting from release 7.2.0, Stripe is enabled. 
+Starting from release 7.2.0, Stripe is supported.
 
-Stripe API keys are encrypted and you should the `app_encryption_key` variable from the `config/config.yml` file.
-Stripe can be configured from the admin panel, in the "Payment settings" section.
+Stripe API keys will be encrypted when stored so it is important to configure your own random encryption key.
+You should fill the `app_encryption_key` variable in the `config/config.yml` file with a long random string, unique to your project.
 
+Stripe can be configured from the admin panel, in the "Payment settings" section. Instructions on how to get Stripe API keys can be found there.
+
+If Stripe isn't automatically enabled in the admin panel after upgrading to 7.2.0, you should run the following commands in your Rails console, where `<ID>` is your marketplace ID (probably `1`):
+`TransactionService::API::Api.processes.create(community_id: <ID>, process: :preauthorize, author_is_seller: true)`
+and
+`TransactionService::API::Api.settings.provision(community_id: <ID>, payment_gateway: :stripe, payment_process: :preauthorize, active: true)`.
 
 ## Versioning
 
