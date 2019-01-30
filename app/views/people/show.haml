@@ -12,6 +12,12 @@
 .row
   .col-8
 
+    .row.relative
+      .people-image-mobile
+        = huge_avatar_thumb(person)
+      .profile-action-buttons-mobile
+        = render "profile_action_buttons", service: @service
+
     .row.hidden-tablet
       .people-sidebar
         .people-image-mobile

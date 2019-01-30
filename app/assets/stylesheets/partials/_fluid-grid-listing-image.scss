@@ -5,9 +5,7 @@
 @import "mixins/all";
 
 .fluid-thumbnail-grid-image-image-container {
-<<<<<<< HEAD
   line-height: 0;
-=======
   position: relative;
   color: $background;
 
@@ -20,7 +18,6 @@
   &.people-listings {
     @include block-with-aspect-ratio(4/3);
   }
->>>>>>> 1ac316d1fcaa2fe83103acee9e38073482673079
 }
 .fluid-thumbnail-grid-image-image {
 
@@ -70,7 +67,6 @@
   height: 1.4em;
   overflow: hidden;
 }
-<<<<<<< HEAD
 .fluid-thumbnail-grid-image-advantages {
   height: 4em;
   overflow: hidden;
@@ -119,9 +115,7 @@
     font-weight: 700;
   }
 }
-=======
 
 .fluid-thumbnail-grid-image-type {
   font-size: 16px;
 }
->>>>>>> 1ac316d1fcaa2fe83103acee9e38073482673079
