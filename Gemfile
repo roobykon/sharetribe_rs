@@ -173,7 +173,6 @@ gem 'intercom'
 gem 'twitter_cldr'
 gem 'memoist'
 gem 'biz'
-<<<<<<< HEAD
 
 gem 'daemons'
 gem 'puma'
@@ -184,7 +183,5 @@ gem 'capistrano-bundler', '~> 1.3'
 gem 'capistrano-rails', '~> 1.3'
 gem 'capistrano-npm'
 gem 'whenever'
-=======
 gem 'ffi', '>= 1.9.25'
 gem 'rubyzip', '~> 1.2.2'
->>>>>>> 1ac316d1fcaa2fe83103acee9e38073482673079
